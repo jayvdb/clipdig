@@ -1,0 +1,11 @@
+yang harus dirubah
+
+1. static/inc/con.php
+	$URL 				= "http://192.168.1.9/clipdig/";
+	$TIMEZONE		= "Asia/Jakarta";
+	$DB_SERVER		= "localhost";
+	$DB_USER			= "simabes";
+	$DB_PASSWORD	= "simabes";
+	$DB_NAME			= "clipdig";
+	
+
