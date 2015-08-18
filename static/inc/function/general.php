@@ -318,4 +318,36 @@ function curPageURL() {
 function send_notif($str){
 	echo '<script>alert("'.$str.'");history.back();</script>';
 }
+
+
+
+
+
+
+//wilayah
+function get_prov(){
+	$array_prov = array();
+	$prov = mysql_query("SELECT * FROM `data_wilayah` WHERE LENGTH(`kode`)<=2 ORDER BY `nama` ASC;") or die(mysql_error());
+	while($data=mysql_fetch_array($prov)){
+		array_push($array_prov,array(ucwords($data['kode']),ucwords($data['nama'])));
+	}
+	return $array_prov;
+}
+function get_kabkot($kode_prov){
+	$array_kabkot = array();
+	$kabkot = mysql_query("SELECT * FROM `data_wilayah` WHERE `kode` LIKE '$kode_prov%' AND LENGTH(`kode`)>2 AND LENGTH(`kode`)<=5 ORDER BY `nama` ASC;") or die(mysql_error());
+	while($data = mysql_fetch_array($kabkot)){
+		array_push($array_kabkot,array(ucwords($data['kode']),ucwords($data['nama'])));
+	}
+	return $array_kabkot;
+}
+function get_kec($kode_kabkot){
+	$array_kec = array();
+	$kec = mysql_query("SELECT * FROM `data_wilayah` WHERE `kode` LIKE '$kode_kabkot%' AND LENGTH(`kode`)>5 AND LENGTH(`kode`)<=8 ORDER BY `nama` ASC;") or die(mysql_error());
+	while($data=mysql_fetch_array($kec)){
+		array_push($array_kec,array(ucwords($data['kode']),ucwords($data['nama'])));
+	}
+	return $array_kec;
+}
+
 ?>

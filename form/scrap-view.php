@@ -40,7 +40,8 @@
 		if(isset($_POST['simpan'])){
 			$artikel = $_POST['artikel'];
 			$status = $_POST['status'];
-			update_data($kode,$artikel,$status);
+			$wilayah = $_POST['wilayah'];
+			update_data($kode,$artikel,$status,$wilayah);
 		}
 	}
 	else{
@@ -114,6 +115,11 @@ tinymce.init({
 			}
 		});
 	});
+	
+	
+
+	
+
 	
 </script>
 

@@ -235,6 +235,9 @@ function CreatePagination($DataPerPage,$media,$search,$tgl1,$tgl2,$status,$searc
 		if($searched!="all"){$WHERE .=" `search` LIKE '%$searched%' AND ";}
 		else{$WHERE .="";}
 	}
+	if(!empty($wilayah)){
+		$WHERE .=" `wilayah` LIKE '%$wilayah%' AND length (`wilayah`) <=".strlen($wilayah);
+	}
 	
 	//category  ------------------------
 	if(!empty($category)){
@@ -263,7 +266,7 @@ function CreatePagination($DataPerPage,$media,$search,$tgl1,$tgl2,$status,$searc
 	
    $pages =  ceil(mysql_num_rows($qry)/$DataPerPage);
 		//if(empty($_GET['me'])){$me="all";}else{$me=$_GET['me'];}
-   $url = '?m='.ifset('m').'&l='.ifset('l').'&me='.ifset('me').'&st='.ifset('st').'&searched='.ifset('searched').'&se='.ifset('se').'&tgl1='.ifset('tgl1').'&tgl2='.ifset('tgl2');
+   $url = '?m='.ifset('m').'&l='.ifset('l').'&me='.ifset('me').'&st='.ifset('st').'&searched='.ifset('searched').'&se='.ifset('se').'&tgl1='.ifset('tgl1').'&tgl2='.ifset('tgl2').'&wilayah='.ifset('wilayah');
    
   
 	$pagination ='Pages: <select id="pagination"  class="btn btn-sm btn-default" onchange="window.location.href=$(this).val();">'; 
@@ -295,6 +298,7 @@ function CreateSearch(){
 				<input type="hidden" name="tgl2" value="'.ifset('tgl2').'">
 				<input type="hidden" name="searched" value="'.ifset('searched').'">
 				<input type="hidden" name="me" value="'.ifset('me').'">
+				<input type="hidden" name="wilayah" value="'.ifset('wilayah').'">
 				<button class=" btn btn-me  search"   type="submit" style="float:left;"><i class="fa fa-search"></i> Find</button>
 			</td>
 		</tr>
@@ -329,12 +333,61 @@ function CreateSearchDate(){
 				<input type="hidden" name="st" value="'.ifset('st').'">
 				<input type="hidden" name="searched" value="'.ifset('searched').'">
 				<input type="hidden" name="me" value="'.ifset('me').'">
+				<input type="hidden" name="wilayah" value="'.ifset('wilayah').'">
 					<button class=" btn btn-me"   type="submit" style="float:left;"><i class="fa fa-search"></i> Find</button>
 				</td>
 			</tr>
 		
 		</table>
 	</form>';
+}
+
+function CreateWilayah($wilayah=null){
+	if(ifset('l')=="View"){
+		$class1 = "";
+		$class2 = "form-control";
+	}
+	else{
+		$class1 = "menu-cmb";
+		$class2	= "";
+	}
+	$gui ='	<div class="'.$class1.'">
+				<small>Provinsi</small>
+				<select name="provinsi" id="prov" class="'.$class2.'"></select>
+			</div><div class="'.$class1.'">
+				<small>Kota / Kabupaten</small>
+				<select name="kabupaten" id="kabkot" class="'.$class2.'"></select>
+			</div>
+			<input id="kode" type="hidden" name="wilayah">
+			<input id="wilayah" type="hidden" value="'.$wilayah.'">';
+	$gui .='<script>
+	
+	
+	
+	
+	
+	wilayah = $(\'#wilayah\').val();
+
+	
+	if(wilayah!=""){
+		wilayah_ = wilayah.split(".");
+		$(\'#prov\').load(\'action.php\',\'op=get_prov_cmb&kode=\'+wilayah_[0]);
+		$(\'#kabkot\').load(\'action.php\',\'op=get_kabkot_cmb&data=\'+wilayah_[0]+\'&kode=\'+wilayah);
+	}else{
+		$(\'#prov\').load(\'action.php\',\'op=get_prov_cmb\');
+	}
+	
+	
+	
+	$(\'#prov\').change(function() { 
+		$(\'#kabkot\').load(\'action.php\',\'op=get_kabkot_cmb&data=\'+$(this).val());
+		$(\'#kode\').val($(this).val());
+	});
+	$(\'#kabkot\').change(function() {
+		$(\'#kode\').val($(this).val());
+	});
+</script>';
+	return $gui;
 }
 
 

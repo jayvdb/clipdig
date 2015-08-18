@@ -140,20 +140,19 @@ function View(){
 				<option value="3"';if($data['status']==3){echo 'selected="selected"';} echo'>Negative</option>
 				<option value="4"';if($data['status']==4){echo 'selected="selected"';} echo'>Delete</option>
 			</select>';
-			
+			echo CreateWilayah($data['wilayah']);
 			echo CreateMenuCategoryView($data['kode']);
 			
 			echo'<br>
 			<button type="submit" class="btn btn-me" name="simpan"><i class="fa fa-save"></i> Save</button>
 			<a href="?m='.ifset('m').'&l='.ifset('l').'&op=reload&kode='.ifset('kode').'"><button type="button" class="btn btn-me" name="reload"><i class="fa fa-refresh"></i> Reload</button></a>
 			
-			
-		
 		</div>
 	</form>
 	</div>';	
-	set_automatic_category(ifset('kode'),Balikin($data['artikel']));
-	set_semi_automatic_category(ifset('kode'),Balikin($data['artikel']));
+	//set_automatic_category(ifset('kode'),Balikin($data['artikel']));
+	//set_semi_automatic_category(ifset('kode'),Balikin($data['artikel']));
+	//set_wilayah(ifset('kode'),Balikin($data['artikel']));
 	
 }
 
@@ -165,6 +164,7 @@ function save_data($kode,$photo,$artikel,$penulis){
 	
 	set_automatic_category($kode,$artikel);
 	set_semi_automatic_category($kode,$artikel);
+	set_wilayah($kode,$artikel);
 
 
 	//DOWNLOAD IMAGE
@@ -238,11 +238,12 @@ function save_all_data($kode){
 	}
 }
 
-function update_data($kode,$artikel,$status){
-	$kode 	= UbahSimbol($kode);
+function update_data($kode,$artikel,$status,$wilayah){
+	$kode 		= UbahSimbol($kode);
 	$artikel	= UbahSimbol($artikel);
 	
-	$qry 		= mysql_query("UPDATE `data` SET `artikel`='$artikel', `status`='$status' WHERE `kode`='$kode'")or die(mysql_error());
+	
+	$qry 		= mysql_query("UPDATE `data` SET `artikel`='$artikel', `status`='$status' ,`wilayah`='$wilayah' WHERE `kode`='$kode'")or die(mysql_error());
 	if($qry){
 		send_notif("Data has been saved");
 	}
@@ -318,7 +319,7 @@ function alter_data($str){
 	for ($i = 0; $i < $columns; $i++) {$field_array[] = mysql_field_name($fields, $i);}
 	
 	if (!in_array($str, $field_array)){
-		$qry = mysql_query("ALTER TABLE `data` ADD `$str` VARCHAR(100) NOT NULL AFTER `search`;")or die(mysql_error());
+		$qry = mysql_query("ALTER TABLE `data` ADD `$str` VARCHAR(100) NOT NULL AFTER `wilayah`;")or die(mysql_error());
 		if($qry){
 			return 1;
 		}
@@ -501,7 +502,34 @@ function update_category_from_view($kode,$category_name,$category_data){
 	
 }
 
+//wilayah
 
+function set_wilayah($kode,$str){
+	$str = strtolower(UbahXXX(Balikin($str)));
+	$x=0;
+	$a="";
+	
+	$qry_wilayah = mysql_query("SELECT * FROM `data_wilayah` WHERE LENGTH(`kode`)<=5 ORDER BY `nama` ASC;") or die(mysql_error());
+	
+	
+	while($data=mysql_fetch_array($qry_wilayah)){
+		$nama = strtolower(UbahXXX($data['nama']));
+		$nama = str_replace("adm","",$nama);
+		$nama = str_replace("kab","",$nama);
+		$nama = str_replace("kota","",$nama);
+		$nama = UbahXXX(UbahXXX($nama));
+		$nama = " ".$nama." ";
+		
+		$pos = strrpos($str,$nama);
+		if($pos==true){
+			$a .=','.$data['kode'];
+		}
+	}
+	$a = explode(",",$a);
+	$a = end($a);
+	
+	$update = mysql_query("update `data` set `wilayah`='".$a."' where `kode`='$kode'")or die(mysql_error());
+}
 
 
 

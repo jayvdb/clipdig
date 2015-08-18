@@ -6,16 +6,18 @@
 	$tgl2=ifset('tgl2');
 	$status=ifset('st');
 	$searched=ifset('searched');
+	$wilayah=ifset('wilayah');
 	
 	
 	//category
 	$category = ifset('category');
 	
-	if(empty($media)){header("location:?m=Scrap&l=Data&me=all&st=all&searched=&p=&se=&tgl1=&tgl2=");}
+	if(empty($media)){header("location:?m=Scrap&l=Data&me=all&st=all&searched=&p=&se=&tgl1=&tgl2=wilayah=");}
 	elseif(empty($page)){$page=1;}
 	
 	CreateMenuMedia();
 	CreateMenuStatus();
+	echo CreateWilayah($wilayah);
 	CreateMenuSearched();
 	CreateMenuCategory();
 	echo '
@@ -63,6 +65,9 @@
 			if(!empty($searched)){
 				if($searched!="all"){$WHERE .=" `search` LIKE '%$searched%' AND ";}
 				else{$WHERE .="";}
+			}
+			if(!empty($wilayah)){
+				$WHERE .=" `wilayah` LIKE '%$wilayah%' AND length (`wilayah`) <=5 AND ";
 			}
 			
 			//category  ------------------------
@@ -120,6 +125,9 @@
 ///category
 -->
 <script>
+	locations = $(location).attr('href');
+	locations = locations.split('?');
+	locations = locations[0];
 	<?php
 	    if(!empty($category)){
 				$category_ = explode(";",$category);
@@ -132,8 +140,31 @@
 					print("$(\"div.category select[name='".$category_name."'] \").val('".$category_data."');\n ");
 				}
 			}
-	
+		
+		if(ifset('l') == "Data"){
+			print('url="?m='.ifset('m').'&l='.ifset('l').'&me='.ifset('me').'&st='.ifset('st').'&searched='.ifset('searched').'&se='.ifset('se').'&tgl1='.ifset('tgl1').'&tgl2='.ifset('tgl2').'";');
+			print("wilayah='".ifset('wilayah')."';");
+			print('if(wilayah!=""){
+						wilayah_ = wilayah.split(".");
+						$(\'#prov\').load(\'action.php\',\'op=get_prov_cmb&kode=\'+wilayah_[0]);
+						$(\'#kabkot\').load(\'action.php\',\'op=get_kabkot_cmb&data=\'+wilayah_[0]+\'&kode=\'+wilayah);
+					}else{
+						$(\'#prov\').load(\'action.php\',\'op=get_prov_cmb\');
+					}');
+			print('$(\'#prov\').change(function() { 
+					window.location.href=url+"&wilayah="+$(this).val();
+				});
+				$(\'#kabkot\').change(function() {
+					window.location.href=url+"&wilayah="+$(this).val();
+				});');
+		}
+		
+		
+			
 	?>
+		
+	
+	
 </script>
 	
  
