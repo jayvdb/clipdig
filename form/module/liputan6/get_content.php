@@ -33,7 +33,7 @@
 				$photo = $l->src;
 			}
 			foreach($artikel->find('div[class=text-detail]') as $l){
-				$artikels = $l->innertext;
+				$artikels = $l->plaintext;
 			}
 			foreach($artikel->find('span[itemprop=author]') as $l){
 				$penulis = $l->plaintext;
@@ -47,7 +47,7 @@
 				$photo = $l->src;
 			}
 			foreach($artikel->find('div[class=gallery-images]') as $l){
-				$artikels = $l->innertext;
+				$artikels = $l->plaintext;
 			}
 			foreach($artikel->find('span[itemprop=author]') as $l){
 				$penulis = $l->plaintext;

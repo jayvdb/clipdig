@@ -26,7 +26,7 @@
 				$photo = $l->src;
 			}
 			foreach($artikel->find('p') as $l){
-					$artikels .= $l->innertext;
+					$artikels .= $l->plaintext;
 			}
 			$penulis = "-";
 			
@@ -37,7 +37,7 @@
 		foreach($html->find('div[class=w620 aleft mt10]') as $artikel){
 			$photo = "";
 			foreach($artikel->find('div[class=f14 c6 bodyp]') as $l){
-					$artikels = $l->innertext;
+					$artikels = $l->plaintext;
 			}
 			foreach($artikel->find('div.mt10') as $l){
 				$penulis = $l->plaintext;

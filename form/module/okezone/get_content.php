@@ -29,7 +29,7 @@
 				$photo = real_url($photo);
 			}
 			foreach($artikel->find('div.dtlnews') as $l){
-				$artikels = $l->innertext;
+				$artikels = $l->plaintext;
 			}
 			foreach($artikel->find('div.nmreporter') as $l){
 				$penulis = $l->plaintext;

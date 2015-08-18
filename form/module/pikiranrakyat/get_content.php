@@ -27,7 +27,7 @@
 				$photo = $l->src;
 			}
 			foreach($artikel->find('div.content') as $l){
-				$artikels = $l->innertext;
+				$artikels = $l->plaintext;
 			}
 			
 				$penulis = "-";

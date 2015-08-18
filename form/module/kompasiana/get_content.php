@@ -25,7 +25,7 @@
 				
 			}
 			foreach($list->find('div[class=col-lg-8 col-md-8 col-sm-12 col-xs-12 pull-right]') as $el){
-				$artikel = $el->innertext;
+				$artikel = $el->plaintext;
 			}
 			foreach($list->find('div[class=title col-xs-12] h1 a') as $el){
 				$penulis = $el->plaintext;

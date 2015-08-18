@@ -23,7 +23,7 @@
 				$photo = $l->src;
 			}
 			foreach($artikel->find('div.entry-content') as $l){
-				$artikels = $l->innertext;
+				$artikels = $l->plaintext;
 			}
 			foreach($artikel->find('span[class=author]') as $l){
 				$penulis = $l->plaintext;

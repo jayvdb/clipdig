@@ -48,7 +48,7 @@
 				$photo = $l->src;
 			}
 			foreach($list->find('div[class=txt-detailberita]') as $l){
-				$artikel = $l->innertext;
+				$artikel = $l->plaintext;
 			}
 			foreach($list->find('div[class=red]') as $l){
 				$penulis = $l->plaintext;
@@ -62,7 +62,7 @@
 				$photo = $l->src;
 			}
 			foreach($list->find('div.teaser') as $l){
-				$artikel = $l->innertext;
+				$artikel = $l->plaintext;
 			}
 			foreach($list->find('div.red') as $l){
 				$penulis = $l->plaintext;
@@ -76,7 +76,7 @@
 				$photo = $l->src;
 			}
 			foreach($list->find('div.teaser-detail') as $l){
-				$artikel = $l->innertext;
+				$artikel = $l->plaintext;
 			}
 			foreach($list->find('div.red') as $l){
 				$penulis = $l->plaintext;
@@ -90,7 +90,7 @@
 				$photo = $l->src;
 			}
 			foreach($list->find('div[class=teaser-pic]') as $l){
-				$artikel = $l->innertext;
+				$artikel = $l->plaintext;
 			}
 			foreach($list->find('div[class=red]') as $l){
 				$penulis = $l->plaintext;
@@ -104,7 +104,7 @@
 				$photo = $l->src;
 			}
 			foreach($list->find('div[class=txt-detail]') as $l){
-				$artikel = $l->innertext;
+				$artikel = $l->plaintext;
 			}
 			foreach($list->find('div[class=red]') as $l){
 				$penulis = $l->plaintext;
@@ -117,7 +117,7 @@
 		foreach($html->find('div[class=left-wrapper2]') as $list){
 			$photo = "-";
 			foreach($list->find('div[class=teaser-lw]') as $l){
-				$artikel = $l->innertext;
+				$artikel = $l->plaintext;
 			}
 			foreach($list->find('div[class=red]') as $l){
 				$penulis = $l->plaintext;

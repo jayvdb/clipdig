@@ -34,7 +34,7 @@
 			
 		}
 		foreach($html->find('div[class=span6 nml]') as $el){
-			$artikel = $el->innertext;
+			$artikel = $el->plaintext;
 		}
 		foreach($html->find('div[class=kcm-read-copy mb2]') as $el){
 			$penulis = $el->plaintext;
@@ -47,7 +47,7 @@
 			$photo = $el->children(0)->src;
 		}
 		foreach($html->find('div[class=div-read]') as $el){
-			$artikel = $el->innertext;
+			$artikel = $el->plaintext;
 		}
 		foreach($html->find('div[class=penulis-editor]') as $el){
 			$penulis = $el->plaintext;
@@ -60,7 +60,7 @@
 			$photo = $el->children(0)->src;
 		}
 		foreach($html->find('div[class=isi_berita pt_5]') as $el){
-			$artikel = $el->innertext;
+			$artikel = $el->plaintext;
 		}
 		foreach($html->find('div[class=left pt_5 c_abu01_kompas2011 font12]') as $el){
 			$penulis = $el->plaintext;
@@ -73,7 +73,7 @@
 			$photo = $el->children(0)->src;
 		}
 		foreach($html->find('div.kcm-read-text') as $el){
-			$artikel = $el->innertext;
+			$artikel = $el->plaintext;
 		}
 		foreach($html->find('div[class=kcm-read-copy mt1]') as $el){
 			$penulis = $el->plaintext;
@@ -86,7 +86,7 @@
 			$photo = $el->children(0)->src;
 		}
 		foreach($html->find('div.kcm-read-text') as $el){
-			$artikel = $el->innertext;
+			$artikel = $el->plaintext;
 			
 		}
 		foreach($html->find('table.grey') as $el){
@@ -100,7 +100,7 @@
 			$photo = $el->children(0)->src;
 		}
 		foreach($html->find('div.kcm-read-content-text') as $el){
-			$artikel = $el->innertext;
+			$artikel = $el->plaintext;
 			
 		}
 		$penulis="-";
@@ -113,7 +113,7 @@
 		}
 		foreach($html->find('div[class=isi_artikel]') as $el){
 			foreach($el->find('p') as $art){
-				$artikel = $art->innertext;
+				$artikel = $art->plaintext;
 			}
 		}
 		foreach($html->find('div[class=editor_artikel left]') as $el){
@@ -127,7 +127,7 @@
 			$photo = $el->children(0)->src;
 		}
 		foreach($html->find('div[class=isi_artikel]') as $el){
-			$artikel = $el->innertext;
+			$artikel = $el->plaintext;
 		}
 		foreach($html->find('div[class=editor_artikel left]') as $el){
 			$penulis = $el->children(0)->plaintext;
@@ -140,7 +140,7 @@
 			$photo = $el->src;
 		}
 		foreach($html->find('div[class=kcm-read-text]') as $el){
-			$artikel = $el->innertext;
+			$artikel = $el->plaintext;
 		}
 		foreach($html->find('div[class=kcm-read-copy mt1]') as $el){
 			$penulis = $el->plaintext;
@@ -154,7 +154,7 @@
 		}
 		foreach($html->find('article.pr') as $el){
 			$text = $el->find('p');
-			$artikel .= $text->innertext;
+			$artikel .= $text->plaintext;
 		}
 		foreach($html->find('p.credit') as $el){
 			$penulis = $el->plaintext;

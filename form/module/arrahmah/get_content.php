@@ -26,7 +26,7 @@
 				$photo = $l->src;
 			}
 			foreach($artikel->find('div.article-body') as $l){
-				$artikels = $l->innertext;
+				$artikels = $l->plaintext;
 			}
 			foreach($artikel->find('span.byline') as $l){
 				$penulis = $l->plaintext;

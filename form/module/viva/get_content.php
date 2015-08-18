@@ -44,11 +44,11 @@
 			}
 			//article
 			foreach($artikel->find('div[id=article-content]') as $l){
-				$artikels = $l->innertext;
+				$artikels = $l->plaintext;
 			}
 			//writer
 			foreach($artikel->find('div[class=author]') as $l){
-				$penulis = $l->innertext;
+				$penulis = $l->plaintext;
 			}
 			
 			//SAVE ACTION
@@ -67,11 +67,11 @@
 			}
 			//article
 			foreach($artikel->find('div[class=summary]') as $l){
-				$artikels = $l->innertext;
+				$artikels = $l->plaintext;
 			}
 			//writer
 			foreach($artikel->find('div[class=foto-desc]') as $l){
-				$penulis = $l->children(0)->innertext;
+				$penulis = $l->children(0)->plaintext;
 				//echo $penulis.'';
 			}
 			
@@ -90,7 +90,7 @@
 			}
 			//article
 			foreach($artikel->find('article[class=videodesc article]') as $l){
-				$artikels = $l->children(2)->innertext;
+				$artikels = $l->children(2)->plaintext;
 			}
 			//writer
 			$penulis = "-";
@@ -110,11 +110,11 @@
 			}
 			//article
 			foreach($artikel->find('div[class=content]') as $l){
-				$artikels = $l->innertext;
+				$artikels = $l->plaintext;
 			}
 			//writer
 			foreach($artikel->find('div[class=author]') as $l){
-				$penulis = $l->innertext;
+				$penulis = $l->plaintext;
 			}
 			
 			//SAVE ACTION

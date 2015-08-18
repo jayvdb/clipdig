@@ -24,7 +24,7 @@
 			}
 			foreach($list->find('p') as $l){
 				$artikel ="";
-				$artikel .= $l->innertext;
+				$artikel .= $l->plaintext;
 			}
 			foreach($list->find('p strong') as $l){
 				$penulis = $l->plaintext;

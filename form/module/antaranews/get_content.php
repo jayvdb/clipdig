@@ -27,7 +27,7 @@
 				$photo = $l->src;
 			}
 			foreach($artikel->find('div#content_news') as $l){
-					$artikels = $l->innertext;
+					$artikels = $l->plaintext;
 			}
 			foreach($artikel->find('span[itemprop=author]') as $l){
 				$penulis = $l->plaintext;
@@ -45,7 +45,7 @@
 				$photo = $l->src;
 			}
 			foreach($artikel->find('div.dtcontent') as $l){
-					$artikels = $l->innertext;
+					$artikels = $l->plaintext;
 			}
 			foreach($artikel->find('span[itemprop=author]') as $l){
 				$penulis = $l->plaintext;
