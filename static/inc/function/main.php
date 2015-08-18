@@ -219,10 +219,12 @@ function save_data_from_newsd($search,$kode,$media,$title,$date,$news,$writer,$u
 		if($save_data_from_newsd){
 		 	set_automatic_category($kode,$news);
 			set_semi_automatic_category($kode,$news);
+			set_wilayah($kode,$news);
 		}
 	
 	}else{
 		update_search($kode,$search);
+		set_wilayah($kode,$news);
 	}
 									
 		
