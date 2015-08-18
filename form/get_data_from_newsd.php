@@ -4,14 +4,14 @@ include ("../static/inc/function.php");
 include ("../static/inc/conf.php");
 include ("simple_html_dom.php");
 
-$target 	= "http://192.168.2.119/newsd/search.php?search=".$DefaultSearch;
+$target 	= "http://202.146.128.250:8222/search.php?search=".$DefaultSearch;
 $html 		= file_get_html($target);
 
-$title		="";
-$date 		="";
+$title			="";
+$date 			="";
 $news_content 	="";
-$writer		="";
-$image 		="";
+$writer			="";
+$image 			="";
 $url 			="";
 
 foreach($html->find('body') as $body){
@@ -87,7 +87,7 @@ foreach($html->find('body') as $body){
 		save_data_from_newsd($DefaultSearch,$kode_,$media_,$title_,$date_,$news_,$writer_,$url_,$image_,$NOW);
 	}
    
-    echo $DefaultSearch.PHP_EOL;
+    //echo $DefaultSearch.PHP_EOL;
    //print_r($array_kode);
 
 

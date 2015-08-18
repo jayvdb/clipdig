@@ -19,7 +19,7 @@ include ("../static/inc/function.php");
 	
 	// search 
 	if(!empty($search)){
-		$WHERE .=" (`judul` LIKE '%$search%' OR `waktu` LIKE '%$search%' OR `penulis` LIKE '%$search%' OR `tags` LIKE '%$search%' ) AND ";
+		$WHERE .=" (`judul` LIKE '%$search%' OR `waktu` LIKE '%$search%' OR `penulis` LIKE '%$search%' ) AND ";
 	}
 	
 	//date
@@ -40,17 +40,17 @@ include ("../static/inc/function.php");
 		else{$WHERE .="";}
 	}
 	
-	//tags
-	if(!empty($tags)){
-		if($tags!="all"){$WHERE .=" `tags` LIKE '%$tags%' AND ";}
-		else{$WHERE .="";}
-	}
+	////tags
+	//if(!empty($tags)){
+		//if($tags!="all"){$WHERE .=" `tags` LIKE '%$tags%' AND ";}
+		//else{$WHERE .="";}
+	//}
 	
-	//city
-	if(!empty($city)){
-		if($city!="all"){$WHERE .=" `city` LIKE '%$city%' AND ";}
-		else{$WHERE .="";}
-	}			
+	////city
+	//if(!empty($city)){
+		//if($city!="all"){$WHERE .=" `city` LIKE '%$city%' AND ";}
+		//else{$WHERE .="";}
+	//}			
 
 	$WHERE = substr($WHERE,0,(strlen($WHERE)-5));
 	$qry_time = mysql_query("SELECT DISTINCT `waktu` as `waktu` FROM `data` $WHERE  ORDER BY `waktu` DESC ")or die(mysql_error());

@@ -1,5 +1,5 @@
 <?php
-	$URL 				= "http://192.168.2.115/clipdig/";
+	$URL 				= "http://localhost/clipdig/";
 	$TIMEZONE		= "Asia/Jakarta";
 	
 	$DB_SERVER		= "localhost";
