@@ -119,11 +119,11 @@ tinymce.init({
 	
 	list = $('div.checkbox .list');
 	list.hide();
-	$('div.checkbox b').append(' <i class="fa fa-caret-down pull-right"></i>')
-	$('div.checkbox')
+	$('div.checkbox b')
+	.append(' <i class="fa fa-caret-down pull-right"></i>')
 	.click(function() {
 		list.slideUp("slow");
-		$(this).children('.list').slideToggle("slow");
+		$(this).parent().children('.list').slideToggle("slow");
 	});
 	
 	
