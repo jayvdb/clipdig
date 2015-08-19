@@ -1,5 +1,5 @@
 </div><!-- well well-me -->
-
+<div class="row">
 <div class="col-lg-12">
 <div class="well-sm well-me">
 <?php
@@ -52,6 +52,7 @@
 	
 
 ?>
+</div>
 </div>
 </div>
 <script type="text/javascript" src="<?php echo $URL;?>static/tinymce/tinymce.min.js"></script>
@@ -114,6 +115,15 @@ tinymce.init({
 				}
 			}
 		});
+	});
+	
+	list = $('div.checkbox .list');
+	list.hide();
+	$('div.checkbox b').append(' <i class="fa fa-caret-down pull-right"></i>')
+	$('div.checkbox')
+	.click(function() {
+		list.slideUp("slow");
+		$(this).children('.list').slideToggle("slow");
 	});
 	
 	

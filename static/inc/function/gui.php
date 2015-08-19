@@ -146,7 +146,7 @@ function CreateMenuCategoryView($kode){
 		
 		$category_name_manual = explode("_",$category_names_manual);
 		$category_name_manual = str_replace("-"," ",$category_name_manual);
-		$category_name_manual = ucwords($category_name_manual[1]);
+		$category_name_manual = ucwords/form/coba.php($category_name_manual[1]);
 		
 		$gui_manual .='<div class="category-view checkbox" data="'.$category_names_manual.'"><b>'.$category_name_manual.'</b><br>';
 		
@@ -182,7 +182,7 @@ function CreateMenuCategoryView($kode){
 		$category_name_manual = str_replace("-"," ",$category_name_manual);
 		$category_name_manual = ucwords($category_name_manual[1]);
 		
-		$gui_manual .='<div class="category-view checkbox" data="'.$category_names_manual.'"><b>'.$category_name_manual.'</b>';
+		$gui_manual .='<div class="category-view checkbox" data="'.$category_names_manual.'"><b>'.$category_name_manual.'</b><div class="list">';
 		
 		$gui_a ="";
 		foreach(show_category_data($list_manual[0]) as $list_a){
@@ -202,7 +202,7 @@ function CreateMenuCategoryView($kode){
 			
 		}
 		$gui_manual .= $gui_a;
-		$gui_manual .='</div>';
+		$gui_manual .='</div></div>';
 			
 		echo $gui_manual;
 	}
