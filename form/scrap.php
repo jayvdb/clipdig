@@ -16,6 +16,7 @@
 			<a class="btn btn-default btn-sm <?php if($lowmenu=="Data"){echo "active";} ?>" href="?m=<?php echo $menu;?>&l=Data"><i class="fa fa-table"></i> Data</a>
 			<a class="btn btn-default btn-sm <?php if($lowmenu=="DataCount"){echo "active";} ?>" href="?m=<?php echo $menu;?>&l=DataCount"><i class="fa fa-table"></i> Count Data</a>
 			<a class="btn btn-default btn-sm <?php if($lowmenu=="Chart"){echo "active";} ?>" href="?m=<?php echo $menu;?>&l=Chart"><i class="fa fa-pie-chart"></i> Chart</a>
+			<a class="btn btn-default btn-sm <?php if($lowmenu=="Pivot"){echo "active";} ?>" href="?m=<?php echo $menu;?>&l=Pivot"><i class="fa fa-table"></i> Pivot</a>
 		</div>
 	</div>
 	<!-- ADD -->
@@ -35,6 +36,9 @@
 		}
 		elseif($lowmenu=="Chart"){ 
 			include ("scrap-chart.php");
+		}
+		elseif($lowmenu=="Pivot"){ 
+			include ("Pivot.php");
 		}
 	}
 	?>

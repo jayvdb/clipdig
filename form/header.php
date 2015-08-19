@@ -12,13 +12,25 @@
 	<link href="<?php echo $URL ?>static/css/custom.css" rel="stylesheet">
 	<link href="<?php echo $URL ?>static/css/bootstrap.css" rel="stylesheet">
 	<link href="<?php echo $URL ?>static/css/morris.css" rel="stylesheet">
-	<link href="<?php echo $URL ?>static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="<?php echo $URL ?>static/font-awesome/css/font-awesome.min.css" rel="stylesheet" >
 	<link href="<?php echo $URL ?>static/css/datepicker3.css" rel="stylesheet">
+	<link href="<?php echo $URL ?>static/css/pivot.css" rel="stylesheet">
+	<link href="<?php echo $URL ?>static/css/c3.min.css" rel="stylesheet" >
+	<link href="<?php echo $URL ?>static/css/chosen.min.css" rel="stylesheet" >
 	
 	<script src="<?php echo $URL ?>static/js/jquery.js"></script>
+	<script src="<?php echo $URL ?>static/js/jquery-ui.min.js"></script>
 	<script src="<?php echo $URL ?>static/js/custom.js"></script>
+	
 	<script src="<?php echo $URL ?>static/js/bootstrap.min.js"></script>
 	<script src="<?php echo $URL ?>static/js/bootstrap-datepicker.js"></script>
+	
+	<script src="<?php echo $URL ?>static/js/pivot.js"></script>
+	<script src="<?php echo $URL ?>static/js/d3.min.js"></script>
+	<script src="<?php echo $URL ?>static/js/jquery.ui.touch-punch.min.js"></script>
+	<script src="<?php echo $URL ?>static/js/jquery.csv-0.71.min.js"></script>
+	<script src="<?php echo $URL ?>static/js/chosen.jquery.js"></script>
+	<script src="<?php echo $URL ?>static/js/c3.min.js"></script>
 	
     
 

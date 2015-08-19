@@ -125,6 +125,9 @@ tinymce.init({
 		list.slideUp("slow");
 		$(this).parent().children('.list').slideToggle("slow");
 	});
+	$('div.checkbox').click(function() {
+		//$(this).children('b').click();
+	});
 	
 	
 

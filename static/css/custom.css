@@ -1,10 +1,7 @@
 /*LOGIN*/
 .page-login{
-/*
-	background:url("../../img/bg.jpg") top center fixed;
+	background:url("../../img/bg.png") top center fixed;
 	background-size:cover;
-*/
-	background:#D8D8D8;
 }
 .login-panel{
 	margin-top:10px;

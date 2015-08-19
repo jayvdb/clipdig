@@ -1,23 +1,16 @@
 <?php
+
 //coba coba buat table seperti yang mas fery kasih
 include ("../static/inc/con.php");
 include ("../static/inc/function.php");
 include ("../static/inc/conf.php");
+//header("Content-type: text/csv");
+//header("Content-Disposition: attachment; filename=file.csv");
+//header("Pragma: no-cache");
+//header("Expires: 0");
 
 
-
-$gui = '<table border="1" cellpadding="3" cellspacing="0" style="font-size:10pt;">
-		<tr>
-			<th>No</th>
-			<th>Kode Berita</th>
-			<th>Provinsi</th>
-			<th>Kota/Kabupaten</th>
-			<th>Media</th>
-			<th>Judul Berita</th>
-			<th>Tanggal</th>
-			<th>URL Berita</th>
-			<th>URL Gambar</th>
-			<th>Berita</th>';
+$gui = 'Kode Berita,Provinsi,Kota/Kabupaten,Media,Judul Berita,Tanggal,URL Berita,URL Gambar';
 		
 		$c="";
 		foreach(list_category("all") as $cat){
@@ -27,16 +20,14 @@ $gui = '<table border="1" cellpadding="3" cellspacing="0" style="font-size:10pt;
 			$category = ucwords($category);
 			
 			
-			$c .='<th>'.$category.'</th>';
+			$c .=','.$category;
 		}
 		
 		
 			
 			$gui .=$c;
-			$gui .='<th>Waktu diambil</th>
-			
-		</tr>
-		';	
+			$gui .=',Waktu diambil';
+				
 $q = mysql_query("select * from `data` order by `media` asc")or die(mysql_error());
 $t="";
 while($d=mysql_fetch_array($q)){
@@ -57,33 +48,21 @@ while($d=mysql_fetch_array($q)){
 	}
 	
 	
-	$t .='<tr>
-		<td align="right">'.$NO1++.'.</td>
-		<td>'.$d['kode'].'</td>
-		<td>'.$provinsi.'</td>
-		<td>'.$kotkab.'</td>
-		<td>'.Balikin($d['media']).'</td>
-		<td>'.Balikin($d['judul']).'</td>
-		<td>'.Balikin($d['waktu']).'</td>
-		<td><a href="'.Balikin($d['link']).'" target="_blank">'.Balikin($d['link']).'</a></td>
-		<td>'.Balikin($d['photo']).'</td>
-		<td>'.Balikin($d['artikel']).'</td>';
+	$t .='"'.$d['kode'].'","'.$provinsi.'","'.$kotkab.'","'.Balikin($d['media']).'","'.Balikin($d['judul']).'","'.Balikin($d['waktu']).'","'.Balikin($d['link']).'","'.Balikin($d['photo']).'"';
 		
 		$e = "";
 		foreach(list_category("all") as $cat){
-			$e .="<td>".get_data_category($d['kode'],$cat[0])."</td>";
+			$e .=',"'.get_data_category($d['kode'],$cat[0]).'"';
 		}
 		$t .=$e;
 		
-	$t .='<td>'.$d['created'].'</td>
-	</tr>';
+	$t .=',"'.$d['created'].'"';
 }
 		
 		
 		
 $gui .=$t;		
 
-$gui .='</table>';
 
 echo $gui;
 
