@@ -1,18 +1,6 @@
-<?php 
-	$media=ifset('me');$page=ifset('p');$search=ifset('se');$tgl1=ifset('tgl1');$tgl2=ifset('tgl2');$status=ifset('st');$searched=ifset('searched');$tags=ifset('tags');$city=ifset('city');$category=ifset('category');
-	
-	if(empty($media)){header("location:?m=Scrap&l=DataCount&me=all&st=all&searched=&p=&se=&tgl1=&tgl2=");}
-	elseif(empty($page)){$page=1;}
+<?php include('scrap-menu.php');?>
 
-	CreateMenuStatus();
-	CreateMenuSearched();
-	CreateMenuCategory();
-	
-	echo '<table class="table"><tr><td>';
-	CreateSearchDate();		
-	echo'</td></tr></table>';
-?>
-</div><!-- well well-sm -->
+<div class="col-lg-12">
 <div class="well-sm well-me">
 <div class="table-responsive">
 <table class="table table-hover  table-striped get" >
@@ -73,6 +61,14 @@
 					$NAME_FILE.="Searched(ALL)_";
 				}
 			}
+			if(!empty($wilayah)){
+				$pjg = strlen($wilayah);
+				if($pjg<=2){
+					$WHERE .=" `wilayah` LIKE '$wilayah%' AND length (`wilayah`) <=5 AND ";
+				}else{
+					$WHERE .=" `wilayah` LIKE '%$wilayah%' AND length (`wilayah`) <=5 AND ";
+				}
+			}
 			
 			//category  ------------------------
 			if(!empty($category)){
@@ -106,7 +102,6 @@ if(!empty($_GET['tgl1']) AND !empty ($_GET['tgl2'])){
 else{
 	$q = "SELECT DISTINCT YEAR(waktu) as `waktu` FROM `data` $WHERE ORDER BY `waktu` DESC ";
 }
-//echo "<textarea cols='200' rows='2'>".$WHERE."</textarea>";
 
 $qry=mysql_query($q)or die(mysql_error());
 while ($b=mysql_fetch_array($qry)){
@@ -130,25 +125,11 @@ while ($b=mysql_fetch_array($qry)){
 </div>
 
 <form name="export" action="<?php echo $URL."form/getcsv.php";?>" method="post">
-    <button class="btn-me btn-xs" id="getcsv" type="submit"><i class="fa fa-download"></i> Get CSV</button>
+    <button class="btn-primary btn-xs" id="getcsv" type="submit"><i class="fa fa-download"></i> Get CSV</button>
     <input type="hidden" value="<?php echo $csv_hdr; ?>" name="csv_hdr">
     <input type="hidden" value="<?php echo $csv_output; ?>" name="csv_output">
     <input type="hidden" value="<?php echo $NAME_FILE;?>" name="csv_name">
 </form>
 </div>
-<script>
-	<?php
-	    if(!empty($category)){
-				$category_ = explode(";",$category);
-				$count_category = count($category_);
-				for($i=1;$i<$count_category;$i++){
-					$category__=explode(":",$category_[$i]);
-					$category_name = $category__[0];
-					$category_data = $category__[1];
-					
-					print("$(\"div.category select[name='".$category_name."'] \").val('".$category_data."');\n ");
-				}
-			}
-	
-	?>
-</script>
+</div>
+<?php include('scrap-footer.php');?>

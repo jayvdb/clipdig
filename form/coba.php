@@ -13,7 +13,7 @@ include ("../static/inc/conf.php");
 $gui = 'Kode Berita,Provinsi,Kota/Kabupaten,Media,Judul Berita,Tanggal,URL Berita,URL Gambar';
 		
 		$c="";
-		foreach(list_category("all") as $cat){
+		foreach(list_category("") as $cat){
 			$category = $cat[0];
 			$category = str_replace("category_","",$category);
 			$category = str_replace("-"," ",$category);
@@ -51,7 +51,7 @@ while($d=mysql_fetch_array($q)){
 	$t .='"'.$d['kode'].'","'.$provinsi.'","'.$kotkab.'","'.Balikin($d['media']).'","'.Balikin($d['judul']).'","'.Balikin($d['waktu']).'","'.Balikin($d['link']).'","'.Balikin($d['photo']).'"';
 		
 		$e = "";
-		foreach(list_category("all") as $cat){
+		foreach(list_category("") as $cat){
 			$e .=',"'.get_data_category($d['kode'],$cat[0]).'"';
 		}
 		$t .=$e;

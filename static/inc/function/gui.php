@@ -64,7 +64,8 @@ function CreateMenuModule(){
 				$menu=ifset('me');
 				$show .='<a class="btn btn-default btn-xs '; 
 				if($menu==$module[$i]){ $show.='active';} 
-				$show .='" href="?m='.ifset('m').'&l='.ifset('l').'&st='.ifset('st').'&searched='.ifset('searched').'&se='.ifset('se').'&tgl1='.ifset('tgl1').'&tgl1='.ifset('tgl1');
+				//$show .='" href="?m='.ifset('m').'&l='.ifset('l').'&st='.ifset('st').'&searched='.ifset('searched').'&se='.ifset('se').'&tgl1='.ifset('tgl1').'&tgl2='.ifset('tgl2');
+				$show .='" href="?m='.ifset('m').'&l='.ifset('l');
 				$show .='&me='.$module[$i].'" >'.ucfirst($module[$i]).'</a>';
 			}
 		}
@@ -74,7 +75,7 @@ function CreateMenuModule(){
 }
 
 function CreateMenuCategory(){
-	foreach (list_category("all") as $list){
+	foreach (list_category("") as $list){
 		$category_names = $list[0];
 		$category_type = $list[1];
 		
@@ -96,7 +97,7 @@ function CreateMenuCategory(){
 }
 function CreateMenuCategoryView($kode){
 	//automatic
-	foreach (list_category("1") as $list_automatic){
+	foreach (list_category("WHERE `automatic`='1'") as $list_automatic){
 		$category_names_automatic = $list_automatic[0];
 		$category_type_automatic = $list_automatic[1]; //auto or manual
 		$gui_automatic = "";
@@ -139,41 +140,7 @@ function CreateMenuCategoryView($kode){
 	}
 	
 	//manual
-	foreach (list_category("0") as $list_manual){
-		$category_names_manual = $list_manual[0];
-		$category_type_manual = $list_manual[1];
-		$gui_manual="";
-		
-		$category_name_manual = explode("_",$category_names_manual);
-		$category_name_manual = str_replace("-"," ",$category_name_manual);
-		$category_name_manual = ucwords/form/coba.php($category_name_manual[1]);
-		
-		$gui_manual .='<div class="category-view checkbox" data="'.$category_names_manual.'"><b>'.$category_name_manual.'</b><br>';
-		
-		$gui_a ="";
-		foreach(show_category_data($list_manual[0]) as $list_a){
-			//ambil data terakhir dari category_*
-			$val = get_data_category($kode,$category_names_manual);
-			$val = explode(',',$val);
-			$val_count = count($val);
-			
-			$gui_a .='<label class="checkbox"><input  type="checkbox" name="'.$list_a[0].'" value="'.$list_a[1].'"';
-			for($i=0;$i<$val_count;$i++){
-				if($val[$i]==$list_a[1]){
-					$gui_a .=' checked="" ';
-				}
-			}
-			
-			$gui_a .= '>'.ucwords($list_a[1]).'</label>';
-			
-		}
-		$gui_manual .= $gui_a;
-		$gui_manual .='</div>';
-			
-		echo $gui_manual;
-	}
-	//semi
-	foreach (list_category("2") as $list_manual){
+	foreach (list_category("WHERE `automatic`='1'") as $list_manual){
 		$category_names_manual = $list_manual[0];
 		$category_type_manual = $list_manual[1];
 		$gui_manual="";
@@ -206,6 +173,40 @@ function CreateMenuCategoryView($kode){
 			
 		echo $gui_manual;
 	}
+	//semi
+	foreach (list_category("WHERE `automatic`='2'") as $list_manual){
+		$category_names_manual = $list_manual[0];
+		$category_type_manual = $list_manual[1];
+		$gui_manual="";
+		
+		$category_name_manual = explode("_",$category_names_manual);
+		$category_name_manual = str_replace("-"," ",$category_name_manual);
+		$category_name_manual = ucwords($category_name_manual[1]);
+		
+		$gui_manual .='<div class="category-view checkbox" data="'.$category_names_manual.'"><b>'.$category_name_manual.'</b><div class="list">';
+		
+		$gui_a ="";
+		foreach(show_category_data($list_manual[0]) as $list_a){
+			//ambil data terakhir dari category_*
+			$val = get_data_category($kode,$category_names_manual);
+			$val = explode(',',$val);
+			$val_count = count($val);
+			
+			$gui_a .='<label class="checkbox"><input  type="radio" name="'.$category_names_manual.'" value="'.$list_a[1].'"';
+			for($i=0;$i<$val_count;$i++){
+				if($val[$i]==$list_a[1]){
+					$gui_a .=' checked="" ';
+				}
+			}
+			
+			$gui_a .= '>'.ucwords($list_a[1]).'</label>';
+			
+		}
+		$gui_manual .= $gui_a;
+		$gui_manual .='</div></div>';
+			
+		echo $gui_manual;
+	}
 }
 
 
@@ -213,14 +214,14 @@ function CreateMenuCategoryView($kode){
 
 
 //pagination
-function CreatePagination($DataPerPage,$media,$search,$tgl1,$tgl2,$status,$searched,$category){
+function CreatePagination($DataPerPage,$media,$search,$tgl1,$tgl2,$status,$searched,$category,$wilayah){
 	$WHERE="WHERE";
 	if(!empty($media)){
 		if($media!="all"){$WHERE .=" `media`='$media' AND ";}
 		else{$WHERE .="";}
 	}
 	if(!empty($search)){
-		$WHERE .=" (`judul` LIKE '%$search%' OR `waktu` LIKE '%$search%' OR `penulis` LIKE '%$search%' ) AND ";
+		$WHERE .=" (`judul` LIKE '%$search%' OR `waktu` LIKE '%$search%' OR `penulis` LIKE '%$search%' or `kode`='$search') AND ";
 	}
 	if(!empty($tgl1) AND !empty($tgl2)){
 		$WHERE .=" (`waktu` BETWEEN '$tgl1' and '$tgl2') AND ";
@@ -236,7 +237,12 @@ function CreatePagination($DataPerPage,$media,$search,$tgl1,$tgl2,$status,$searc
 		else{$WHERE .="";}
 	}
 	if(!empty($wilayah)){
-		$WHERE .=" `wilayah` LIKE '%$wilayah%' AND length (`wilayah`) <=".strlen($wilayah);
+		$pjg = strlen($wilayah);
+		if($pjg<=2){
+			$WHERE .=" `wilayah` LIKE '%$wilayah%' AND length (`wilayah`) <=2 AND ";
+		}else{
+			$WHERE .=" `wilayah` LIKE '%$wilayah%' AND length (`wilayah`) <=5 AND ";
+		}
 	}
 	
 	//category  ------------------------
@@ -256,10 +262,9 @@ function CreatePagination($DataPerPage,$media,$search,$tgl1,$tgl2,$status,$searc
 		$WHERE .=$WHERE_;
 	}
 	//category  ------------------------
-	
+			
 
 	$WHERE = substr($WHERE,0,(strlen($WHERE)-5));
-	
 	$q="SELECT * FROM `data` $WHERE" ;
 	$qry=mysql_query($q) or die(mysql_error());
 
@@ -282,36 +287,34 @@ function CreatePagination($DataPerPage,$media,$search,$tgl1,$tgl2,$status,$searc
 
 }
 function CreateSearch(){
-	echo ' 
+	echo '
+	<div class="col-lg-12 row">
 	<form method="GET" action="">
-	<table>
-		<tr>
-			<td>Search:</td>
-		</tr>
-		<tr>
-			<td>
-			  <input name="se" class="form-control" style="width:300px !important ;float:left;" type="text" value="'.ifset('se').'" placeholder="Search">
-				<input type="hidden" name="m" value="'.ifset('m').'">
-				<input type="hidden" name="l" value="'.ifset('l').'">
-				<input type="hidden" name="st" value="'.ifset('st').'">
-				<input type="hidden" name="tgl1" value="'.ifset('tgl1').'">
-				<input type="hidden" name="tgl2" value="'.ifset('tgl2').'">
-				<input type="hidden" name="searched" value="'.ifset('searched').'">
-				<input type="hidden" name="me" value="'.ifset('me').'">
-				<input type="hidden" name="wilayah" value="'.ifset('wilayah').'">
-				<button class=" btn btn-me  search"   type="submit" style="float:left;"><i class="fa fa-search"></i> Find</button>
-			</td>
-		</tr>
-	</table>
-	</form>';
+	<small>Search</small>
+	<div class="input-group">
+		<input name="se" class="form-control" type="text" value="'.ifset('se').'" placeholder="Search">
+		<div class="input-group-btn">
+			<button class=" btn btn-primary  search"   type="submit" style="float:left;"><i class="fa fa-search"></i> Find</button>
+		</div>
+	</div>
+		<input type="hidden" name="m" value="'.ifset('m').'">
+		<input type="hidden" name="l" value="'.ifset('l').'">
+		<input type="hidden" name="st" value="'.ifset('st').'">
+		<input type="hidden" name="tgl1" value="'.ifset('tgl1').'">
+		<input type="hidden" name="tgl2" value="'.ifset('tgl2').'">
+		<input type="hidden" name="searched" value="'.ifset('searched').'">
+		<input type="hidden" name="me" value="'.ifset('me').'">
+		<input type="hidden" name="wilayah" value="'.ifset('wilayah').'">
+	</form>
+	</div> ';
 }
 function CreateSearchDate(){
 	echo ' 
 	<form method="GET" action="">
 		<table>
 			<tr>
-				<td>From:</td>
-				<td>To:</td>
+				<td><small>From:</small></td>
+				<td><small>To:</small></td>
 				<td></td>
 			</tr>
 			<tr>
@@ -334,10 +337,9 @@ function CreateSearchDate(){
 				<input type="hidden" name="searched" value="'.ifset('searched').'">
 				<input type="hidden" name="me" value="'.ifset('me').'">
 				<input type="hidden" name="wilayah" value="'.ifset('wilayah').'">
-					<button class=" btn btn-me"   type="submit" style="float:left;"><i class="fa fa-search"></i> Find</button>
+					<button class=" btn btn-primary"   type="submit" style="float:left;"><i class="fa fa-search"></i> Find</button>
 				</td>
 			</tr>
-		
 		</table>
 	</form>';
 }
@@ -360,15 +362,10 @@ function CreateWilayah($wilayah=null){
 			</div>
 			<input id="kode" type="hidden" name="wilayah">
 			<input id="wilayah" type="hidden" value="'.$wilayah.'">';
-	$gui .='<script>
 	
-	
-	
-	
-	
+	$gui .='
+	<script>
 	wilayah = $(\'#wilayah\').val();
-
-	
 	if(wilayah!=""){
 		wilayah_ = wilayah.split(".");
 		$(\'#prov\').load(\'action.php\',\'op=get_prov_cmb&kode=\'+wilayah_[0]);
@@ -377,8 +374,6 @@ function CreateWilayah($wilayah=null){
 		$(\'#prov\').load(\'action.php\',\'op=get_prov_cmb\');
 	}
 	
-	
-	
 	$(\'#prov\').change(function() { 
 		$(\'#kabkot\').load(\'action.php\',\'op=get_kabkot_cmb&data=\'+$(this).val());
 		$(\'#kode\').val($(this).val());
@@ -386,7 +381,8 @@ function CreateWilayah($wilayah=null){
 	$(\'#kabkot\').change(function() {
 		$(\'#kode\').val($(this).val());
 	});
-</script>';
+	</script>
+	';
 	return $gui;
 }
 

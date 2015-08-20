@@ -120,7 +120,9 @@ function set_semi_automatic_category($kode,$str){
 		}
 		//update category_* in data
 		if(!empty($push)){
-			$push=substr($push,1,strlen($push));
+			//$push=substr($push,1,strlen($push));
+			$push=explode(",",$push);
+			$push=end($push);
 		}
 		else{
 			$push ="lain-lain";
@@ -131,11 +133,11 @@ function set_semi_automatic_category($kode,$str){
 	
 	
 }
-function list_category($str){
-	if($str!="all"){
-		$where = "WHERE `automatic`='$str'";}
-	else{
-		$where ="";}
+function list_category($where){
+	//if($str!="all"){
+		//$where = "WHERE `automatic`='$str'";}
+	//else{
+		//$where ="";}
 	
 	$array= array();
 	$qry = mysql_query("select * from `category` $where ") or die(mysql_error());

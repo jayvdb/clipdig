@@ -1,8 +1,10 @@
-<?php CreateMenuModule(); ?>
-
-
-</div><!-- well well-sm -->
 <div class="col-lg-12">
+<div class="col-lg-12 well-me">
+<?php CreateMenuModule(); ?>
+</div>
+</div>
+<div class="col-lg-12">
+<div class="col-lg-12 ">
 	<?php
 	if(!empty($_GET['me'])){
 	$module = scandir('form/module/');
@@ -18,5 +20,6 @@
 	include $view;
 	}
 ?>
+</div>
 </div>
 

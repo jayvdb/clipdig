@@ -147,8 +147,8 @@ function View(){
 			echo CreateWilayah($data['wilayah']);
 			
 			echo'<br>
-			<button type="submit" class="btn btn-me" name="simpan"><i class="fa fa-save"></i> Save</button>
-			<a href="?m='.ifset('m').'&l='.ifset('l').'&op=reload&kode='.ifset('kode').'"><button type="button" class="btn btn-me" name="reload"><i class="fa fa-refresh"></i> Reload</button></a>
+			<button type="submit" class="btn btn-primary" name="simpan"><i class="fa fa-save"></i> Save</button>
+			<!-- <a href="?m='.ifset('m').'&l='.ifset('l').'&op=reload&kode='.ifset('kode').'"><button type="button" class="btn btn-primary" name="reload"><i class="fa fa-refresh"></i> Reload</button></a> -->
 			
 		</div>
 	</form>

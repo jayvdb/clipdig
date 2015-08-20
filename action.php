@@ -7,7 +7,9 @@ include ("static/inc/conf.php");
 $op = ifset('op');
 $kode = ifset('kode');
 if($op=="get_prov_cmb"){
+	echo '<option value="">All</option>';
 	foreach(get_prov() as $prov){
+		
 		echo '<option value="'.$prov[0].'"';
 			if($kode == $prov[0])
 				echo "selected";
@@ -17,6 +19,7 @@ if($op=="get_prov_cmb"){
 }
 elseif($op=="get_kabkot_cmb"){
 	$kode_prov=ifset('data');
+	echo '<option value="'.$kode_prov.'">All</option>';
 	foreach(get_kabkot($kode_prov) as $kabkot){
 		echo '<option value="'.$kabkot[0].'"';
 			if($kode == $kabkot[0])

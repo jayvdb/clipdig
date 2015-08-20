@@ -74,7 +74,7 @@
 			<td class="checkbox"><input type="checkbox" name="GetPhoto"  value="1" class="checkbox" <?php if(Settings('GetPhoto')=="1"){echo "checked ";}?> >Enable</td>
 		</tr>
 	</table>
-	<div><button type="submit" name="savesettings" class=" btn btn-me"><i class="fa fa-save"></i> Save</button></div>
+	<div><button type="submit" name="savesettings" class=" btn btn-primary"><i class="fa fa-save"></i> Save</button></div>
 	</form>
 </div>
 </div>
@@ -92,7 +92,7 @@ if(empty($_GET['op'])){
 				<td><h5><i class="fa fa-user"></i>  Users</h5></td>
 				<td valign="middle" colspan="2">
 					<div class="pull-right">
-						<a class="btn btn-me " href="?m=Setting&op=AddUser"><i class="fa fa-plus"></i> Add</a>
+						<a class="btn btn-primary " href="?m=Setting&op=AddUser"><i class="fa fa-plus"></i> Add</a>
 					</div>
 				</td>
 			</tr>
@@ -148,11 +148,11 @@ else{
 			<tr>
 				<?php 
 					if($_GET['op']=="AddUser"){
-						echo '<td colspan="4"><button class="btn-me btn" type="submit" name="saveuser"><i class="fa fa-save" ></i> Save</td>';
+						echo '<td colspan="4"><button class="btn-primary btn" type="submit" name="saveuser"><i class="fa fa-save" ></i> Save</td>';
 					}
 					elseif($_GET['op']=="EditUser"){
 						echo '<td colspan="4">
-									<button class="btn-me btn" type="submit" name="updateuser"><i class="fa fa-arrow-up" ></i> Update
+									<button class="btn-primary btn" type="submit" name="updateuser"><i class="fa fa-arrow-up" ></i> Update
 									<input type="hidden" name="UserId" value="'.$_GET['id'].'">
 								</td>';
 					}

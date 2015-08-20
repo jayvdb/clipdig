@@ -8,18 +8,7 @@
 	}
 ?>
 
-<div class="col-lg-12">
-	<div class="well-sm well-me">
-	<div class="navbar">
-		<div class="btn-group">
-			<a class="btn btn-default btn-sm <?php if($lowmenu=="AddBySite"){echo "active";} ?>" href="?m=<?php echo $menu;?>&l=AddBySite" ><i class="fa fa-globe"></i> Add by Site</a>
-			<a class="btn btn-default btn-sm <?php if($lowmenu=="Data"){echo "active";} ?>" href="?m=<?php echo $menu;?>&l=Data"><i class="fa fa-table"></i> Data</a>
-			<a class="btn btn-default btn-sm <?php if($lowmenu=="DataCount"){echo "active";} ?>" href="?m=<?php echo $menu;?>&l=DataCount"><i class="fa fa-table"></i> Count Data</a>
-			<a class="btn btn-default btn-sm <?php if($lowmenu=="Chart"){echo "active";} ?>" href="?m=<?php echo $menu;?>&l=Chart"><i class="fa fa-pie-chart"></i> Chart</a>
-			<a class="btn btn-default btn-sm <?php if($lowmenu=="Pivot"){echo "active";} ?>" href="?m=<?php echo $menu;?>&l=Pivot"><i class="fa fa-table"></i> Pivot</a>
-		</div>
-	</div>
-	<!-- ADD -->
+<!-- ADD -->
 	<?php
 	if(isset($_GET['l'])){ 
 		if($lowmenu=="AddBySite"){ 
@@ -38,10 +27,8 @@
 			include ("scrap-chart.php");
 		}
 		elseif($lowmenu=="Pivot"){ 
-			include ("Pivot.php");
+			include ("scrap-pivot.php");
 		}
 	}
 	?>
-
-</div>
 

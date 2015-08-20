@@ -47,7 +47,7 @@
 		
 		$gui_b='';
 		$gui = '<ul class="nav nav-tabs">';
-		foreach(list_category("all") as $list){
+		foreach(list_category("") as $list){
 			$list = $list[0];
 			$a = explode("_",$list);
 			$a = str_replace("-"," ",$a);
@@ -62,7 +62,7 @@
 		<div class="tab-content">';
 	
 	
-		foreach(list_category("all") as $list_){
+		foreach(list_category("") as $list_){
 			$list = $list_[0];
 			$list_type = $list_[1];
 			$gui .= 
@@ -94,7 +94,7 @@
 						<input class="form-control" name="data" placeholder="Add new">
 						<input type="hidden" name="category" value="'.$list.'" ">
 						<div class="input-group-btn">
-							<button type="submit" class="btn btn-me" name="save_category"><i class="fa fa-plus"></i> Add</button>
+							<button type="submit" class="btn btn-primary" name="save_category"><i class="fa fa-plus"></i> Add</button>
 						</div>
 						
 					</div>
@@ -133,7 +133,7 @@
 					<div class="input-group">
 						<input class="form-control" placeholder="Name Category" name="name">
 						<div class="input-group-btn">
-							<button type="submit" name="add_category" class="btn btn-me"><i class="fa fa-plus"></i> Add</button>
+							<button type="submit" name="add_category" class="btn bbtn-primary"><i class="fa fa-plus"></i> Add</button>
 						</div>
 					</div>
 					<label><input type="radio" name="automatic" value="0" checked>Manual</label>

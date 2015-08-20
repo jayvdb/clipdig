@@ -44,8 +44,9 @@
 				
 			}
 			else{
-				echo '<div id="wrapper"><!-- /#wrapper --><div id="page-wrapper">';
 				include ("navigasi.php");
+				echo '<div id="wrapper"><!-- /#wrapper --><div id="page-wrapper">';
+				
 			}
 		}
 		

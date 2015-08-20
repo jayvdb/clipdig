@@ -1,5 +1,3 @@
-</div><!-- well well-me -->
-<div class="row">
 <div class="col-lg-12">
 <div class="well-sm well-me">
 <?php
@@ -84,27 +82,20 @@ tinymce.init({
 		});
 	});
 	
-	$('label.checkbox input[type=checkbox]').click(function() {
+	$('label.checkbox input[type=radio]').click(function() {
 		locations = $(location).attr('href');
 		locations_ = locations.replace('&op=edit','').replace('&op=reload','');
 		split1 = locations.split("kode=");
 		kode = split1[1];
-		category_name = $(this).parent().parent().attr('data');
-		
-		
-		chk = $('div[data='+category_name+']  :checkbox:checked');
-		chk_count = chk.length;
-		aaa ="";
-		for(i=0;i<chk_count;i++){
-			aa = $('div[data='+category_name+'] :checkbox:checked:eq('+i+')').val();
-			aaa += ","+aa;
-		}
-		
-		category_data = aaa.substring(1);
+		category_name = $(this).attr('name');
+		category_data = $(this).val();
 		
 		datanya = "&category="+category_name+":"+category_data;
 		
+		
 		//alert(locations_+"&op=update_category"+datanya);
+		
+		
 		$.ajax({url: locations_ ,data: "op=update_category"+datanya,cache: false,
 			success: function(msg){
 				if(msg=="1"){
@@ -122,12 +113,12 @@ tinymce.init({
 	$('div.checkbox b')
 	.append(' <i class="fa fa-caret-down pull-right"></i>')
 	.click(function() {
-		list.slideUp("slow");
-		$(this).parent().children('.list').slideToggle("slow");
+		ini = $(this).parent().children('.list');
+		if(ini.is(':visible')){ini.slideUp();}else{list.slideUp();ini.slideDown();		}
+		
+		itu = $('div.checkbox b i');if(itu.hasClass('fa-caret-up')){itu.addClass('fa-caret-down').removeClass('fa-caret-up');	}else{$(this).children('i').toggleClass('fa-caret-up').toggleClass('fa-caret-down');	}	
 	});
-	$('div.checkbox').click(function() {
-		//$(this).children('b').click();
-	});
+	
 	
 	
 
