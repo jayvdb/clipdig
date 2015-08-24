@@ -1,8 +1,8 @@
 <?php
-include ("../static/inc/con.php");
-include ("../static/inc/function.php");
-include ("../static/inc/conf.php");
-include ("simple_html_dom.php");
+include ("static/inc/con.php");
+include ("static/inc/function.php");
+include ("static/inc/conf.php");
+include ("form/simple_html_dom.php");
 
 $target 	= "http://202.146.128.250:8222/search.php?search=".$DefaultSearch;
 $html 		= file_get_html($target);

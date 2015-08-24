@@ -1,0 +1,40 @@
+#!/bin/bash
+KOMAN=$1
+FOLDER="/var/www/html/clipdig/"
+
+function get_data_from_newsd {
+	
+	BERKAS="get_data_from_newsd.php"
+	HASIL=`ps -aux | sed -n /${BERKAS}/p | grep -v sed | awk '{print $12}'` 
+	
+	if [ "$HASIL" = "$BERKAS" ]; then
+	    
+	    echo "$BERKAS 		[running]"
+	    
+	else
+	    
+	    cd $FOLDER
+	    echo "$BERKAS 		[starting]"
+	    php $BERKAS > $FOLDER"log/get_data_from_newsd.log" 2>&1 & 
+	fi
+}
+
+function start {
+	get_data_from_newsd
+}
+
+function stop {
+	HASIL = `ps -aux | sed -n /get_data_from_newsd.php/p | grep -v sed | grep -v geany | awk '{print $2}'`
+	kill $HASIL
+	echo "get_data_from_newsd.php 		[stopped]"
+}
+
+if [ $KOMAN = "start" ] || [ $KOMAN = "START" ]
+then
+	start
+elif [ $KOMAN = "stop" ] || [ $KOMAN = "STOP" ]
+then
+	stop             
+else
+	echo " $KOMAN tidak ada"
+fi

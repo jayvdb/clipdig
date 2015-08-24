@@ -1,0 +1,1 @@
+PHP Fatal error:  Call to a member function find() on a non-object in /var/www/html/clipdig/get_data_from_newsd.php on line 17
