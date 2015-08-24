@@ -25,8 +25,9 @@
 			}
 		}
 		elseif($op=="get_content_from_newsd"){
-			exec('clipdig get_content_from_newsd');
-			send_notif('get_content_from_newsd starting');
+			$a = exec('clipdig get_content_from_newsd');
+			//send_notif('get_content_from_newsd starting');
+			echo $a;
 		}
 	}
 ?>
