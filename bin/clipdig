@@ -29,7 +29,7 @@ function stop {
 	echo "get_data_from_newsd.php 		[stopped]"
 }
 
-if [ $KOMAN = "start" ] || [ $KOMAN = "START" ]
+if [ $KOMAN = "get_content_from_newsd" ] || [ $KOMAN = "start"  ]
 then
 	start
 elif [ $KOMAN = "stop" ] || [ $KOMAN = "STOP" ]

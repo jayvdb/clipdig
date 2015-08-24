@@ -24,6 +24,10 @@
 				echo "<script>alert('User has been deleted');window.location='?m=Setting'</script>";
 			}
 		}
+		elseif($op=="get_content_from_newsd"){
+			exec('clipdig get_content_from_newsd');
+			send_notif('get_content_from_newsd starting');
+		}
 	}
 ?>
 <div class="col-lg-6">
@@ -164,4 +168,14 @@ else{
 }
 ?>
 </div>
+</div>
+
+<div class="col-lg-6">
+	<div class="well-sm well-me">
+	<a href="?m=Setting&op=get_content_from_newsd" class="btn btn-primary">get content from newsd</a>
+<!--
+	<a href="?m=dashboard&op=stop" class="btn btn-primary">Stop</a>	
+-->
+		
+	</div>
 </div>
