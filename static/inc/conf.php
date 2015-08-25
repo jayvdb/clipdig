@@ -2,7 +2,7 @@
 $NAME 			= Settings("Name");
 $Version 		= Settings("Version");
 $Description 	= Settings("Description");
-$DefaultSearch = Settings("DefaultSearch");
+$DefaultSearch = (string)Settings("DefaultSearch");
 $DataPerPage 	= Settings("DataPerPage");
 $TimeOut			= Settings("TimeOut");
 

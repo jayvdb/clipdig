@@ -1,1 +1,10 @@
-PHP Fatal error:  Call to a member function find() on a non-object in /var/www/html/clipdig/get_data_from_newsd.php on line 17
+PHP Warning:  include(../static/inc/con.php): failed to open stream: No such file or directory in /var/www/html/clipdig/get_data_from_newsd.php on line 2
+PHP Warning:  include(): Failed opening '../static/inc/con.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/html/clipdig/get_data_from_newsd.php on line 2
+PHP Warning:  include(../static/inc/function.php): failed to open stream: No such file or directory in /var/www/html/clipdig/get_data_from_newsd.php on line 3
+PHP Warning:  include(): Failed opening '../static/inc/function.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/html/clipdig/get_data_from_newsd.php on line 3
+PHP Warning:  include(../static/inc/conf.php): failed to open stream: No such file or directory in /var/www/html/clipdig/get_data_from_newsd.php on line 4
+PHP Warning:  include(): Failed opening '../static/inc/conf.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/html/clipdig/get_data_from_newsd.php on line 4
+PHP Warning:  include(simple_html_dom.php): failed to open stream: No such file or directory in /var/www/html/clipdig/get_data_from_newsd.php on line 5
+PHP Warning:  include(): Failed opening 'simple_html_dom.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/html/clipdig/get_data_from_newsd.php on line 5
+PHP Notice:  Undefined variable: DefaultSearch in /var/www/html/clipdig/get_data_from_newsd.php on line 8
+PHP Fatal error:  Call to undefined function file_get_html() in /var/www/html/clipdig/get_data_from_newsd.php on line 9
