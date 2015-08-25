@@ -1,85 +1,75 @@
 <?php
-include("../static/inc/con.php");
-include("../static/inc/function.php");
-include("simple_html_dom.php");
+include ("../static/inc/con.php");
+include ("../static/inc/function.php");
+include ("../static/inc/conf.php");
+include ("simple_html_dom.php");
 
 
-function find_excluded_url($match_url){
-	$excludeList= array('ad.beritasatumedia.com','www.semuabisajadiinvestor.com','www.investor.co.id','/login.php','http://id.beritasatu.com/pages/investordailyku','twitter.com','www.facebook.com','t.co','&amp','&','play.google.com','plus.google.com','www.youtube.com','www.fb.com','v3.mercusuar.info','itunes.apple.com');
-	$matches = 0;
-	foreach($excludeList as $excluded)
-	{
-		if(strpos($match_url, $excluded) !== FALSE){
-			return "1"; return false ;
-		}else{
-			return "0";return false;
-		}
-        //else return FALSE;
+$target 	= "http://202.146.128.250:8222/search.php?search=pilkada";
+$html 		= file_get_html($target);
+
+$kode			="";
+$media			="";
+$title			="";
+$date 			="";
+$news_content 	="";
+$writer			="";
+$image 			="";
+$url 			="";
+
+//foreach($html->find('body') as $body){
+	foreach($html->find('div[itemprop=count_data]') as $a){
+		$count = $a->plaintext;
 	}
-}
-function geta($target,$base){
-	$html = file_get_html($target);
-	update_link($target);
-	echo "<br>target = ".$target."<br>";
-	foreach($html->find('a') as $data){
-		$link = $data->href;
-		$link = real_url($link);
-		
-		if(count(explode("/",$link))>3){
-			if(find_excluded_url($link)=="0"){
-				$pos = strpos($link,"http");
-				if($pos===false){
-					$pos = strpos($link,"HTTP");
-					if($pos===false){
-						$link = $base.$link;
-					}
-				}
-				save_link($link);
-			}
-		}
-	}
-}
-function cek_link($id){
-	$qry = mysql_query("SELECT count(*) as `ada` FROM `test` WHERE `id`='$id'")or die(mysql_error());
-	$data = mysql_fetch_array($qry);
-	if($data['ada']>0)
-		return true;
-	else return false;
-}
-function save_link($link){
-	$id = md5($link);
-	//$link = UbahSimbol($link);
-	$link = $link;
-
-	if(cek_link($id)==false){
-		$qry = mysql_query("insert into `test` (`id`,`link`,`status`) values ('$id','$link','0') ;")or die(mysql_error());
-		if($qry){
-			echo "Saved = ".$link."<br>";
-		}
-	}
-}
-function update_link($link){
-	$id = md5($link);
-	mysql_query("UPDATE `test` set `status`='1' WHERE id='$id'");
-}
-
-function get($link,$base){
-	$qrya = mysql_query("select * from `test` where status='0'")or die(mysql_error());
-	$ada = mysql_num_rows($qrya);
 	
-	if($ada>0){
-		$qry = mysql_query("select `link` from `test` where status='0' limit 0,5")or die(mysql_error());
-		while($data=mysql_fetch_array($qry)){
-			//$link = Balikin($data['link']);
-			$link = $data['link'];
-			geta($link,$base);
+	foreach($html->find('div[itemprop=news_data]') as $news_data){
+		$kode = $news_data->id;
+		
+		foreach($news_data->find('div[itemprop=title]') as $b){
+			$title = $b->plaintext;
 		}
-	}else{
-		geta($link,$base);
+	
+		foreach($news_data->find('div[itemprop=date]') as $c){
+			$date = $c->plaintext;
+		}
+	
+		foreach($news_data->find('div[itemprop=news_content]') as $d){
+			$news = $d->plaintext;
+		}	
+		
+		foreach($news_data->find('div[itemprop=writer]') as $e){
+			$writer = $e->plaintext;
+		}
+	
+		foreach($news_data->find('div[itemprop=image]') as $f){
+			$image = $f->plaintext;
+		}
+	
+		foreach($news_data->find('div[itemprop=url]') as $g){
+			$url = $g->plaintext;
+		}
+		
+		foreach($news_data->find('div[itemprop=media]') as $h){
+			$media = $h->plaintext;
+		}
+		
+		
+		
+		echo "Kode:".$kode.PHP_EOL;
+		echo "media:".$media.PHP_EOL;
+		echo "title:".$title.PHP_EOL;
+		echo "date:".$date.PHP_EOL;
+		echo "news content:".$news.PHP_EOL;
+		echo "writer:".$writer.PHP_EOL;
+		echo "url:".$url.PHP_EOL;
+		echo "image:".$image.PHP_EOL;
+		echo "time:".$NOW.PHP_EOL;
+		echo "-------------------------------------------------------------------------------------------------------".PHP_EOL;
+		save_data_from_newsd($DefaultSearch,$kode,$media,$title,$date,$news,$writer,$url,$image,$NOW);
+		
+		
+		
 	}
-}
-$base = "http://www.beritasatu.com";
-$link = "http://www.beritasatu.com";
-get($link,$base);
-
+	
+//}
 ?>
