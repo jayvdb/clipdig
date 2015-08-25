@@ -5,7 +5,7 @@ include ("static/inc/conf.php");
 include ("form/simple_html_dom.php");
 
 
-$target 	= "http://localhost/newsd/search.php?search=$DefaultSearch";
+$target 	= "http://202.146.128.250:8222/search.php?search=$DefaultSearch";
 $html 		= file_get_html($target);
 
 $kode			="";
@@ -52,7 +52,7 @@ $url 			="";
 			$media = $h->plaintext;
 		}
 		
-		$target2 = "http://localhost/newsd/get_content_db.php?kode=$kode";
+		$target2 = "http://202.146.128.250:8222/get_content_db.php?kode=$kode";
 		$html2 	= file_get_html($target2);
 		$news = $html2->find('news',0)->plaintext;
 		
