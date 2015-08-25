@@ -58,16 +58,16 @@ $url 			="";
 		
 		
 		
-		echo "Kode:".$kode.PHP_EOL;
-		echo "media:".$media.PHP_EOL;
-		echo "title:".$title.PHP_EOL;
-		echo "date:".$date.PHP_EOL;
-		echo "news content:".$news.PHP_EOL;
-		echo "writer:".$writer.PHP_EOL;
-		echo "url:".$url.PHP_EOL;
-		echo "image:".$image.PHP_EOL;
-		echo "time:".$NOW.PHP_EOL;
-		echo "-------------------------------------------------------------------------------------------------------".PHP_EOL;
+		//echo "Kode:".$kode.PHP_EOL;
+		//echo "media:".$media.PHP_EOL;
+		//echo "title:".$title.PHP_EOL;
+		//echo "date:".$date.PHP_EOL;
+		//echo "news content:".$news.PHP_EOL;
+		//echo "writer:".$writer.PHP_EOL;
+		//echo "url:".$url.PHP_EOL;
+		//echo "image:".$image.PHP_EOL;
+		//echo "time:".$NOW.PHP_EOL;
+		echo $NOW."-------------------------------------------------------------------------------------------------------".PHP_EOL;
 		save_data_from_newsd($DefaultSearch,$kode,$media,$title,$date,$news,$writer,$url,$image,$NOW);
 		
 		
