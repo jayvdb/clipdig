@@ -5,7 +5,7 @@ include ("static/inc/conf.php");
 include ("form/simple_html_dom.php");
 
 
-$target 	= "http://202.146.128.250:8222/search.php?search=$DefaultSearch";
+$target 	= "http://202.146.128.250:8222/search.php?search=pilkada";
 $html 		= file_get_html($target);
 
 $kode			="";

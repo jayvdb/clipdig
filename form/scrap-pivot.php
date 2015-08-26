@@ -12,7 +12,7 @@
 		array_push($name,'Waktu diambil');
 		
 		$data = array();
-		$q = mysql_query("select * from `data` ")or die(mysql_error());
+		$q = mysql_query("select * from `data` where `status`!='4' ")or die(mysql_error());
 
 		while($d=mysql_fetch_array($q)){
 			$wilayah = $d['wilayah'];
