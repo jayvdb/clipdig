@@ -14,8 +14,8 @@
 	elseif(empty($page)){$page=1;}
 	
 	echo '
-	<div class="col-lg-12 well-me">
-	<div class="col-lg-6">';
+	<div class="col-lg-12 ">
+	<div class="col-lg-5 well-me">';
 	if(ifset('l')=="Data"){
 			CreateMenuMedia();
 		}
@@ -26,7 +26,8 @@
 		CreateSearch();
 		CreateSearchDate();
 	echo'</div>
-	<div class="col-lg-6">';
+	<div class="col-lg-2"></div>
+	<div class="col-lg-5 well-me">';
 	CreateMenuCategory();
 	
 	echo'</div></div>';
