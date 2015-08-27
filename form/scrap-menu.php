@@ -21,7 +21,7 @@
 		}
 		CreateMenuStatus();
 		CreateMenuSearched();
-		echo CreateWilayah($wilayah);
+		echo CreateWilayah($wilayah)."<br>";
 		
 		CreateSearch();
 		CreateSearchDate();
