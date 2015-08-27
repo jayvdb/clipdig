@@ -18,7 +18,7 @@
 				<li  class="" >
 					<a class="dropdown-toggle <?php if($_GET['m']=="Scrap"){echo "selected";}?>" href="#"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-download"></i> Scrap <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-			            <li><a href="?m=Scrap&l=AddBySite" ><i class="fa fa-globe"></i>  Add by Site</a></li>
+			           <!-- <li><a href="?m=Scrap&l=AddBySite" ><i class="fa fa-globe"></i>  Add by Site</a></li> -->
 			            <li><a href="?m=Scrap&l=Data" ><i class="fa fa-table"></i>  Data</a></li>
 			            <li><a href="?m=Scrap&l=DataCount" ><i class="fa fa-table"></i>  Data Count</a></li>
 			            <li><a href="?m=Scrap&l=Chart" ><i class="fa fa-bar-chart"></i>  Simple Chart</a></li>

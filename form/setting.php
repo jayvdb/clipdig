@@ -27,7 +27,7 @@
 		elseif($op=="get_content_from_newsd"){
 			$a = exec('clipdig get_content_from_newsd');
 			//send_notif('get_content_from_newsd starting');
-			echo $a;
+			send_notif($a);
 		}
 	}
 ?>
@@ -70,14 +70,14 @@
 				
 			</td>
 		</tr>
-		<tr>
+		<!-- <tr>
 			<td>Get Content First:</td>
 			<td class="checkbox"><input type="checkbox" name="GetContentFirst"  value="1" class="checkbox" <?php if(Settings('GetContentFirst')=="1"){echo "checked ";}?> >Enable</td>
 		</tr>
 		<tr>
 			<td>Get Photo:</td>
 			<td class="checkbox"><input type="checkbox" name="GetPhoto"  value="1" class="checkbox" <?php if(Settings('GetPhoto')=="1"){echo "checked ";}?> >Enable</td>
-		</tr>
+		</tr> -->
 	</table>
 	<div><button type="submit" name="savesettings" class=" btn btn-primary"><i class="fa fa-save"></i> Save</button></div>
 	</form>

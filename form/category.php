@@ -1,21 +1,40 @@
 <?php
+	$location = ifset('m').ifset('l');
 	if(isset($_POST['add_category'])){
 		$name = $_POST['name'];
 		$automatic = $_POST['automatic'];
 		
 		$save =add_category($name,$automatic);
-		if($save==0){		send_notif("In Use");}
-		elseif($save==1){	send_notif("Saved");}
-		else{					send_notif("Failed");}
+		if($save==0){
+			send_notif("Sudah dipakai");
+			setHistory($_SESSION['user_id'],$location,"Menambah Kategori [$name|$automatic|Sudah dipakai]",$NOW);
+		}
+		elseif($save==1){	
+			send_notif("Tersimpan");
+			setHistory($_SESSION['user_id'],$location,"Menambah Kategori [$name|$automatic|Tersimpan]",$NOW);
+		}
+		else{					
+			send_notif("Gagal");
+			setHistory($_SESSION['user_id'],$location,"Menambah Kategori [$name|$automatic|Gagal]",$NOW);
+		}
 	}
 	elseif(isset($_POST['save_category'])){
 		$category = $_POST['category'];
 		$data = strtolower($_POST['data']);
 		$save = save_category_data($category,$data);
 		
-		if($save==0){		send_notif("In Use");}
-		elseif($save==1){	send_notif("Saved");}
-		else{					send_notif("Failed");}
+		if($save==0){
+			send_notif("Sudah dipakai");
+			setHistory($_SESSION['user_id'],$location,"Menambah data Kategori [$category|$data|Sudah dipakai]",$NOW);
+		}
+		elseif($save==1){
+			send_notif("Tersimpan");
+			setHistory($_SESSION['user_id'],$location,"Menambah data Kategori [$category|$data|Tersimpan]",$NOW);
+		}
+		else{
+			send_notif("Gagal");
+			setHistory($_SESSION['user_id'],$location,"Menambah data Kategori [$category|$data|Gagal]",$NOW);
+		}
 	}
 	//elseif(isset($_POST['delete_category'])){
 		//$category = $_POST['category'];
@@ -23,7 +42,7 @@
 		
 		//$delete = delete_category_data($category,$data);
 		//if($delete){		send_notif("Success");}
-		//else{ 				send_notif("Failed");}
+		//else{ 				send_notif("Gagal");}
 		
 	//}
 	elseif(isset($_GET['op'])){
@@ -32,12 +51,15 @@
 		$category=ifset('category');
 		
 		if($op=="delete_category"){
+			setHistory($_SESSION['user_id'],$location,"Menghapus Kategori [$data]",$NOW);
 			delete_category($data);
 		}
 		elseif($op=="delete_category_data"){
 			delete_category_data($category,$data);
+			setHistory($_SESSION['user_id'],$location,"Menghapus data Kategori [$category|$data]",$NOW);
 		}
 	}
+
 ?>
 
 <div class="col-lg-12">

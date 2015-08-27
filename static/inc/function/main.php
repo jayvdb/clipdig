@@ -125,6 +125,7 @@ function View(){
 			
 			 <br><br>
 			<textarea name="artikel" class="form-control" rows="15">'.html_entity_decode(Balikin($data['artikel'])).'</textarea>
+			'.get_update_by($data['kode']).'
 		
 		</div>
 		
@@ -263,6 +264,26 @@ function getCount($media,$WHERE,$waktu){
 	$d = mysql_fetch_array($q);
 	
 	return $d['count'];
+}
+function update_by($kode,$user_id){
+	$NOW = date("Y-m-d H:i:s");
+	$qry = mysql_query("UPDATE `data` SET `update`='$NOW', `update_by`='$user_id'  WHERE `kode`='$kode'")or die(mysql_error());
+	if($qry){
+		return 1;
+	}
+}
+function get_update_by($kode){
+	$q = mysql_query("select `update`,`update_by` from `data` where `kode`='$kode'")or die(mysql_error());
+	$d = mysql_fetch_array($q);
+	
+	
+	if($d['update_by']>0){
+		$qq = mysql_query("select `user_real_name` from `user` where `user_id`='".$d['update_by']."' ")or die(mysql_error());
+		$dd = mysql_fetch_array($qq);
+		
+		return '<small>terakhir diubah oleh:<b> '.$dd['user_real_name'].'</b> pada: <b>'.$d['update'].'</b></small>';
+	}
+	
 }
 
 

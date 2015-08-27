@@ -273,6 +273,7 @@ function SaveSettings($name,$value){
 	
 }
 function SaveUser($UserGroup,$UserName,$UserRealName,$UserPassword,$UserRePassword){
+	$NOW = date("Y-m-d H:i:s");
 	if($UserRePassword != $UserPassword){
 		echo "User password not same";
 	}
@@ -280,9 +281,10 @@ function SaveUser($UserGroup,$UserName,$UserRealName,$UserPassword,$UserRePasswo
 		$q = mysql_query("INSERT INTO `user` (`group_id`,`user_name`,`user_real_name`,`user_password`,`created`)
 								VALUES ('$UserGroup','$UserName','$UserRealName','".md5($UserRePassword)."','$NOW')")
 						or die(mysql_error());
-		header("location:".$_SESSION['uri']);
+		if($q){
+			send_notif("Berhasil");
+		}
 	}
-	
 }
 function UpdateUser($UserId,$UserGroup,$UserName,$UserRealName,$UserPassword,$UserRePassword){
 	if($UserRePassword != $UserPassword){
@@ -300,6 +302,7 @@ function setLastLogin($user_id){
 }
 //history
 function setHistory($user_id,$log_location,$log_message,$log_time){
+	$log_message = UbahSimbol($log_message);
 	mysql_query("INSERT INTO `system_log` (`user_id`,`log_location`,`log_message`,`log_time`) VALUES('$user_id','$log_location','$log_message','$log_time') ") OR DIE(mysql_error());
 	return true;
 }

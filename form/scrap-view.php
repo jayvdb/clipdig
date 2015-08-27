@@ -1,6 +1,7 @@
 <div class="col-lg-12">
 <div class="well-sm well-me">
 <?php
+	$location = ifset('m').ifset('l');
 	$op = ifset('op');
 	$kode = ifset('kode');
 	$ids = ifset('ids');
@@ -20,6 +21,7 @@
 			else{
 				View();
 			}	
+			//setHistory($_SESSION['user_id'],$location,"melihat data $kode",$NOW);
 		}
 		elseif($op=="reload"){
 			include("module/".$media."/get_content.php");
@@ -33,6 +35,8 @@
 			$category_data = $category[1];
 			
 			echo update_category_from_view($kode,$category_name,$category_data);
+			update_by($kode,$_SESSION['user_id']);
+			setHistory($_SESSION['user_id'],$location,"merubah data [$kode] [$category_name|$category_data]",$NOW);
 		}
 
 		if(isset($_POST['simpan'])){
@@ -40,10 +44,13 @@
 			$status = $_POST['status'];
 			$wilayah = $_POST['wilayah'];
 			update_data($kode,$artikel,$status,$wilayah);
+			update_by($kode,$_SESSION['user_id']);
+			setHistory($_SESSION['user_id'],$location,"merubah data [$kode] [Status|$status][Wilayah|$wilayah]",$NOW);
 		}
 	}
 	else{
 		header("location:?m=Scrap&l=Data");
+		setHistory($_SESSION['user_id'],$location,"melihat data kosong",$NOW);
 	}	
 
 	
