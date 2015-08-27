@@ -310,6 +310,7 @@ function CreateSearch(){
 }
 function CreateSearchDate(){
 	echo ' 
+	<div class="col-lg-12 row">
 	<form method="GET" action="">
 		<table>
 			<tr>
@@ -341,7 +342,8 @@ function CreateSearchDate(){
 				</td>
 			</tr>
 		</table>
-	</form>';
+	</form>
+	</div>';
 }
 
 function CreateWilayah($wilayah=null){
