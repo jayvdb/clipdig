@@ -14,23 +14,30 @@
 	elseif(empty($page)){$page=1;}
 	
 	echo '
-	<div class="col-lg-12 row">
-	<div class="col-lg-6"><div class="well-sm well-me"><div class="col-lg-12">';
-		if(ifset('l')=="Data"){
+	<div class="col-lg-12 well-me">
+	<div class="col-lg-6">';
+	if(ifset('l')=="Data"){
 			CreateMenuMedia();
 		}
 		CreateMenuStatus();
 		CreateMenuSearched();
-		
-		echo '</div><div class="col-lg-12">'.CreateWilayah($wilayah).;
+	echo CreateWilayah($wilayah);
 		
 		CreateSearch();
 		CreateSearchDate();
-	echo'</div></div></div>';
-
-	echo '<div class="col-lg-6 well-me">';
-		CreateMenuCategory();
 	echo'</div>
-	</div>';
+	<div class="col-lg-6">';
+	CreateMenuCategory();
+	
+	echo'</div></div>';
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 ?>
