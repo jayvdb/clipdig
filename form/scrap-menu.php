@@ -15,17 +15,18 @@
 	
 	echo '
 	<div class="col-lg-12 row">
-	<div class="col-lg-6"><div class="well-sm well-me">';
+	<div class="col-lg-6"><div class="well-sm well-me"><div class="col-lg-12">';
 		if(ifset('l')=="Data"){
 			CreateMenuMedia();
 		}
 		CreateMenuStatus();
 		CreateMenuSearched();
-		echo CreateWilayah($wilayah)."<br>";
+		
+		echo '</div><div class="col-lg-12">'.CreateWilayah($wilayah).;
 		
 		CreateSearch();
 		CreateSearchDate();
-	echo'</div></div>';
+	echo'</div></div></div>';
 
 	echo '<div class="col-lg-6 well-me">';
 		CreateMenuCategory();
