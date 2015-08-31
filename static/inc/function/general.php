@@ -43,7 +43,7 @@ function UbahSimbol($str){
 	return $str;
 	
 }
-function Balikin($str){
+function Balikins($str){
 	$search = array ("'xpsijix'",
 						"'xprsnx'",
 						"'xtkeongx'",
@@ -87,6 +87,13 @@ function Balikin($str){
 
 	return $str;
  }
+ function Balikin($str){
+	$str=Balikins($str);
+	$str = htmlspecialchars_decode(htmlspecialchars_decode(html_entity_decode($str, ENT_NOQUOTES, 'UTF-8')));
+	
+	return $str;
+}
+ 
 function UbahXXX($str){
 	$str = trim(htmlentities(htmlspecialchars($str)));
 	$search = array ("'\''",
