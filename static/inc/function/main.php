@@ -114,7 +114,7 @@ function View(){
 	<div class="row">
 	<form method="POST" action="?m='.ifset('m').'&l='.ifset('l').'&a='.ifset('a').'&kode='.$data['kode'].'">
 		<div class="col-lg-8">
-		   <h3>'.html_entity_decode(Balikin($data['judul']), ENT_NOQUOTES, 'UTF-8').'</h3>
+		   <h3>'.htmlspecialchars_decode(htmlspecialchars_decode(html_entity_decode(Balikin($data['judul']), ENT_NOQUOTES, 'UTF-8'))).'</h3>
 		   <small>'.strtoupper(Balikin($data['media'])).' | '.Balikin($data['waktu']).' | '.Balikin($data['penulis']).'</small>
 			<small><a class="" target="_blank" href="'.Balikin($data['link']).'" title="Visit Link">Visit link</a></small>
 			
@@ -124,7 +124,7 @@ function View(){
 			</div>
 			
 			 <br><br>
-			<textarea name="artikel" class="form-control" rows="15">'.html_entity_decode(Balikin($data['artikel'])).'</textarea>
+			<textarea name="artikel" class="form-control" rows="15">'.htmlspecialchars_decode(htmlspecialchars_decode(html_entity_decode(Balikin($data['artikel'])))).'</textarea>
 			'.get_update_by($data['kode']).'
 		
 		</div>
