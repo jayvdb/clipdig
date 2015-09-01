@@ -1,7 +1,7 @@
 <script>
 	<?php
 	
-		$name = array('Kode','Provinsi','Kota/Kabupaten','Media','Judul Berita','Tanggal','URL Berita','Gambar');
+		$name = array('Kode','Provinsi','Kota/Kabupaten','Media','Tanggal');
 		foreach(list_category("") as $cat){
 			$category = $cat[0];
 			$category = str_replace("category_","",$category);
@@ -9,10 +9,10 @@
 			$category = ucwords($category);
 			array_push($name,$category);
 		}
-		array_push($name,'Waktu diambil');
+		//array_push($name,'Waktu diambil');
 		
 		$data = array();
-		$q = mysql_query("select * from `data` where `status`!='4' ")or die(mysql_error());
+		$q = mysql_query("select * from `data` where `status`!='4'  ")or die(mysql_error());
 
 		while($d=mysql_fetch_array($q)){
 			$wilayah = $d['wilayah'];
@@ -33,18 +33,19 @@
 			
 			$kode 	= $d['kode'];
 			$media 	= Balikin($d['media']);
-			$judul 	= Balikin($d['judul']);
+			//$judul 	= Balikin($d['judul']);
 			$tanggal= Balikin($d['waktu']);
-			$url	= Balikin($d['link']);
-			$gambar	= Balikin($d['photo']);
-			$diambil= Balikin($d['created']);
+			//$url	= Balikin($d['link']);
+			//$gambar	= Balikin($d['photo']);
+			//$diambil= Balikin($d['created']);
 			
-			$datas = array($kode,$provinsi,$kotkab,$media,$judul,$tanggal,$url,$gambar);
+			//$datas = array($kode,$provinsi,$kotkab,$media,$judul,$tanggal,$url,$gambar);
+			$datas = array($kode,$provinsi,$kotkab,$media,$tanggal);
 			foreach(list_category("") as $cat){
 				$cats = get_data_category($kode,$cat[0]);
 				array_push($datas,$cats);
 			}
-			array_push($datas,$diambil);
+			//array_push($datas,$diambil);
 			
 			array_push($data,$datas);	
 		}		
