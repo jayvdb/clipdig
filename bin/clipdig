@@ -5,7 +5,7 @@ FOLDER="/var/www/html/clipdig/"
 function get_data_from_newsd {
 	
 	BERKAS="get_data_from_newsd.php"
-	HASIL=`ps -aux | sed -n /${BERKAS}/p | grep -v sed | awk '{print $12}'` 
+	HASIL=`ps aux | sed -n /${BERKAS}/p | grep -v sed | awk '{print $12}'` 
 	
 	if [ "$HASIL" = "$BERKAS" ]; then
 	    
@@ -24,9 +24,13 @@ function start {
 }
 
 function stop {
-	HASIL = `ps -aux | sed -n /get_data_from_newsd.php/p | grep -v sed | grep -v geany | awk '{print $2}'`
-	kill $HASIL
-	echo "get_data_from_newsd.php 		[stopped]"
+	a="get_data_from_newsd"
+	pa="`ps aux | grep -v grep | grep "$a" | awk '{print $2}'`"
+	
+	if [ $pa > 0 ]; then
+		kill $pa	
+		echo "$a.php 		[stoping]"
+	fi	
 }
 
 if [ $KOMAN = "get_content_from_newsd" ] || [ $KOMAN = "start"  ]
