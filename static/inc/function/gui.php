@@ -9,7 +9,7 @@ function CreateMenuMedia(){
 				if($me==ifset('me')){
 					$menu .= 'selected="selected"';
 				}
-			$menu .='>'.ucfirst($me).'</option>';
+			$menu .='>'.Balikin(ucfirst($me)).'</option>';
 		}
 	$menu .='</select></div>';
 	echo $menu;
