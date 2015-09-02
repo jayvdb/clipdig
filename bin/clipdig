@@ -1,6 +1,12 @@
 #!/bin/bash
 KOMAN=$1
 FOLDER="/var/www/html/clipdig/"
+LOG="/var/log/clipdig/"
+
+if [ ! -d $LOG ]; then
+	mkdir -p $LOG
+	chmod -R 666 $LOG
+fi
 
 function get_data_from_newsd {
 	
@@ -15,7 +21,7 @@ function get_data_from_newsd {
 	    
 	    cd $FOLDER
 	    echo "$BERKAS 		[starting]"
-	    php $BERKAS > $FOLDER"log/get_data_from_newsd.log" 2>&1 & 
+	    php $BERKAS >> $LOG"get_data_from_newsd.log" 2>&1 & 
 	fi
 }
 
