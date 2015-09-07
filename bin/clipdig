@@ -21,7 +21,8 @@ function get_data_from_newsd {
 	    
 	    cd $FOLDER
 	    echo "$BERKAS 		[starting]"
-	    php $BERKAS >> $LOG"get_data_from_newsd.log" 2>&1 & 
+	    #php $BERKAS >> $LOG"get_data_from_newsd.log" 2>&1 & 
+	    (date +%Y-%m-%d:%H:%M:%S 1>&2 ; php $BERKAS ) 2>>$LOG"get_data_from_newsd.log" &
 	fi
 }
 
