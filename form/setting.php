@@ -2,8 +2,10 @@
 	if(isset($_POST['savesettings'])){		
 		SaveSettings("DataPerPage",$_POST['DataPerPage']);
 		SaveSettings("DefaultSearch",$_POST['DefaultSearch']);
-		SaveSettings("GetContentFirst",$_POST['GetContentFirst']);
-		SaveSettings("GetPhoto",$_POST['GetPhoto']);
+		//SaveSettings("GetContentFirst",$_POST['GetContentFirst']);
+		//SaveSettings("GetPhoto",$_POST['GetPhoto']);
+		SaveSettings("URLSource",$_POST['URLSource']);
+		SaveSettings("URLSourceLimit",$_POST['URLSourceLimit']);
 
 		echo "<script>alert('Setting has been Saved');window.location='?m=Setting'</script>";
 	}
@@ -55,10 +57,6 @@
 			<td><input type="number" name="DataPerPage" value="<?php echo Settings('DataPerPage'); ?>" class="form-control"></td>
 		</tr>
 		<tr>
-			<td>Default Search:</td>
-			<td><input type="text" name="DefaultSearch" value="<?php echo Settings('DefaultSearch');?>" class="form-control"></td>
-		</tr>
-		<tr>
 			<td>Time Out:</td>
 			<td>
 				<div class="input-group">
@@ -78,6 +76,19 @@
 			<td>Get Photo:</td>
 			<td class="checkbox"><input type="checkbox" name="GetPhoto"  value="1" class="checkbox" <?php if(Settings('GetPhoto')=="1"){echo "checked ";}?> >Enable</td>
 		</tr> -->
+		<tr>
+			<td>URL Source:</td>
+			<td><input type="text" name="URLSource" value="<?php echo Settings('URLSource');?>" class="form-control"></td>
+		</tr>
+		<tr>
+			<td>URL Source Limit:</td>
+			<td><input type="number" name="URLSourceLimit" value="<?php echo Settings('URLSourceLimit');?>" class="form-control"></td>
+		</tr>
+		<tr>
+			<td>Default Search:</td>
+			<td><input type="text" name="DefaultSearch" value="<?php echo Settings('DefaultSearch');?>" class="form-control"></td>
+		</tr>
+		
 	</table>
 	<div><button type="submit" name="savesettings" class=" btn btn-primary"><i class="fa fa-save"></i> Save</button></div>
 	</form>

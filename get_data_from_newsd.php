@@ -4,10 +4,8 @@ include ("static/inc/function.php");
 include ("static/inc/conf.php");
 
 
-$target = "http://202.146.128.250:8222/xml.php?search=$DefaultSearch&limit=100";
-
-
-	$xml = simplexml_load_file($target);
+	$target = $URLSource.$DefaultSearch."&limit=".$URLSourceLimit;
+	$xml 	= simplexml_load_file($target);
 
 	foreach($xml->item as $item){
 		$kode =  $item->kode;
