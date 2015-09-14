@@ -82,7 +82,10 @@
 		</tr>
 		<tr>
 			<td>URL Source Limit:</td>
-			<td><input type="number" name="URLSourceLimit" value="<?php echo Settings('URLSourceLimit');?>" class="form-control"></td>
+			<td>
+				<input type="number" name="URLSourceLimit" value="<?php echo Settings('URLSourceLimit');?>" class="form-control">
+				<small>-1: limit 2000</small>
+			</td>
 		</tr>
 		<tr>
 			<td>Default Search:</td>
