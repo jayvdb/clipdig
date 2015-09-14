@@ -208,6 +208,7 @@ function save_data_from_newsd($search,$kode,$media,$title,$date,$news,$writer,$u
 	$title  	= UbahSimbol($title);
 	$news		= UbahSimbol($news);
 	$url 		= UbahSimbol($url);
+	$writer 	= UbahSimbol($writer);
 	$image 	= UbahSimbol($image);
 	
 	$check = mysql_query("select * from `data` where `kode`='$kode'")or die(mysql_error());
