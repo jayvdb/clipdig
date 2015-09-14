@@ -31,6 +31,8 @@
 	<script src="<?php echo $URL ?>static/js/jquery.csv-0.71.min.js"></script>
 	<script src="<?php echo $URL ?>static/js/chosen.jquery.js"></script>
 	<script src="<?php echo $URL ?>static/js/c3.min.js"></script>
+	<script src="<?php echo $URL ?>static/js/table2CSV.js"></script>
+	
 	
     
 

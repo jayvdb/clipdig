@@ -44,5 +44,19 @@ $(document).ready(function(){
 		$('input[name=tgl2]').parent().attr('data-date-start-date',val);
 	});
 	
-	
+	$('#getcsv').click(function() {
+		var head = [];
+		var a = $('#tocsv th').length;
+		for(i=0;i<a;i++){
+			t = $('#tocsv th:eq('+i+')').text();
+			head.push(t);
+		}
+		
+		var csv_value=$('#tocsv').table2CSV({
+				delivery:'value',
+				header:head
+			});
+		$("#csv_text").val(csv_value); 
+		//alert(csv_value);
+	});
 });

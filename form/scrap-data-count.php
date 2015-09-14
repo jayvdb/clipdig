@@ -3,20 +3,15 @@
 <div class="col-lg-12">
 <div class="well-sm well-me">
 <div class="table-responsive">
-<table class="table table-hover  table-striped get" >
+<table class="table table-hover  table-striped get" id="tocsv" >
 	<thead>
 	<tr>
-		<th width="50px">No.</th>
 		<th width="150px">Publish</th>
 		<?php
-		   $csv_hdr="Date Publish,";
-		
 			$ShowMedia = explode(",",ShowMedia());
 			foreach($ShowMedia as $b){
-				echo "<th>$b</th>";
-				$csv_hdr .= $b.",";
+				echo "<th>".Balikin($b)."</th>";
 			}
-			$csv_hdr = substr($csv_hdr,0,strlen($csv_hdr)-1);
 		?>
 	</tr>
 	</thead>
@@ -95,7 +90,7 @@
 
 
 
-$csv_output="";			
+//$csv_output="";			
 if(!empty($_GET['tgl1']) AND !empty ($_GET['tgl2'])){
 	$q = "SELECT DISTINCT `waktu` as `waktu` FROM `data` $WHERE  ORDER BY `waktu` DESC ";
 }
@@ -108,15 +103,13 @@ while ($b=mysql_fetch_array($qry)){
 	$NO0++;
 	echo '
 	<tr>
-		<td align="right" >'.$NO0.'.</td>
+		<!-- <td align="right" >'.$NO0.'.</td> -->
 		<td align="center" >'.$b['waktu'].'</td>';
-		$csv_output .=$b['waktu'].",";
+		//$csv_output .=$b['waktu'].",";
 	foreach($ShowMedia as $data){
 		echo '<td align="center">'.getCount($data,$WHERE,$b['waktu']).'</td>';
-		$csv_output .=getCount($data,$WHERE,$b['waktu']).",";
 	}
 	echo '</tr>';
-	$csv_output = substr($csv_output,0,strlen($csv_output)-1)."\n";	
 }
 ?>
 </tbody>
@@ -125,10 +118,9 @@ while ($b=mysql_fetch_array($qry)){
 </div>
 
 <form name="export" action="<?php echo $URL."form/getcsv.php";?>" method="post">
-    <button class="btn-primary btn-xs" id="getcsv" type="submit"><i class="fa fa-download"></i> Get CSV</button>
-    <input type="hidden" value="<?php echo $csv_hdr; ?>" name="csv_hdr">
-    <input type="hidden" value="<?php echo $csv_output; ?>" name="csv_output">
+    <button class="btn-primary btn-xs" id="getcsv" type="submit" ><i class="fa fa-download"></i> Get CSV</button>
     <input type="hidden" value="<?php echo $NAME_FILE;?>" name="csv_name">
+    <input type="hidden" value="" name="csv_text" id="csv_text">
 </form>
 </div>
 </div>

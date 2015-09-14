@@ -34,7 +34,7 @@ else{
 		$chart_data .= '{y:\''.$b['waktu'].'\',';
 		$count_data="";
 		foreach($ShowMedia as $data){
-			$count_data.= '\''.$data.'\':'.getCount($data,$WHERE,$b['waktu']).",";
+			$count_data.= '\''.Balikin($data).'\':'.getCount($data,$WHERE,$b['waktu']).",";
 		}
 		$chart_data .= substr($count_data,0,strlen($count_data)-1);
 		$chart_data .='},';
@@ -42,13 +42,13 @@ else{
 	$chart .= substr($chart_data,0,strlen($chart_data)-1);
 	$chart .="],xkey: 'y',ykeys: [";
 		foreach($ShowMedia as $data){
-			$key.= '\''.strtolower($data).'\',';
+			$key.= '\''.strtolower(Balikin($data)).'\',';
 		}
 		$chart .= substr($key,0,strlen($key)-1);
 	
 	$chart.="],labels: [";
 		foreach($ShowMedia as $data){
-			$label.= '\''.strtoupper($data).'\',';
+			$label.= '\''.strtoupper(Balikin($data)).'\',';
 		}
 		$chart .= substr($label,0,strlen($label)-1);
 	$chart .="],

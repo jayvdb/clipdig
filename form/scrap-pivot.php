@@ -96,6 +96,7 @@
 	<div class="col-lg-12 well-me">
 	<div class="table-responsive">
 		<div id="output"></div>
+		<div id="aa"><?php echo $dataset; ?></div>
 	</div>
 	</div>
 	</div>
