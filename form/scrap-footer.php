@@ -1,5 +1,5 @@
 <?php 
-	echo "<div class='col-lg-12'><div class='col-lg-12 well-me'><small>query</small><br><textarea cols='150' rows='2'>".$q."</textarea></div></div><br> ";
+	//echo "<div class='col-lg-12'><div class='col-lg-12 well-me'><small>query</small><br><textarea cols='150' rows='2'>".$q."</textarea></div></div><br> ";
 ?>
 <script>
 	locations = $(location).attr('href');
