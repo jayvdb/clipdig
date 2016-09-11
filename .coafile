@@ -1,0 +1,29 @@
+[Default]
+
+[PHPTab]
+language = php
+files = **.php
+ignore = form/navigasi.php, form/simple_html_dom.php
+# CPDBear not enabled as it shows too many errors
+bears = FilenameBear,InvalidLinkBear,LineCountBear,LineLengthBear,PHPLintBear,SpaceConsistencyBear,coalaBear
+use_spaces = False
+max_line_length = 319
+max_lines_per_file = 400
+allow_trailing_whitespace = True
+link_ignore_regex = ([.\/]domain\.com|\{|\$)
+
+[PHPNoTab]
+language = php
+files = form/navigasi.php
+bears = FilenameBear,InvalidLinkBear,LineCountBear,LineLengthBear,PHPLintBear,SpaceConsistencyBear,coalaBear
+use_spaces = True
+max_line_length = 255
+max_lines_per_file = 100
+link_ignore_regex = ([.\/]domain\.com|\{|\$)
+
+[PHPUpstream]
+language = php
+files = form/simple_html_dom.php
+bears = FilenameBear,InvalidLinkBear,LineLengthBear,PHPLintBear,coalaBear
+use_spaces = True
+max_line_length = 263
