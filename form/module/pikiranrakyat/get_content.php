@@ -9,10 +9,10 @@
 // ---------------------------------------------------- //
 // CHANGE THIS
 // ---------------------------------------------------- //
-//	example
+// example
 // http://subdomain.domain.com/article/title.html
 //
-	$split_1 = explode("/",$target); //	split link by `/` (slash)
+	$split_1 = explode("/",$target); // split link by `/` (slash)
 	$split_2 = explode(".",$split_1[2]); // split by `.` (dot) from $split_1 array 2nd
 	$category = $split_2[0];
 	$category1 = $split_1[2];
