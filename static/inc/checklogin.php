@@ -2,8 +2,8 @@
 //session_start();
 //jika session username belum dibuat, atau session username kosong
 if (!isset($_SESSION['login'])) {
-    //redirect ke halaman login
-    header('location:?m=Login');
+	//redirect ke halaman login
+	header('location:?m=Login');
 }
 else{
 	$now= time();

@@ -56,9 +56,9 @@
 
 			var derivers =	$.pivotUtilities.derivers;
 			var renderers = $.extend(
-	                           $.pivotUtilities.renderers,
-	                           $.pivotUtilities.c3_renderers
-                           );
+				$.pivotUtilities.renderers,
+				$.pivotUtilities.c3_renderers
+			);
 			var input = [
 				';
 				$dataset="";
