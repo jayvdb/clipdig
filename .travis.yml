@@ -1,0 +1,3 @@
+language: generic
+services: docker
+script: docker run --volume=$(pwd):/app --workdir=/app coala/base bash -c 'pip3 install -U --pre coala coala-bears; coala-ci'
