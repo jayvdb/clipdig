@@ -19,8 +19,7 @@
 
 
 	//article-detail
-	if(	$category1 == "sp.beritasatu.com"
-	){
+	if( $category1 == "sp.beritasatu.com" ){
 		foreach($html->find('div[id=contentwrapper]') as $artikel){
 			foreach($artikel->find('img[class=firstimage]') as $l){
 				$photo = $l->src;
@@ -33,7 +32,7 @@
 			save_data($kode,$photo,$artikels,$penulis);
 		}
 	}
-	elseif(	$category == "video" ){
+	elseif( $category == "video" ){
 		foreach($html->find('div[class=w620 aleft mt10]') as $artikel){
 			$photo = "";
 			foreach($artikel->find('div[class=f14 c6 bodyp]') as $l){

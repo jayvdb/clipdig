@@ -18,7 +18,7 @@
 
 
 	//article-detail
-	if(	$category == "politik-1" OR
+	if( $category == "politik-1" OR
 			$category == "hukum-1" OR
 			$category == "dpd-ri-update-1" OR
 			$category == "nusantara-1"

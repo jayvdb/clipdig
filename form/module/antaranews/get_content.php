@@ -19,9 +19,7 @@
 
 
 	//article-detail
-	if(	$category == "www" OR
-			$category == "otomotif"
-	){
+	if( $category == "www" OR $category == "otomotif" ){
 		foreach($html->find('div.bjbrt') as $artikel){
 			foreach($artikel->find('div#image_news img') as $l){
 				$photo = $l->src;
@@ -38,8 +36,7 @@
 			save_data($kode,$photo,$artikels,$penulis);
 		}
 	}
-	elseif(	$category == "ramadhan"
-	){
+	elseif( $category == "ramadhan" ){
 		foreach($html->find('div.box_left') as $artikel){
 			foreach($artikel->find('div.dtbground div img') as $l){
 				$photo = $l->src;
