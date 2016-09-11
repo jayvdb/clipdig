@@ -5,7 +5,7 @@
 	$search_link ="";$link ="";$title ="";$time="";
 	for($i=$start;$i<=$to;$i++){
 		$a = $i; //CHANGE THIS
-		$search_link .='||'.'http://www.kompasiana.com/search?q='.rawurlencode($search).'&page='.$i;  //CHANGE THIS
+		$search_link .='||'.'http://www.kompasiana.com/search?q='.rawurlencode($search).'&page='.$i; //CHANGE THIS
 	}
 	 
 	$pecah_search_link = explode("||",substr($search_link,2,strlen($search_link)));
@@ -18,7 +18,7 @@
 		
 		//CHANGE FROM THIS --------------------------------
 		foreach($html->find('div#list_artikel_index') as $list){ 
-			foreach($list->find('div.list-artikel div.title') as $li){  // find link 
+			foreach($list->find('div.list-artikel div.title') as $li){ // find link
 				$link_ = $li->first_child()->first_child()->href;
 				$link[$j] .='||'.$link_;
 			}

@@ -16,7 +16,7 @@
 		
 		//CHANGE FROM THIS --------------------------------
 		foreach($html->find('div[class=prl10 mt10]') as $list){ 
-			foreach($list->find('div a u') as $li){  // find link 
+			foreach($list->find('div a u') as $li){ // find link
 				$link_ = $li->parent()->href;
 				$link[$j] .='||'.$link_;
 			}

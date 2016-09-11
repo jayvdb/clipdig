@@ -14,8 +14,8 @@ echo '
 		
 	</div>
 		
-		<input name="start" type="hidden"  value="1">
-		<input name="to" type="hidden"  value="1">
+		<input name="start" type="hidden" value="1">
+		<input name="to" type="hidden" value="1">
 		<small class="text-danger">'.$note.'</small><br>
 		
 	

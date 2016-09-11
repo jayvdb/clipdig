@@ -12,7 +12,7 @@
 	$ShowMedia = explode(",",ShowMedia());
 			
 if(!empty($_GET['tgl1']) AND !empty ($_GET['tgl2'])){
-	$q = "SELECT DISTINCT `waktu` as `waktu` FROM `data` $WHERE  ORDER BY `waktu` DESC ";
+	$q = "SELECT DISTINCT `waktu` as `waktu` FROM `data` $WHERE ORDER BY `waktu` DESC ";
 }
 else{
 	$q = "SELECT DISTINCT YEAR(waktu) as `waktu` FROM `data` $WHERE ORDER BY `waktu` DESC ";

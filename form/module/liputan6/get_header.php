@@ -16,7 +16,7 @@
 		
 		//CHANGE FROM THIS --------------------------------
 		foreach($html->find('article.main') as $list){ 
-			foreach($list->find('h4 a') as $li){  // find link 
+			foreach($list->find('h4 a') as $li){ // find link
 				$link_ = $li->href;
 				$link[$j] .='||'.$link_;
 			}

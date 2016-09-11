@@ -16,7 +16,7 @@
 		
 		//CHANGE FROM THIS --------------------------------
 		foreach($html->find('div.left-kanal') as $list){ 
-			foreach($list->find('h4.jdl-ib a') as $li){  // find link 
+			foreach($list->find('h4.jdl-ib a') as $li){ // find link
 				$link_ = $li->href;
 				$link[$j] .='||'.$link_;
 			}

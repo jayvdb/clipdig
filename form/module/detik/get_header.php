@@ -16,7 +16,7 @@
 		
 		//CHANGE FROM THIS --------------------------------
 		foreach($html->find('div.tengah') as $list){ 
-			foreach($list->find('div.title') as $li){  // find link 
+			foreach($list->find('div.title') as $li){ // find link
 				$link_ = $li->children(0)->href;
 				$link_ = real_url($link_);
 				//$parse = explode("/",$link_);

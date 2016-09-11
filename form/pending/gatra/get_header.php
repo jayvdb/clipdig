@@ -17,7 +17,7 @@
 		
 		//CHANGE FROM THIS --------------------------------
 		foreach($html->find('dl.search-results') as $list){ 
-			foreach($list->find('dt.result-title a') as $li){  // find link 
+			foreach($list->find('dt.result-title a') as $li){ // find link
 				
 				$link_ = "http://www.gatra.com".$li->href;
 				$link[$j] .='||'.$link_;
