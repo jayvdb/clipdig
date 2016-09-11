@@ -355,7 +355,7 @@ function CreateWilayah($wilayah=null){
 		$class1 = "menu-cmb";
 		$class2 = "";
 	}
-	$gui ='	<div class="'.$class1.'">
+	$gui ='<div class="'.$class1.'">
 				<small>Provinsi</small>
 				<select name="provinsi" id="prov" class="'.$class2.'"></select>
 			</div><div class="'.$class1.'">
