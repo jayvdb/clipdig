@@ -37,7 +37,7 @@ function CreateMenuStatus(){
 	echo $menu;
 }
 function CreateMenuSearched(){
-	$name ="Searched :"	;
+	$name = "Searched :";
 	$url = '?m='.ifset('m').'&l='.ifset('l').'&me='.ifset('me').'&st='.ifset('st').'&se='.ifset('se').'&tgl1='.ifset('tgl1').'&tgl2='.ifset('tgl2');
 	$menu = '<div class="menu-cmb">'.$name.'<select name="searched" class="" onchange="window.location.href=$(this).val();"><option value="'.$url.'&searched=">All</option>';
 		$ShowSearch = explode(",",ShowSearch());
