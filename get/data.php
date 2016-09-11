@@ -19,7 +19,7 @@ include ("../static/inc/function.php");
 			$wilayah = $d['wilayah'];
 			if(strlen($wilayah)>0 and strlen($wilayah)<=2 ){
 				$provinsi	= get_name_wilayah($wilayah);
-				$kotkab	="";
+				$kotkab ="";
 			}
 			elseif(strlen($wilayah)>3){
 				$wilayah	= explode(".",$wilayah);
@@ -28,7 +28,7 @@ include ("../static/inc/function.php");
 			}
 			else{
 				$provinsi	="";
-				$kotkab		="";
+				$kotkab ="";
 			}
 
 			$kode	= $d['kode'];

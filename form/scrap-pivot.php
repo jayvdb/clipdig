@@ -20,7 +20,7 @@
 			$lng = strlen($wilayah);
 			if($lng==2){
 				$provinsi	= get_name_wilayah($wilayah);
-				$kotkab	="";
+				$kotkab ="";
 			}
 			elseif($lng>2 and $lng<=5){
 				$wilayah	= explode(".",$wilayah);
@@ -29,7 +29,7 @@
 			}
 			else{
 				$provinsi	="";
-				$kotkab		="";
+				$kotkab ="";
 			}
 
 			$kode	= $d['kode'];

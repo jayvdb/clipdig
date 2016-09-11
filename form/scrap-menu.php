@@ -2,10 +2,10 @@
 <?php
 	$media		=ifset('me');
 	$page		=ifset('p');
-	$search		=ifset('se');
+	$search =ifset('se');
 	$tgl1		=ifset('tgl1');
 	$tgl2		=ifset('tgl2');
-	$status		=ifset('st');
+	$status =ifset('st');
 	$searched	=ifset('searched');
 	$wilayah	=ifset('wilayah');
 	$category	=ifset('category');
