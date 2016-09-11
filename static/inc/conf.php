@@ -1,18 +1,18 @@
 <?php
-$NAME 			= Settings("Name");
-$Version 		= Settings("Version");
-$Description 	= Settings("Description");
-$DefaultSearch 	= Settings("DefaultSearch");
-$DataPerPage 	= Settings("DataPerPage");
+$NAME			= Settings("Name");
+$Version		= Settings("Version");
+$Description	= Settings("Description");
+$DefaultSearch	= Settings("DefaultSearch");
+$DataPerPage	= Settings("DataPerPage");
 $TimeOut		= Settings("TimeOut");
 $URLSource		= Settings("URLSource");
 $URLSourceLimit	= Settings("URLSourceLimit");
 
 
-$NO0 			= 0;
-$NO1 			= 1;
-$NOW 			= date("Y-m-d H:i:s");
-$TODAY 			= date("Y-m-d");
+$NO0			= 0;
+$NO1			= 1;
+$NOW			= date("Y-m-d H:i:s");
+$TODAY			= date("Y-m-d");
 
 
 date_default_timezone_set($TIMEZONE);

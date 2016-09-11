@@ -18,10 +18,10 @@
 		
 				
 	//article-detail
-	if( 	$category == "hukum" OR	
-			$category == "aktual" OR 
-			$category == "nasional" OR 
-			$category == "ekonomi" OR 
+	if(	$category == "hukum" OR
+			$category == "aktual" OR
+			$category == "nasional" OR
+			$category == "ekonomi" OR
 			$category == "megapolitan" OR
 			$category == "aktualitas" OR
 			$category == "figur" OR
@@ -72,7 +72,7 @@
 			save_data($kode,$photo,$artikels,$penulis);
 		}
 	}
-	elseif( 	$category == "video" ){ 
+	elseif(	$category == "video"){
 		foreach($html->find('div[class=w620 aleft mt10]') as $artikel){
 			$photo = "";
 			foreach($artikel->find('div[class=f14 c6 bodyp]') as $l){

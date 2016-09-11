@@ -19,8 +19,8 @@
 		
 				
 	//article-detail
-	if( 	$category1 == "www.arrahmah.com" 
-	){ 
+	if(	$category1 == "www.arrahmah.com"
+	){
 		foreach($html->find('article.article') as $artikel){
 			foreach($artikel->find('div.media a img') as $l){
 				$photo = $l->src;

@@ -15,25 +15,25 @@
 		echo '<br><br><b>'.$start++.'. <a href="'.$target.'" target="_blank" >'.$target.'</a></b><hr><br>';
 		
 		//CHANGE FROM THIS --------------------------------
-		foreach($html->find('div.data') as $list){ 
-			foreach($list->find('h3 a') as $li){  // find link 
-				
-				$link_ 		= "http://www.antaranews.com".$li->href;
-				$link_ 		= real_url($link_);
-				$link[$j] 	.='||'.$link_;
+		foreach($html->find('div.data') as $list){
+			foreach($list->find('h3 a') as $li){ // find link
+
+				$link_		= "http://www.antaranews.com".$li->href;
+				$link_		= real_url($link_);
+				$link[$j]	.='||'.$link_;
 			}
 			foreach($list->find('h3 a') as $ti){ // find title
-				$title_ 		= $ti->plaintext;
-				$title[$j] 	.='||'.$title_;
+				$title_		= $ti->plaintext;
+				$title[$j]	.='||'.$title_;
 			}
 			foreach($list->find('div.date') as $tim){ //find time
-				$time_ 		= $tim->plaintext;
-				$pos 			= strpos($time_,"jam lalu");
+				$time_		= $tim->plaintext;
+				$pos			= strpos($time_,"jam lalu");
 				if($pos==true){
-					$time_ 	= date("Y-m-d");
+					$time_	= date("Y-m-d");
 				}else{
-					$time_ 	=explode(" ",$time_);		
-					$time_ 	= $time_[2]."-".$time_[1]."-".$time_[0];  
+					$time_	=explode(" ",$time_);
+					$time_	= $time_[2]."-".$time_[1]."-".$time_[0];
 				}
 				
 			
@@ -41,20 +41,20 @@
 			}
 		}
 		//CHANGE END THIS --------------------------------
-		
-		$array_link 	= explode("||",substr($link[$j],2,strlen($link[$j])));
-		$array_title 	= explode("||",substr($title[$j],2,strlen($title[$j])));
-		$array_time 	= explode("||",substr($time[$j],2,strlen($time[$j])));
-		$banyak 			= count($array_link);
-		
+
+		$array_link	= explode("||",substr($link[$j],2,strlen($link[$j])));
+		$array_title	= explode("||",substr($title[$j],2,strlen($title[$j])));
+		$array_time	= explode("||",substr($time[$j],2,strlen($time[$j])));
+		$banyak			= count($array_link);
+
 		for($k=0;$k<$banyak;$k++){
-			$data_link 		= $array_link[$k];
-			$data_title 	= $array_title[$k];
-			$data_time 		= $array_time[$k];
-			$data_kode 		= md5($data_link);
-			$data_search 	= $search;
-			$data_media 	= $media;
-	
+			$data_link		= $array_link[$k];
+			$data_title	= $array_title[$k];
+			$data_time		= $array_time[$k];
+			$data_kode		= md5($data_link);
+			$data_search	= $search;
+			$data_media	= $media;
+
 			$no=$k+1;
 			echo '<br>'.$no.'. <a href="?m=Scrap&l=View&op=edit&kode='.$data_kode.'">'.$data_title.'</a>';
 			

@@ -42,8 +42,7 @@
 		
 		//$delete = delete_category_data($category,$data);
 		//if($delete){		send_notif("Success");}
-		//else{ 				send_notif("Gagal");}
-		
+		//else{send_notif("Gagal");}
 	//}
 	elseif(isset($_GET['op'])){
 		$op=ifset('op');

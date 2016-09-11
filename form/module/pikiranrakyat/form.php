@@ -1,5 +1,5 @@
 <?php
-	$header 	= "http://www.pikiran-rakyat.com/";
+	$header	= "http://www.pikiran-rakyat.com/";
 	$note		= "dari tanggal terlama";
 
 echo '

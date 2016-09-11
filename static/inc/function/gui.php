@@ -108,9 +108,9 @@ function CreateMenuCategoryView($kode){
 		
 		if($category_names_automatic == 'category_tags'){
 			$gui_automatic_a	= '<div class="category-view"><label>'.$category_name_automatic.'</label><br>';
-			$gui_automatic_a 	.= '<small>'.get_data_category($kode,$category_names_automatic).'</small>';
-			$gui_automatic_a 	.= '</div>';
-			$gui_automatic 	.= $gui_automatic_a;
+			$gui_automatic_a	.= '<small>'.get_data_category($kode,$category_names_automatic).'</small>';
+			$gui_automatic_a	.= '</div>';
+			$gui_automatic	.= $gui_automatic_a;
 		}
 		else{
 			$gui_automatic_b = '<div class="menu-cmb-view category-view"><label>'.$category_name_automatic.'</label><select name="'.$category_names_automatic.'" class="form-control" >';
