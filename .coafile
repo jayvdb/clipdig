@@ -1,0 +1,10 @@
+[Default]
+
+[PHP]
+language = php
+files = **.php
+bears = CPDBear,FilenameBear,InvalidLinkBear,LineCountBear,LineLengthBear,PHPLintBear,coalaBear
+use_spaces = True
+max_line_length = 500
+max_lines_per_file = 500
+minimum_tokens = 500
