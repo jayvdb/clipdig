@@ -6,7 +6,7 @@
 	$DB_USER			= "clipdig";
 	$DB_PASSWORD	= "clipdig";
 	$DB_NAME			= "clipdig";
-	$list_table		= "Tables_in_".$DB_NAME;
+	$list_table = "Tables_in_".$DB_NAME;
 
 	define("__DB_NAME__", $DB_NAME);
 

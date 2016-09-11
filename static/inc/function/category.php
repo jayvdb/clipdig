@@ -192,7 +192,7 @@ function show_category_data($str){
 }
 function save_category_data($category,$data){
 	$ck_	= mysql_query("select `data` from `$category` where `data`='$data'")or die(mysql_error());
-	$ck	= mysql_num_rows($ck_);
+	$ck = mysql_num_rows($ck_);
 	if($ck>0){
 		return 0;
 	}

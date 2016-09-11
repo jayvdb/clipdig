@@ -23,7 +23,7 @@
 				$link[$j]	.='||'.$link_;
 			}
 			foreach($list->find('h3 a') as $ti){ // find title
-				$title_		= $ti->plaintext;
+				$title_ = $ti->plaintext;
 				$title[$j]	.='||'.$title_;
 			}
 			foreach($list->find('div.date') as $tim){ //find time
@@ -42,18 +42,18 @@
 		}
 		//CHANGE END THIS --------------------------------
 
-		$array_link	= explode("||",substr($link[$j],2,strlen($link[$j])));
+		$array_link = explode("||",substr($link[$j],2,strlen($link[$j])));
 		$array_title	= explode("||",substr($title[$j],2,strlen($title[$j])));
-		$array_time	= explode("||",substr($time[$j],2,strlen($time[$j])));
-		$banyak			= count($array_link);
+		$array_time = explode("||",substr($time[$j],2,strlen($time[$j])));
+		$banyak = count($array_link);
 
 		for($k=0;$k<$banyak;$k++){
 			$data_link		= $array_link[$k];
-			$data_title	= $array_title[$k];
+			$data_title = $array_title[$k];
 			$data_time		= $array_time[$k];
 			$data_kode		= md5($data_link);
 			$data_search	= $search;
-			$data_media	= $media;
+			$data_media = $media;
 
 			$no=$k+1;
 			echo '<br>'.$no.'. <a href="?m=Scrap&l=View&op=edit&kode='.$data_kode.'">'.$data_title.'</a>';

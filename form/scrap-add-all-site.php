@@ -1,6 +1,6 @@
 <?php
 	include("simple_html_dom.php");
-	$header	= "add by all site";
+	$header = "add by all site";
 	$note		= "Foot note";
 
 echo '

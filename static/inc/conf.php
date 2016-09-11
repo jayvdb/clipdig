@@ -6,7 +6,7 @@ $DefaultSearch	= Settings("DefaultSearch");
 $DataPerPage	= Settings("DataPerPage");
 $TimeOut		= Settings("TimeOut");
 $URLSource		= Settings("URLSource");
-$URLSourceLimit	= Settings("URLSourceLimit");
+$URLSourceLimit = Settings("URLSourceLimit");
 
 
 $NO0			= 0;

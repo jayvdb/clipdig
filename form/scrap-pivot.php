@@ -25,7 +25,7 @@
 			elseif($lng>2 and $lng<=5){
 				$wilayah	= explode(".",$wilayah);
 				$provinsi	= get_name_wilayah($wilayah[0]);
-				$kotkab	= get_name_wilayah($wilayah[0].".".$wilayah[1]);
+				$kotkab = get_name_wilayah($wilayah[0].".".$wilayah[1]);
 			}
 			else{
 				$provinsi	="";

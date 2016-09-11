@@ -353,7 +353,7 @@ function CreateWilayah($wilayah=null){
 	}
 	else{
 		$class1 = "menu-cmb";
-		$class2	= "";
+		$class2 = "";
 	}
 	$gui ='	<div class="'.$class1.'">
 				<small>Provinsi</small>

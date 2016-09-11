@@ -1,5 +1,5 @@
 <?php
-	$header	= "liputan6.com";
+	$header = "liputan6.com";
 	$note		= "hanya sampai halaman 15";
 
 echo '

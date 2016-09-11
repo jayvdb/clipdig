@@ -24,7 +24,7 @@ include ("../static/inc/function.php");
 			elseif(strlen($wilayah)>3){
 				$wilayah	= explode(".",$wilayah);
 				$provinsi	= get_name_wilayah($wilayah[0]);
-				$kotkab	= get_name_wilayah($wilayah[0].".".$wilayah[1]);
+				$kotkab = get_name_wilayah($wilayah[0].".".$wilayah[1]);
 			}
 			else{
 				$provinsi	="";
@@ -36,7 +36,7 @@ include ("../static/inc/function.php");
 			$judul	= Balikin($d['judul']);
 			$tanggal= Balikin($d['waktu']);
 			$url	= Balikin($d['link']);
-			$gambar	= Balikin($d['photo']);
+			$gambar = Balikin($d['photo']);
 			$diambil= Balikin($d['created']);
 
 			$datas = array($kode,$provinsi,$kotkab,$media,$judul,$tanggal,$url,$gambar);

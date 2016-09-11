@@ -203,12 +203,12 @@ function save_data($kode,$photo,$artikel,$penulis){
 }
 
 function save_data_from_newsd($search,$kode,$media,$title,$date,$news,$writer,$url,$image,$created_time){
-	$search	= UbahSimbol($search);
+	$search = UbahSimbol($search);
 	$media	= UbahSimbol($media);
 	$title	= UbahSimbol($title);
 	$news		= UbahSimbol($news);
 	$url		= UbahSimbol($url);
-	$writer	= UbahSimbol($writer);
+	$writer = UbahSimbol($writer);
 	$image	= UbahSimbol($image);
 
 	$check = mysql_query("select * from `data` where `kode`='$kode'")or die(mysql_error());
@@ -238,8 +238,8 @@ function save_data_from_newsd($search,$kode,$media,$title,$date,$news,$writer,$u
 
 function save_all_data($kode){
 	$media	= get_data('kode',$kode,'media');
-	$status	= get_data('kode',$kode,'status');
-	$target	= Balikin(get_data('kode',$kode,'link'));
+	$status = get_data('kode',$kode,'status');
+	$target = Balikin(get_data('kode',$kode,'link'));
 
 	if($status==0){
 		include ("form/module/".$media."/get_content.php");
