@@ -16,7 +16,7 @@
 		
 		//CHANGE FROM THIS --------------------------------
 		foreach($html->find('ul.indexlist') as $list){ 
-			foreach($list->find('li') as $li){  // find link 
+			foreach($list->find('li') as $li){ // find link
 				$link_ = $li->children(0)->href;
 				$link[$j] .='||'.$link_;
 			}

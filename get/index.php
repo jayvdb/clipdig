@@ -53,7 +53,7 @@ include ("../static/inc/function.php");
 	//}			
 
 	$WHERE = substr($WHERE,0,(strlen($WHERE)-5));
-	$qry_time = mysql_query("SELECT DISTINCT `waktu` as `waktu` FROM `data` $WHERE  ORDER BY `waktu` DESC ")or die(mysql_error());
+	$qry_time = mysql_query("SELECT DISTINCT `waktu` as `waktu` FROM `data` $WHERE ORDER BY `waktu` DESC ")or die(mysql_error());
 	
 if($mode=="json"){ /// JSON MODE
 	header('Access-Control-Allow-Origin: *');
@@ -76,7 +76,7 @@ if($mode=="json"){ /// JSON MODE
 	$json .= '}';
 	echo $json;
 }
-elseif($mode=="xml"){  /// XML MODE
+elseif($mode=="xml"){ /// XML MODE
 	$xml = new SimpleXMLElement('<xml/>');
 	while($data=mysql_fetch_array($qry_time)){
 		$track = $xml->addChild('data');

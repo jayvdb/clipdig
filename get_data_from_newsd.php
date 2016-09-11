@@ -15,7 +15,7 @@ include ("static/inc/conf.php");
 		$link =  $item->link;
 		$image =  $item->image;
 		$writer =  $item->writer;
-		$content =  $item->content;
+		$content = $item->content;
 		
 		//echo "Kode:".$kode.PHP_EOL;
 		//echo "media:".$media.PHP_EOL;

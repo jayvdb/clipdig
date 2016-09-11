@@ -16,7 +16,7 @@
 		
 		//CHANGE FROM THIS --------------------------------
 		foreach($html->find('div.data') as $list){ 
-			foreach($list->find('h3 a') as $li){  // find link 
+			foreach($list->find('h3 a') as $li){ // find link
 				
 				$link_		= "http://www.antaranews.com".$li->href;
 				$link_		= real_url($link_);

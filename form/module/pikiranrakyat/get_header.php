@@ -16,7 +16,7 @@
 		
 		//CHANGE FROM THIS --------------------------------
 		foreach($html->find('ol[class=search-results node-results]') as $list){ 
-			foreach($list->find('h3.title a') as $li){  // find link 
+			foreach($list->find('h3.title a') as $li){ // find link
 				$link_ = $li->href;
 				$link_ = real_url($link_);
 				$link[$j] .='||'.$link_;

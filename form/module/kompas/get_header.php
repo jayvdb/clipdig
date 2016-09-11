@@ -19,7 +19,7 @@
 		
 		//CHANGE FROM THIS --------------------------------
 		foreach($html->find('div.listSubRubrik') as $list){ 
-			foreach($list->find('div.judulListSubRubrik') as $li){  // find link 
+			foreach($list->find('div.judulListSubRubrik') as $li){ // find link
 				$link_ = $li->children(0)->href;
 				$link[$j] .='||'.$link_;
 			}

@@ -21,7 +21,7 @@
 		$op = $_GET['op'];
 		if($op=="deluser"){
 			$value = $_GET['value'];
-			$del = mysql_query("DELETE  FROM `user` WHERE `user_id`='$value'")or die(mysql_error());
+			$del = mysql_query("DELETE FROM `user` WHERE `user_id`='$value'")or die(mysql_error());
 			if($del){
 				echo "<script>alert('User has been deleted');window.location='?m=Setting'</script>";
 			}
@@ -70,11 +70,11 @@
 		</tr>
 		<!-- <tr>
 			<td>Get Content First:</td>
-			<td class="checkbox"><input type="checkbox" name="GetContentFirst"  value="1" class="checkbox" <?php if(Settings('GetContentFirst')=="1"){echo "checked ";}?> >Enable</td>
+			<td class="checkbox"><input type="checkbox" name="GetContentFirst" value="1" class="checkbox" <?php if(Settings('GetContentFirst')=="1"){echo "checked ";}?> >Enable</td>
 		</tr>
 		<tr>
 			<td>Get Photo:</td>
-			<td class="checkbox"><input type="checkbox" name="GetPhoto"  value="1" class="checkbox" <?php if(Settings('GetPhoto')=="1"){echo "checked ";}?> >Enable</td>
+			<td class="checkbox"><input type="checkbox" name="GetPhoto" value="1" class="checkbox" <?php if(Settings('GetPhoto')=="1"){echo "checked ";}?> >Enable</td>
 		</tr> -->
 		<tr>
 			<td>URL Source:</td>
@@ -108,7 +108,7 @@ if(empty($_GET['op'])){
 ?>
 		<table class="table" id="dataUsers">
 			<tr>
-				<td><h5><i class="fa fa-user"></i>  Users</h5></td>
+				<td><h5><i class="fa fa-user"></i> Users</h5></td>
 				<td valign="middle" colspan="2">
 					<div class="pull-right">
 						<a class="btn btn-primary " href="?m=Setting&op=AddUser"><i class="fa fa-plus"></i> Add</a>

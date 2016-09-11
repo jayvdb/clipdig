@@ -16,7 +16,7 @@
 		
 		//CHANGE FROM THIS --------------------------------
 		foreach($html->find('section.post-items') as $list){ 
-			foreach($list->find('h1.headline a') as $li){  // find link 
+			foreach($list->find('h1.headline a') as $li){ // find link
 				$link_ = "www.arrahmah.com".$li->href;						
 				$link_ = real_url($link_);						
 				$link[$j] .='||'.$link_;

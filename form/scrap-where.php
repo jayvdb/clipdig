@@ -54,7 +54,7 @@
 		}
 	}
 	
-	//category  ------------------------
+	//category ------------------------
 	if(!empty($category)){
 		$WHERE_="";
 		$category_ = explode(";",$category);
@@ -73,7 +73,7 @@
 		}
 		$WHERE .=$WHERE_;
 	}
-	//category  ------------------------
+	//category ------------------------
 
 	$WHERE = substr($WHERE,0,(strlen($WHERE)-5));
 	if(ifset('l')=='Data'){
@@ -84,7 +84,7 @@
 	else{
 		$LIMIT="";
 	}
-	$q="SELECT * FROM `data` ".$WHERE."  ORDER BY `waktu` DESC ".$LIMIT;
+	$q="SELECT * FROM `data` ".$WHERE." ORDER BY `waktu` DESC ".$LIMIT;
 	$qry=mysql_query($q) or die(mysql_error());
 	
 	

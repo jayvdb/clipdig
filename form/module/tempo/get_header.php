@@ -16,7 +16,7 @@
 		
 		//CHANGE FROM THIS --------------------------------
 		foreach($html->find('div#kiri-680') as $list){ 
-			foreach($list->find('div.block-news h4 a') as $li){  // find link 
+			foreach($list->find('div.block-news h4 a') as $li){ // find link
 				$link_ = $li->href;
 				$link[$j] .='||'.$link_;
 			}

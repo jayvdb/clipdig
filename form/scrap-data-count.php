@@ -3,7 +3,7 @@
 <div class="col-lg-12">
 <div class="well-sm well-me">
 <div class="table-responsive">
-<table class="table table-hover  table-striped get" id="tocsv" >
+<table class="table table-hover table-striped get" id="tocsv">
 	<thead>
 	<tr>
 		<th width="150px">Publish</th>
@@ -65,7 +65,7 @@
 				}
 			}
 			
-			//category  ------------------------
+			//category ------------------------
 			if(!empty($category)){
 				$WHERE_="";
 				$category_ = explode(";",$category);
@@ -81,7 +81,7 @@
 				}
 				$WHERE .=$WHERE_;
 			}
-			//category  ------------------------
+			//category ------------------------
 
 			$WHERE = substr($WHERE,0,(strlen($WHERE)-5));
 			$NAME_FILE = substr($NAME_FILE,0,(strlen($NAME_FILE)-1));
@@ -92,7 +92,7 @@
 
 //$csv_output="";			
 if(!empty($_GET['tgl1']) AND !empty ($_GET['tgl2'])){
-	$q = "SELECT DISTINCT `waktu` as `waktu` FROM `data` $WHERE  ORDER BY `waktu` DESC ";
+	$q = "SELECT DISTINCT `waktu` as `waktu` FROM `data` $WHERE ORDER BY `waktu` DESC ";
 }
 else{
 	$q = "SELECT DISTINCT YEAR(waktu) as `waktu` FROM `data` $WHERE ORDER BY `waktu` DESC ";

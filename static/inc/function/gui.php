@@ -5,7 +5,7 @@ function CreateMenuMedia(){
 	$menu = '<div class="menu-cmb">'.$name.'<select name="me" class="" onchange="window.location.href=$(this).val();"><option value="'.$url.'&me=all">All</option>';
 		$ShowMedia = explode(",",ShowMedia());
 		foreach($ShowMedia as $me){
-			$menu.= '<option value="'.$url.'&me='.$me.'"  ';
+			$menu.= '<option value="'.$url.'&me='.$me.'" ';
 				if($me==ifset('me')){
 					$menu .= 'selected="selected"';
 				}
@@ -158,7 +158,7 @@ function CreateMenuCategoryView($kode){
 			$val = explode(',',$val);
 			$val_count = count($val);
 			
-			$gui_a .='<label class="checkbox"><input  type="checkbox" name="'.$list_a[0].'" value="'.$list_a[1].'"';
+			$gui_a .='<label class="checkbox"><input type="checkbox" name="'.$list_a[0].'" value="'.$list_a[1].'"';
 			for($i=0;$i<$val_count;$i++){
 				if($val[$i]==$list_a[1]){
 					$gui_a .=' checked="" ';
@@ -192,7 +192,7 @@ function CreateMenuCategoryView($kode){
 			$val = explode(',',$val);
 			$val_count = count($val);
 			
-			$gui_a .='<label class="checkbox"><input  type="radio" name="'.$category_names_manual.'" value="'.$list_a[1].'"';
+			$gui_a .='<label class="checkbox"><input type="radio" name="'.$category_names_manual.'" value="'.$list_a[1].'"';
 			for($i=0;$i<$val_count;$i++){
 				if($val[$i]==$list_a[1]){
 					$gui_a .=' checked="" ';
@@ -245,7 +245,7 @@ function CreatePagination($DataPerPage,$media,$search,$tgl1,$tgl2,$status,$searc
 		}
 	}
 	
-	//category  ------------------------
+	//category ------------------------
 	if(!empty($category)){
 		$WHERE_="";
 		$category_ = explode(";",$category);
@@ -261,7 +261,7 @@ function CreatePagination($DataPerPage,$media,$search,$tgl1,$tgl2,$status,$searc
 		}
 		$WHERE .=$WHERE_;
 	}
-	//category  ------------------------
+	//category ------------------------
 			
 
 	$WHERE = substr($WHERE,0,(strlen($WHERE)-5));

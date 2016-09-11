@@ -16,7 +16,7 @@
 		
 		//CHANGE FROM THIS --------------------------------
 		foreach($html->find('div[id=contentwrapper]') as $list){ 
-			foreach($list->find('span.headline2') as $li){  // find link 
+			foreach($list->find('span.headline2') as $li){ // find link
 				$link_ = $li->parent()->href;						
 				$link[$j] .='||'.$link_;
 			}

@@ -16,7 +16,7 @@ function save1($kode,$search,$link,$media,$time,$judul,$created){
 	$link = UbahSimbol($link);
 	$time = UbahBulan($time);
 	
-	$save = mysql_query("insert into `data` (`kode`,`search`,`link`,`media`,`judul`,`waktu`,`created`) values ('$kode','$search','$link','$media','$judul','$time','$created')  ")or die(mysql_error());
+	$save = mysql_query("insert into `data` (`kode`,`search`,`link`,`media`,`judul`,`waktu`,`created`) values ('$kode','$search','$link','$media','$judul','$time','$created') ") or die(mysql_error());
 	if($save){echo ' <span class="label label-success">saved</span>';}else{echo ' <span class="label label-danger">not saved !!</span> ';}
 }
 function get_data($from,$str,$field){
@@ -194,8 +194,8 @@ function save_data($kode,$photo,$artikel,$penulis){
 		$photos=$photo;
 	}
 	
-	//$qry ="UPDATE `data` SET  `photo`='$photos', `penulis`='$penulis', `artikel`='$artikel' , `city`='$city', `tags`='$tags', `status`='1' WHERE `kode`='$kode'";
-	$qry ="UPDATE `data` SET  `photo`='$photos', `penulis`='$penulis', `artikel`='$artikel' , `status`='1' WHERE `kode`='$kode'";
+	//$qry ="UPDATE `data` SET `photo`='$photos', `penulis`='$penulis', `artikel`='$artikel' , `city`='$city', `tags`='$tags', `status`='1' WHERE `kode`='$kode'";
+	$qry ="UPDATE `data` SET `photo`='$photos', `penulis`='$penulis', `artikel`='$artikel' , `status`='1' WHERE `kode`='$kode'";
 	$save = mysql_query($qry) OR DIE (mysql_error());
 	
 	if($save){echo ' <span class="label label-info">saved</span>';}else{echo ' <span class="label label-danger">not saved !!</span> ';}

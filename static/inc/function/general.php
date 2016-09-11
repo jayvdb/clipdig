@@ -207,7 +207,7 @@ function SetCity($str){
 		}
 	}
 	$push = substr($push,1,strlen($push));
-	return  $push;
+	return $push;
 }
 function SetTags($str){
 	$push="";
@@ -220,7 +220,7 @@ function SetTags($str){
 		}
 	}
 	$push = substr($push,1,strlen($push));
-	return  $push;
+	return $push;
 }
 function AddCity($str){
 	$cek = mysql_query("SELECT * FROM `city` WHERE `city`='$str'")or die(mysql_error());

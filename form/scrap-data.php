@@ -29,7 +29,7 @@
 					<td align="right">'.$NO.'.</td>
 					<td align="center" ><a href="?m='.ifset('m').'&l='.ifset('l').'&me='.$media.'&st='.$status.'&searched='.$searched.'&tgl1='.$data['waktu'].'&tgl2='.$data['waktu'].'"">'.$data['waktu'].'</a></td>
 					<td align="center"><a href="?m='.ifset('m').'&l='.ifset('l').'&me='.$data['media'].'&st='.$status.'&searched='.$searched.'&tgl1='.$tgl1.'&tgl2='.$tgl2.'">'.Balikin($data['media']).'</a></td>
-					<td><a class="linkthumb" target="_blank" href="?m='.$_GET['m'].'&l=View&op=edit&kode='.$data['kode'].'"  >'.htmlspecialchars_decode(htmlspecialchars_decode(html_entity_decode(Balikin($data['judul']), ENT_NOQUOTES, 'UTF-8'))).'<img  class="thumbnail" src="'.$photo.'" style="margin-top:5px;"></a></td>
+					<td><a class="linkthumb" target="_blank" href="?m='.$_GET['m'].'&l=View&op=edit&kode='.$data['kode'].'"  >'.htmlspecialchars_decode(htmlspecialchars_decode(html_entity_decode(Balikin($data['judul']), ENT_NOQUOTES, 'UTF-8'))).'<img class="thumbnail" src="'.$photo.'" style="margin-top:5px;"></a></td>
 					<td width="10px" align="center">';
 					if($data['status']==4){echo '<span class="text-danger"><i class="fa fa-trash"></i> </span>';}
 				echo'</td>
