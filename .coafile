@@ -4,8 +4,7 @@
 language = php
 files = **.php
 ignore = form/navigasi.php, form/simple_html_dom.php
-# CPDBear is silly with PHP; see https://github.com/coala-analyzer/coala-bears/issues/810
-bears = FilenameBear,InvalidLinkBear,LineCountBear,LineLengthBear,PHPLintBear,SpaceConsistencyBear,coalaBear
+bears = CPDBear,FilenameBear,InvalidLinkBear,LineCountBear,LineLengthBear,PHPLintBear,SpaceConsistencyBear,coalaBear
 use_spaces = False
 max_line_length = 300
 max_lines_per_file = 300
