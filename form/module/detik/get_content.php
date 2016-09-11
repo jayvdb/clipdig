@@ -17,7 +17,7 @@
 	$category = $split_2[0];
 
 	//article-detail
-	if( $category == "news"	){
+	if( $category == "news" ){
 		foreach($html->find('div[class=detail_content]') as $artikel){
 			foreach($artikel->find('div.pic_artikel img') as $l){
 				$photo = $l->src;
