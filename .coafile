@@ -1,17 +1,25 @@
 [Default]
 
-[PHP]
+[PHPTab]
 language = php
 files = **.php
-# form/navigasi.php uses spaces mostly, with some tabs
-# form/simple_html_dom.php is an external library
 ignore = form/navigasi.php, form/simple_html_dom.php
 # CPDBear is silly with PHP; see https://github.com/coala-analyzer/coala-bears/issues/810
 bears = FilenameBear,InvalidLinkBear,LineCountBear,LineLengthBear,PHPLintBear,SpaceConsistencyBear,coalaBear
 use_spaces = False
-max_line_length = 500
-max_lines_per_file = 500
+max_line_length = 300
+max_lines_per_file = 300
 allow_trailing_whitespace = True
+link_ignore_regex = ([.\/]domain\.com|\{|\$)
+
+
+[PHPNoTab]
+language = php
+files = form/navigasi.php
+bears = FilenameBear,InvalidLinkBear,LineCountBear,LineLengthBear,PHPLintBear,SpaceConsistencyBear,coalaBear
+use_spaces = True
+max_line_length = 200
+max_lines_per_file = 100
 
 [PHPUpstream]
 language = php
