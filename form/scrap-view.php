@@ -63,8 +63,8 @@
 <script type="text/javascript" src="<?php echo $URL;?>static/tinymce/tinymce.min.js"></script>
 <script type="text/javascript">
 tinymce.init({
-    selector: "textarea"
- });
+	selector: "textarea"
+});
 </script>
 <script type="text/javascript">
 	$('div.category-view select').change(function() {

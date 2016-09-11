@@ -118,9 +118,9 @@ while ($b=mysql_fetch_array($qry)){
 </div>
 
 <form name="export" action="<?php echo $URL."form/getcsv.php";?>" method="post">
-    <button class="btn-primary btn-xs" id="getcsv" type="submit" ><i class="fa fa-download"></i> Get CSV</button>
-    <input type="hidden" value="<?php echo $NAME_FILE;?>" name="csv_name">
-    <input type="hidden" value="" name="csv_text" id="csv_text">
+	<button class="btn-primary btn-xs" id="getcsv" type="submit" ><i class="fa fa-download"></i> Get CSV</button>
+	<input type="hidden" value="<?php echo $NAME_FILE;?>" name="csv_name">
+	<input type="hidden" value="" name="csv_text" id="csv_text">
 </form>
 </div>
 </div>

@@ -276,9 +276,9 @@ function CreatePagination($DataPerPage,$media,$search,$tgl1,$tgl2,$status,$searc
   
 	$pagination ='Pages: <select id="pagination"  class="btn btn-sm btn-default" onchange="window.location.href=$(this).val();">'; 
 	for($i=1;$i<=$pages;$i++){
-	  $pagination .= '<option value="'.$url.'&p='.$i.'"'; 
-	      if(ifset('p')==$i){$pagination .='selected';}
-	  $pagination .='>'.$i.'</option>';
+		$pagination .= '<option value="'.$url.'&p='.$i.'"';
+		if(ifset('p')==$i){$pagination .='selected';}
+		$pagination .='>'.$i.'</option>';
 	}
 	$pagination .='</select>';
 	$pagination .= ' '.mysql_num_rows($qry).' Total.';

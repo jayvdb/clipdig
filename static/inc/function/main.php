@@ -214,12 +214,13 @@ function save_data_from_newsd($search,$kode,$media,$title,$date,$news,$writer,$u
 	$check = mysql_query("select * from `data` where `kode`='$kode'")or die(mysql_error());
 	$count = mysql_num_rows($check);
 	if(empty($count)){
-		$save_data_from_newsd = mysql_query("
-		                        insert into `data`
-		                        (`search`,`kode`,`media`,`judul`,`waktu`,`artikel`,`penulis`,`link`,`photo`,`created`)
-		                        values
-		                        ('$search','$kode','$media','$title','$date','$news','$writer','$url','$image','$created_time')
-										")or die(mysql_error());
+		$save_data_from_newsd = mysql_query(
+			"
+			insert into `data`
+			(`search`,`kode`,`media`,`judul`,`waktu`,`artikel`,`penulis`,`link`,`photo`,`created`)
+			values
+			('$search','$kode','$media','$title','$date','$news','$writer','$url','$image','$created_time')
+			") or die(mysql_error());
 										
 		if($save_data_from_newsd){
 		 	set_automatic_category($kode,$news);
