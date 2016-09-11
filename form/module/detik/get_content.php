@@ -31,7 +31,7 @@
 			save_data($kode,$photo,$artikels,$penulis);
 		}
 	}
-	elseif(	$category == "health" OR
+	elseif( $category == "health" OR
 				$category == "sport" OR
 				$category == "finance" OR
 				$category == "hot" OR
@@ -54,7 +54,7 @@
 
 		}
 	}
-	elseif(	$category == "majalah" ){
+	elseif( $category == "majalah" ){
 		foreach($html->find('div[class=kiri]') as $artikel){
 			foreach($artikel->find('div[class=imgcenter]') as $l){
 				$photo = $l->first_child(0)->src;
@@ -67,7 +67,7 @@
 
 		}
 	}
-	elseif(	$category == "travel" ){
+	elseif( $category == "travel" ){
 		foreach($html->find('div[class=content_detail]') as $artikel){
 			foreach($artikel->find('div[class=relative]') as $l){
 				$photo = $l->first_child(0)->src;
@@ -82,7 +82,7 @@
 
 		}
 	}
-	elseif(	$category == "suarapembaca" ){
+	elseif( $category == "suarapembaca" ){
 		foreach($html->find('div[class=content_detail]') as $artikel){
 			foreach($artikel->find('div[class=pic_artikel_3]') as $l){
 				$photo = $l->first_child(0)->src;

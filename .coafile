@@ -16,7 +16,6 @@ allow_trailing_whitespace = True
 [PHPUpstream]
 language = php
 files = form/simple_html_dom.php
-bears = FilenameBear,InvalidLinkBear,LineCountBear,LineLengthBear,PHPLintBear,coalaBear
+bears = FilenameBear,InvalidLinkBear,LineLengthBear,PHPLintBear,coalaBear
 use_spaces = True
-max_line_length = 200
-max_lines_per_file = 500
+max_line_length = 263
