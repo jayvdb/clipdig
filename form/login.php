@@ -4,9 +4,9 @@ if(isset($_POST['login'])){
 	$name = $_POST['user_name'];
 	$password = $_POST['user_password'];
 	if(!empty($name) AND !empty($password)){
-		$user_password 	= md5($password);
-		$user_name 			= mysql_real_escape_string($name);
-		$user_password 	= mysql_real_escape_string($user_password);
+		$user_password	= md5($password);
+		$user_name			= mysql_real_escape_string($name);
+		$user_password	= mysql_real_escape_string($user_password);
 
 		$qry = mysql_query("SELECT * FROM `user` WHERE `user_name`='$user_name' AND `user_password`='$user_password' ") or die(mysql_error());
 		$istrue = mysql_num_rows($qry);

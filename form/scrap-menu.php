@@ -8,7 +8,7 @@
 	$status		=ifset('st');
 	$searched	=ifset('searched');
 	$wilayah	=ifset('wilayah');
-	$category 	=ifset('category');
+	$category	=ifset('category');
 
 	if(empty($media)){header("location:?m=Scrap&l=".ifset('l')."&me=all&st=all&searched=&p=&se=&tgl1=&tgl2=&wilayah=");}
 	elseif(empty($page)){$page=1;}

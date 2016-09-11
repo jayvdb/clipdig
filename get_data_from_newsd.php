@@ -5,7 +5,7 @@ include ("static/inc/conf.php");
 
 
 	$target = $URLSource.$DefaultSearch."&limit=".$URLSourceLimit;
-	$xml 	= simplexml_load_file($target);
+	$xml	= simplexml_load_file($target);
 
 	foreach($xml->item as $item){
 		$kode =  $item->kode;

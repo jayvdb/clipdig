@@ -22,7 +22,7 @@
 	if( $category == "lifestyle" OR
 			$category == "news" OR
 			$category == "economy"
-	 ){
+	){
 		foreach($html->find('div[class=detail-page v2]') as $artikel){
 			foreach($artikel->find('img#imgCheck') as $l){
 				$photo = $l->src;

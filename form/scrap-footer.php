@@ -6,7 +6,7 @@
 	locations = locations.split('?');
 	locations = locations[0];
 	<?php
-	    if(!empty($category)){
+	   if(!empty($category)){
 				$category_ = explode(";",$category);
 				$count_category = count($category_);
 				for($i=1;$i<$count_category;$i++){

@@ -19,22 +19,22 @@
 			$wilayah = $d['wilayah'];
 			$lng = strlen($wilayah);
 			if($lng==2){
-				$provinsi 	= get_name_wilayah($wilayah);
-				$kotkab 	="";
+				$provinsi	= get_name_wilayah($wilayah);
+				$kotkab	="";
 			}
 			elseif($lng>2 and $lng<=5){
-				$wilayah 	= explode(".",$wilayah);
-				$provinsi 	= get_name_wilayah($wilayah[0]);
-				$kotkab 	= get_name_wilayah($wilayah[0].".".$wilayah[1]);
+				$wilayah	= explode(".",$wilayah);
+				$provinsi	= get_name_wilayah($wilayah[0]);
+				$kotkab	= get_name_wilayah($wilayah[0].".".$wilayah[1]);
 			}
 			else{
-				$provinsi 	="";
+				$provinsi	="";
 				$kotkab		="";
 			}
 
-			$kode 	= $d['kode'];
-			$media 	= Balikin($d['media']);
-			//$judul 	= Balikin($d['judul']);
+			$kode	= $d['kode'];
+			$media	= Balikin($d['media']);
+			//$judul	= Balikin($d['judul']);
 			$tanggal= Balikin($d['waktu']);
 			//$url	= Balikin($d['link']);
 			//$gambar	= Balikin($d['photo']);
@@ -54,10 +54,10 @@
 		$gui = '
 			$(function(){
 
-			var derivers = 	$.pivotUtilities.derivers;
+			var derivers =	$.pivotUtilities.derivers;
 			var renderers = $.extend(
-	                            $.pivotUtilities.renderers,
-	                            $.pivotUtilities.c3_renderers
+	                           $.pivotUtilities.renderers,
+	                           $.pivotUtilities.c3_renderers
                            );
 			var input = [
 				';
