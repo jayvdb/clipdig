@@ -1,7 +1,7 @@
 <?php
 include ("../static/inc/con.php");
-include ("../static/inc/function.php"); 
-	
+include ("../static/inc/function.php");
+
 		$name = array('Kode','Provinsi','Kota/Kabupaten','Media','Judul Berita','Tanggal','URL Berita','Gambar');
 		foreach(list_category("all") as $cat){
 			$category = $cat[0];
@@ -11,7 +11,7 @@ include ("../static/inc/function.php");
 			array_push($name,$category);
 		}
 		array_push($name,'Waktu diambil');
-		
+
 		$data = array();
 		$q = mysql_query("select * from `data` limit 3 ")or die(mysql_error());
 
@@ -19,7 +19,7 @@ include ("../static/inc/function.php");
 			$wilayah = $d['wilayah'];
 			if(strlen($wilayah)>0 and strlen($wilayah)<=2 ){
 				$provinsi 	= get_name_wilayah($wilayah);
-				$kotkab 	="";			
+				$kotkab 	="";
 			}
 			elseif(strlen($wilayah)>3){
 				$wilayah 	= explode(".",$wilayah);
@@ -30,7 +30,7 @@ include ("../static/inc/function.php");
 				$provinsi 	="";
 				$kotkab		="";
 			}
-			
+
 			$kode 	= $d['kode'];
 			$media 	= Balikin($d['media']);
 			$judul 	= Balikin($d['judul']);
@@ -38,35 +38,35 @@ include ("../static/inc/function.php");
 			$url	= Balikin($d['link']);
 			$gambar	= Balikin($d['photo']);
 			$diambil= Balikin($d['created']);
-			
+
 			$datas = array($kode,$provinsi,$kotkab,$media,$judul,$tanggal,$url,$gambar);
 			foreach(list_category("all") as $cat){
 				$cats = get_data_category($kode,$cat[0]);
 				array_push($datas,$cats);
 			}
 			array_push($datas,$diambil);
-			
-			array_push($data,$datas);	
-		}		
-		
+
+			array_push($data,$datas);
+		}
+
 		$datajson = array();
-		
+
 		foreach($data as $data_){
 			$a=array();
 			for($i=0;$i<count($name);$i++){
-				
-							
+
+
 				array_push($a,array($name[$i]=>$data_[$i]));
 			}
-			
+
 			array_push($datajson,$a);
 		}
 
 
 	echo json_encode($datajson);
-		
-		
+
+
 		?>
 
-		
-		
+
+

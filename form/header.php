@@ -17,14 +17,14 @@
 	<link href="<?php echo $URL ?>static/css/pivot.css" rel="stylesheet">
 	<link href="<?php echo $URL ?>static/css/c3.min.css" rel="stylesheet" >
 	<link href="<?php echo $URL ?>static/css/chosen.min.css" rel="stylesheet" >
-	
+
 	<script src="<?php echo $URL ?>static/js/jquery.js"></script>
 	<script src="<?php echo $URL ?>static/js/jquery-ui.min.js"></script>
 	<script src="<?php echo $URL ?>static/js/custom.js"></script>
-	
+
 	<script src="<?php echo $URL ?>static/js/bootstrap.min.js"></script>
 	<script src="<?php echo $URL ?>static/js/bootstrap-datepicker.js"></script>
-	
+
 	<script src="<?php echo $URL ?>static/js/pivot.js"></script>
 	<script src="<?php echo $URL ?>static/js/d3.min.js"></script>
 	<script src="<?php echo $URL ?>static/js/jquery.ui.touch-punch.min.js"></script>
@@ -32,25 +32,25 @@
 	<script src="<?php echo $URL ?>static/js/chosen.jquery.js"></script>
 	<script src="<?php echo $URL ?>static/js/c3.min.js"></script>
 	<script src="<?php echo $URL ?>static/js/table2CSV.js"></script>
-	
-	
-    
 
-   
+
+
+
+
 </head>
 <body <?php if($_GET['m']=="Login"){echo 'class="page-login"';}?>>
-	<?php 
+	<?php
 		if(isset($_GET['m'])){
 			$m = $_GET['m'];
 			if($m == "Login" OR $m == "Logout"){
-				
+
 			}
 			else{
 				include ("navigasi.php");
 				echo '<div id="wrapper"><!-- /#wrapper --><div id="page-wrapper">';
-				
+
 			}
 		}
-		
+
        $_SESSION['in'] = microtime(true);
 	?>

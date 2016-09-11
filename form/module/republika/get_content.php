@@ -5,20 +5,20 @@
 	elseif(isset($_GET['ids'])){
 		$target = Balikin(get_data('ids',$ids,'link'));
 	}
-	$html = file_get_html($target);	
+	$html = file_get_html($target);
 // ---------------------------------------------------- //
 // CHANGE THIS
 // ---------------------------------------------------- //
 //	example
 // http://subdomain.domain.com/article/title.html
 //
-	$split_1 = explode("/",$target); //	split link by `/` (slash) 
+	$split_1 = explode("/",$target); //	split link by `/` (slash)
 	$split_2 = explode(".",$split_1[2]); // split by `.` (dot) from $split_1 array 2nd
 	$category = $split_2[0];
 	$category2 = $split_1[4];
 	$category3 = $split_1[5];
-		
-				
+
+
 	if($category == "nasional" OR
 		$category == "internasional" OR
 		$category == "khazanah" OR
@@ -27,7 +27,7 @@
 		$category == "senggang" OR
 		$category == "trendtek" OR
 		$category == "en" OR
-		
+
 		$category2 == "humaira" OR
 		$category2 == "regional" OR
 		$category2 == "pendidikan" OR
@@ -39,9 +39,9 @@
 		$category2 == "menuju-jakarta-1" OR
 		$category2 == "olahraga" OR
 		$category2 == "otomotif" OR
-		
-		$category3 == "nusantara" 
-	
+
+		$category3 == "nusantara"
+
 	){
 		foreach($html->find('div[class=content-detail-center]') as $list){
 			foreach($list->find('div[class=img-detailberita] img') as $l){
@@ -99,7 +99,7 @@
 		}
 	}
 	elseif($category2=="koran"){
-		foreach($html->find('div[class=left-detail]') as $list){			
+		foreach($html->find('div[class=left-detail]') as $list){
 			foreach($list->find('img') as $l){
 				$photo = $l->src;
 			}
@@ -111,7 +111,7 @@
 			}
 			save_data($kode,$photo,$artikel,$penulis);
 		}
-		
+
 	}
 	elseif($category=="video"){
 		foreach($html->find('div[class=left-wrapper2]') as $list){
@@ -124,6 +124,6 @@
 			}
 			save_data($kode,$photo,$artikel,$penulis);
 		}
-		
+
 	}
 ?>

@@ -16,7 +16,7 @@
 		<tbody>
 		<?php
 			include('scrap-where.php');
-					
+
 			while($data=mysql_fetch_array($qry)){
 				$NO++;
 				if(!isset($data['photo'])){$photo="img/default.png";}
@@ -36,7 +36,7 @@
 				</tr>
 				';
 			}
-					
+
 		?>
 		</tbody>
 	</table>

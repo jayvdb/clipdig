@@ -28,20 +28,20 @@
 			<li  class="" ><a class="<?php if($_GET['m']=="Category"){echo "selected";}?>" href="<?php echo $URL; ?>?m=Category"><i class="fa fa-table"></i> Category</a></li>
 	<?php if($_SESSION['group_id']==1){ ?>
 			<li  class="" ><a class="<?php if($_GET['m']=="Setting"){echo "selected";}?>" href="<?php echo $URL; ?>?m=Setting"><i class="fa fa-gear"></i> Setting</a></li>
-	<?php }?>		
+	<?php }?>
 			<li  class="" ><a class="exit" href="?m=Logout"><i class="fa fa-sign-out"></i> Logout</a></li>
             </ul>
         </div>
-        
-        
+
+
 <!--
         <div id="navbarCollapse" class="collapse navbar-collapse">
-            
+
         </div>
 -->
     </nav>
 
 <div class="loading">
 	<div><h3><i class="fa fa-circle-o-notch fa-spin"> </i></h3></div>
-</div>	
-	
+</div>
+

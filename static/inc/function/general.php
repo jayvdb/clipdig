@@ -41,7 +41,7 @@ function UbahSimbol($str){
 
 	$str = preg_replace($search,$replace,$str);
 	return $str;
-	
+
 }
 function Balikins($str){
 	$search = array ("'xpsijix'",
@@ -90,10 +90,10 @@ function Balikins($str){
  function Balikin($str){
 	$str=Balikins($str);
 	$str = htmlspecialchars_decode(htmlspecialchars_decode(html_entity_decode($str, ENT_NOQUOTES, 'UTF-8')));
-	
+
 	return $str;
 }
- 
+
 function UbahXXX($str){
 	$str = trim($str);
 	$search = array ("'\''",
@@ -138,9 +138,9 @@ function UbahXXX($str){
 
 	$str = preg_replace($search,$replace,$str);
 	return $str;
-	
+
 }
- 
+
 function UbahBulan1($str){
 	$str = trim(htmlentities(htmlspecialchars($str)));
 	$search = array ("'Januari'","'Februari'","'Maret'","'April'","'Mei'","'Juni'","'Juli'","'Agustus'","'September'","'Oktober'","'Nopember'","'Desember'");
@@ -167,7 +167,7 @@ function UbahBulan($str){
 	$str=UbahBulan2($str);
 	$str=UbahBulan3($str);
 	return $str;
-	
+
 }
 
 function ifset($str){
@@ -259,7 +259,7 @@ function SaveSettings($name,$value){
 		$value="0";
 	}
 	$qry=mysql_query("UPDATE `setting` SET `value`='$value' WHERE `name`='$name'") or die(mysql_error());
-	
+
 }
 function SaveUser($UserGroup,$UserName,$UserRealName,$UserPassword,$UserRePassword){
 	$NOW = date("Y-m-d H:i:s");
@@ -283,7 +283,7 @@ function UpdateUser($UserId,$UserGroup,$UserName,$UserRealName,$UserPassword,$Us
 		$q = mysql_query("UPDATE `user` SET `group_id`='$UserGroup',`user_name`='$UserName',`user_real_name`='$UserRealName',`user_password`='".md5($UserRePassword)."',`last_change`='$NOW' WHERE `user_id`='$UserId' ")or die(mysql_error());
 		header("location:".$_SESSION['uri']);
 	}
-	
+
 }
 //last login
 function setLastLogin($user_id){

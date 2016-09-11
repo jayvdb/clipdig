@@ -23,7 +23,7 @@ if(isset($_POST['search']) AND isset($_POST['start']) AND isset($_POST['to']) ){
 	$search = strtolower(htmlspecialchars($_POST['search'])); //search
 	$start = $_POST['start']; //Start Page
 	$to = $_POST['to']; //End Page
-	
+
 	$search_ = str_replace(' ','-',$search);
 	$search__ = str_replace(' ','+',$search);
 

@@ -5,33 +5,33 @@
 	elseif(isset($_GET['ids'])){
 		$target = Balikin(get_data('ids',$ids,'link'));
 	}
-	$html = file_get_html($target);	
+	$html = file_get_html($target);
 // ---------------------------------------------------- //
 // CHANGE THIS
 // ---------------------------------------------------- //
 //	example
 // http://subdomain.domain.com/article/title.html
 //
-	$split_1 = explode("/",$target); //	split link by `/` (slash) 
+	$split_1 = explode("/",$target); //	split link by `/` (slash)
 	$split_2 = explode(".",$split_1[2]); // split by `.` (dot) from $split_1 array 2nd
 	$category = $split_2[0];
-			
+
 	//nasional, regional, bisniskeuangan, megapolitan dll
-	if($category == "nasional" OR 
-		$category == "regional" OR 
-		$category == "bisniskeuangan" OR 
+	if($category == "nasional" OR
+		$category == "regional" OR
+		$category == "bisniskeuangan" OR
 		$category == "megapolitan" OR
 		$category == "bola" OR
 		$category == "travel" OR
 		$category == "internasional" OR
 		$category == "edukasi" OR
 		$category == "olahraga" OR
-		$category == "sains" 
+		$category == "sains"
 	){
-				
+
 		foreach($html->find('div[class=photo]') as $el){
 			$photo = $el->children(0)->src;
-			
+
 		}
 		foreach($html->find('div[class=span6 nml]') as $el){
 			$artikel = $el->plaintext;
@@ -87,7 +87,7 @@
 		}
 		foreach($html->find('div.kcm-read-text') as $el){
 			$artikel = $el->plaintext;
-			
+
 		}
 		foreach($html->find('table.grey') as $el){
 			$penulis = $el->plaintext;
@@ -101,7 +101,7 @@
 		}
 		foreach($html->find('div.kcm-read-content-text') as $el){
 			$artikel = $el->plaintext;
-			
+
 		}
 		$penulis="-";
 		save_data($kode,$photo,$artikel,$penulis);

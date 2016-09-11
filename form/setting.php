@@ -1,5 +1,5 @@
-<?php 
-	if(isset($_POST['savesettings'])){		
+<?php
+	if(isset($_POST['savesettings'])){
 		SaveSettings("DataPerPage",$_POST['DataPerPage']);
 		SaveSettings("DefaultSearch",$_POST['DefaultSearch']);
 		//SaveSettings("GetContentFirst",$_POST['GetContentFirst']);
@@ -11,11 +11,11 @@
 	}
 	elseif(isset($_POST['saveuser'])){
 		SaveUser($_POST['UserGroup'],$_POST['UserName'],$_POST['UserRealName'],$_POST['UserPassword'],$_POST['UserRePassword']);
-		
+
 	}
 	elseif(isset($_POST['updateuser'])){
 		UpdateUser($_POST['UserId'],$_POST['UserGroup'],$_POST['UserName'],$_POST['UserRealName'],$_POST['UserPassword'],$_POST['UserRePassword']);
-		
+
 	}
 	elseif(isset($_GET['op'])){
 		$op = $_GET['op'];
@@ -65,7 +65,7 @@
 						Seconds
 					</div>
 				</div>
-				
+
 			</td>
 		</tr>
 		<!-- <tr>
@@ -91,7 +91,7 @@
 			<td>Default Search:</td>
 			<td><input type="text" name="DefaultSearch" value="<?php echo Settings('DefaultSearch');?>" class="form-control"></td>
 		</tr>
-		
+
 	</table>
 	<div><button type="submit" name="savesettings" class=" btn btn-primary"><i class="fa fa-save"></i> Save</button></div>
 	</form>
@@ -119,9 +119,9 @@ if(empty($_GET['op'])){
 				<th></th>
 				<th align="left">User Name</th>
 				<th align="left">User Real Name</th>
-				
+
 			</tr>
-			<?php 
+			<?php
 				$q = mysql_query("select * from `user`") or die(mysql_error());
 				while($user = mysql_fetch_array($q)){
 					echo '<tr>
@@ -134,7 +134,7 @@ if(empty($_GET['op'])){
 					</tr>';
 				}
 			?>
-			
+
 		</table>
 <?php
 }
@@ -149,7 +149,7 @@ else{
 			$edit=0;
 		}
 	}
-?>	
+?>
 	<form action="?m=Setting" method="post">
 		<table class="table">
 			<tr>
@@ -165,7 +165,7 @@ else{
 				<td>Retype Password: <input class="form-control" name="UserRePassword" type="password"></td>
 			</tr>
 			<tr>
-				<?php 
+				<?php
 					if($_GET['op']=="AddUser"){
 						echo '<td colspan="4"><button class="btn-primary btn" type="submit" name="saveuser"><i class="fa fa-save" ></i> Save</td>';
 					}
@@ -179,7 +179,7 @@ else{
 			</tr>
 		</table>
 		</form>
-<?php	
+<?php
 }
 ?>
 </div>
@@ -189,8 +189,8 @@ else{
 	<div class="well-sm well-me">
 	<a href="?m=Setting&op=get_content_from_newsd" class="btn btn-primary">get content from newsd</a>
 <!--
-	<a href="?m=dashboard&op=stop" class="btn btn-primary">Stop</a>	
+	<a href="?m=dashboard&op=stop" class="btn btn-primary">Stop</a>
 -->
-		
+
 	</div>
 </div>

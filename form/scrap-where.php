@@ -17,7 +17,7 @@
 		$WHERE .="";
 		$NAME_FILE.="Time(byYear)_";
 	}
-	
+
 	if(isset($status)){
 		if($status!="all" AND $status!=""){
 			$WHERE .=" `status`='$status' AND ";
@@ -53,7 +53,7 @@
 			$NAME_FILE .="Wilayah(ALL)_";
 		}
 	}
-	
+
 	//category  ------------------------
 	if(!empty($category)){
 		$WHERE_="";
@@ -63,7 +63,7 @@
 			$category__=explode(":",$category_[$i]);
 			$category_name = $category__[0];
 			$category_data = $category__[1];
-			
+
 			$NAME_FILE_="";
 			if($category_data!="all"){
 				$WHERE_ .=" `$category_name` LIKE '%$category_data%' AND ";
@@ -86,7 +86,7 @@
 	}
 	$q="SELECT * FROM `data` ".$WHERE."  ORDER BY `waktu` DESC ".$LIMIT;
 	$qry=mysql_query($q) or die(mysql_error());
-	
-	
+
+
 	//$NAME_FILE=date('Y-m-d')."_".ifset('l')."_Media(".$media.")_";
 ?>

@@ -9,4 +9,4 @@
 <script>
 $("nav.navbar").css({"display":"none"});
 $("h1,h3").css({"color":"ccc"});
-</script>	
+</script>

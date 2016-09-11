@@ -2,7 +2,7 @@
 //API
 
 include ("../static/inc/con.php");
-include ("../static/inc/function.php"); 
+include ("../static/inc/function.php");
 
 	$mode=ifset('mode');
 	$search=ifset('search');
@@ -16,49 +16,49 @@ include ("../static/inc/function.php");
 
 
 	$WHERE="WHERE";
-	
-	// search 
+
+	// search
 	if(!empty($search)){
 		$WHERE .=" (`judul` LIKE '%$search%' OR `waktu` LIKE '%$search%' OR `penulis` LIKE '%$search%' ) AND ";
 	}
-	
+
 	//date
 	if(!empty($start_date) AND !empty($end_date)){
 		$WHERE .=" (`waktu` BETWEEN '$start_date' and '$end_date') AND ";
 	}
 	else{$WHERE .="";}
-	
+
 	//status
 	if(isset($status)){
 		if($status!="all" AND $status!=""){$WHERE .=" `status`='$status' AND ";}
 		else{$WHERE .="";}
 	}
-	
+
 	//searched
 	if(!empty($searched)){
 		if($searched!="all"){$WHERE .=" `search` LIKE '%$searched%' AND ";}
 		else{$WHERE .="";}
 	}
-	
+
 	////tags
 	//if(!empty($tags)){
 		//if($tags!="all"){$WHERE .=" `tags` LIKE '%$tags%' AND ";}
 		//else{$WHERE .="";}
 	//}
-	
+
 	////city
 	//if(!empty($city)){
 		//if($city!="all"){$WHERE .=" `city` LIKE '%$city%' AND ";}
 		//else{$WHERE .="";}
-	//}			
+	//}
 
 	$WHERE = substr($WHERE,0,(strlen($WHERE)-5));
 	$qry_time = mysql_query("SELECT DISTINCT `waktu` as `waktu` FROM `data` $WHERE ORDER BY `waktu` DESC ")or die(mysql_error());
-	
+
 if($mode=="json"){ /// JSON MODE
 	header('Access-Control-Allow-Origin: *');
 	header('Content-Type: application/json; charset=UTF-8');
-	
+
 	$json = '{';
 	while($data=mysql_fetch_array($qry_time)){
 		$time = $data['waktu'];
@@ -66,7 +66,7 @@ if($mode=="json"){ /// JSON MODE
 		foreach($ShowMedia as $media){
 			$count .= ',"'.$media.'":"'.getCount($media,$WHERE,$data['waktu']).'"';
 		}
-		
+
 		if($json!="{"){$json .= ",";}
 		$json .='"output":{"date":"'.$time.'",';
 		$json .='"data":{';
@@ -158,10 +158,10 @@ else{
 				<small>leave blank if you want to get all dates</small>
 			</td>
 		</tr>
-	
+
 	</table>
-	
-	
+
+
 	</body></html>
 	";
 }

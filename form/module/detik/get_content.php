@@ -5,19 +5,19 @@
 	elseif(isset($_GET['ids'])){
 		$target = Balikin(get_data('ids',$ids,'link'));
 	}
-	$html = file_get_html($target);	
+	$html = file_get_html($target);
 // ---------------------------------------------------- //
 // CHANGE THIS
 // ---------------------------------------------------- //
 //	example
 // http://subdomain.domain.com/article/title.html
 //
-	$split_1 = explode("/",$target); //	split link by `/` (slash) 
+	$split_1 = explode("/",$target); //	split link by `/` (slash)
 	$split_2 = explode(".",$split_1[2]); // split by `.` (dot) from $split_1 array 2nd
 	$category = $split_2[0];
-		
+
 	//article-detail
-	if( $category == "news"	){ 
+	if( $category == "news"	){
 		foreach($html->find('div[class=detail_content]') as $artikel){
 			foreach($artikel->find('div.pic_artikel img') as $l){
 				$photo = $l->src;
@@ -51,7 +51,7 @@
 				$penulis = $l->plaintext;
 			}
 			save_data($kode,$photo,$artikels,$penulis);
-			
+
 		}
 	}
 	elseif(	$category == "majalah" ){
@@ -64,7 +64,7 @@
 			}
 			$penulis = "";
 			save_data($kode,$photo,$artikels,$penulis);
-			
+
 		}
 	}
 	elseif(	$category == "travel" ){
@@ -79,7 +79,7 @@
 				$penulis = $l->first_child(0)->plaintext;
 			}
 			save_data($kode,$photo,$artikels,$penulis);
-			
+
 		}
 	}
 	elseif(	$category == "suarapembaca" ){
@@ -94,7 +94,7 @@
 				$penulis = $l->first_child(0)->plaintext;
 			}
 			save_data($kode,$photo,$artikels,$penulis);
-			
+
 		}
 	}
 ?>

@@ -1,6 +1,6 @@
 <?php
 include ("static/inc/con.php");
-include ("static/inc/function.php"); 
+include ("static/inc/function.php");
 include ("static/inc/conf.php");
 include ("form/header.php");
 
@@ -21,13 +21,13 @@ if(!empty($_GET['m'])){
 			break;
 		case "Setting":
 			$view = "form/setting.php";
-			break;							
+			break;
 		case "Login":
 			$view = "form/login.php";
-			break;			
+			break;
 		case "Logout":
 			$view = "form/logout.php";
-			break;					
+			break;
 		default:
 			$view = "form/404.php";
 			break;

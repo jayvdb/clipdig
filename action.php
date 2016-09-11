@@ -9,11 +9,11 @@ $kode = ifset('kode');
 if($op=="get_prov_cmb"){
 	echo '<option value="">All</option>';
 	foreach(get_prov() as $prov){
-		
+
 		echo '<option value="'.$prov[0].'"';
 			if($kode == $prov[0])
 				echo "selected";
-		
+
 		echo '> '.$prov[1].'</option>' ;
 	}
 }

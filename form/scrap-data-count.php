@@ -19,7 +19,7 @@
 <?php
 			$WHERE="WHERE";
 			$NAME_FILE="COUNT_DATA_by_";
-			
+
 			if(!empty($tgl1) AND !empty($tgl2)){
 				$WHERE .=" (`waktu` BETWEEN '$tgl1' and '$tgl2') AND ";
 				$NAME_FILE.="Time($tgl1|$tgl2)_";
@@ -28,17 +28,17 @@
 				$WHERE .="";
 				$NAME_FILE.="Time(byYear)_";
 			}
-			
+
 			if(isset($status)){
 				if($status!="all" AND $status!=""){
 					$WHERE .=" `status`='$status' AND ";
-					
+
 					if($status==0){$status = 'Dowloaded_Header';}
 					elseif($status==1){$status='Not_Checked';}
 					elseif($status==2){$status='Positive';}
 					elseif($status==3){$status='Negative';}
 					elseif($status==4){$status='Deleted';}
-					
+
 					$NAME_FILE.="Status($status)_";
 				}
 				else{
@@ -64,7 +64,7 @@
 					$WHERE .=" `wilayah` LIKE '%$wilayah%' AND length (`wilayah`) <=5 AND ";
 				}
 			}
-			
+
 			//category  ------------------------
 			if(!empty($category)){
 				$WHERE_="";
@@ -74,7 +74,7 @@
 					$category__=explode(":",$category_[$i]);
 					$category_name = $category__[0];
 					$category_data = $category__[1];
-					
+
 					if($category_data!="all"){
 						$WHERE_ .=" `$category_name` LIKE '%$category_data%' AND ";
 					}
@@ -90,7 +90,7 @@
 
 
 
-//$csv_output="";			
+//$csv_output="";
 if(!empty($_GET['tgl1']) AND !empty ($_GET['tgl2'])){
 	$q = "SELECT DISTINCT `waktu` as `waktu` FROM `data` $WHERE ORDER BY `waktu` DESC ";
 }

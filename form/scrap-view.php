@@ -5,12 +5,12 @@
 	$op = ifset('op');
 	$kode = ifset('kode');
 	$ids = ifset('ids');
-	
+
 	if(isset($kode)){
 		$media = get_data('kode',$kode,'media');
 		$status = get_data('kode',$kode,'status');
 		$artikel = get_data('kode',$kode,'artikel');
-		
+
 		if($op=="edit"){
 			if($status==0){
 				if(empty($artikel)){
@@ -20,7 +20,7 @@
 			}
 			else{
 				View();
-			}	
+			}
 			//setHistory($_SESSION['user_id'],$location,"melihat data $kode",$NOW);
 		}
 		elseif($op=="reload"){
@@ -33,7 +33,7 @@
 			$category = explode(":",$category);
 			$category_name = $category[0];
 			$category_data = $category[1];
-			
+
 			echo update_category_from_view($kode,$category_name,$category_data);
 			update_by($kode,$_SESSION['user_id']);
 			setHistory($_SESSION['user_id'],$location,"merubah data [$kode] [$category_name|$category_data]",$NOW);
@@ -51,10 +51,10 @@
 	else{
 		header("location:?m=Scrap&l=Data");
 		setHistory($_SESSION['user_id'],$location,"melihat data kosong",$NOW);
-	}	
+	}
 
-	
-	
+
+
 
 ?>
 </div>
@@ -75,7 +75,7 @@ tinymce.init({
 		category_name = $(this).attr('name');
 		category_data = $(this).val();
 		datanya = "&category="+category_name+":"+category_data;
-		
+
 		//alert(locations_+"&op=update_category"+datanya);
 		$.ajax({url: locations_ ,data: "op=update_category"+datanya,cache: false,
 			success: function(msg){
@@ -88,7 +88,7 @@ tinymce.init({
 			}
 		});
 	});
-	
+
 	$('label.checkbox input[type=radio]').click(function() {
 		locations = $(location).attr('href');
 		locations_ = locations.replace('&op=edit','').replace('&op=reload','');
@@ -96,13 +96,13 @@ tinymce.init({
 		kode = split1[1];
 		category_name = $(this).attr('name');
 		category_data = $(this).val();
-		
+
 		datanya = "&category="+category_name+":"+category_data;
-		
-		
+
+
 		//alert(locations_+"&op=update_category"+datanya);
-		
-		
+
+
 		$.ajax({url: locations_ ,data: "op=update_category"+datanya,cache: false,
 			success: function(msg){
 				if(msg=="1"){
@@ -114,7 +114,7 @@ tinymce.init({
 			}
 		});
 	});
-	
+
 	list = $('div.checkbox .list');
 	list.hide();
 	$('div.checkbox b')
@@ -122,16 +122,16 @@ tinymce.init({
 	.click(function() {
 		ini = $(this).parent().children('.list');
 		if(ini.is(':visible')){ini.slideUp();}else{list.slideUp();ini.slideDown();		}
-		
-		itu = $('div.checkbox b i');if(itu.hasClass('fa-caret-up')){itu.addClass('fa-caret-down').removeClass('fa-caret-up');	}else{$(this).children('i').toggleClass('fa-caret-up').toggleClass('fa-caret-down');	}	
+
+		itu = $('div.checkbox b i');if(itu.hasClass('fa-caret-up')){itu.addClass('fa-caret-down').removeClass('fa-caret-up');	}else{$(this).children('i').toggleClass('fa-caret-up').toggleClass('fa-caret-down');	}
 	});
-	
-	
-	
 
-	
 
-	
+
+
+
+
+
 </script>
 
 

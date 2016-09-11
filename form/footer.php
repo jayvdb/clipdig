@@ -2,7 +2,7 @@
 	if(isset($_GET['m'])){
 		$m = $_GET['m'];
 		if($m == "Login" OR $m == "Logout"){
-			
+
 		}
 		else{
 			echo'</div></div><!-- /#wrapper -->';

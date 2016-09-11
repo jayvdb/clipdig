@@ -10,15 +10,15 @@
 	include('scrap-where.php');
 
 	$ShowMedia = explode(",",ShowMedia());
-			
+
 if(!empty($_GET['tgl1']) AND !empty ($_GET['tgl2'])){
 	$q = "SELECT DISTINCT `waktu` as `waktu` FROM `data` $WHERE ORDER BY `waktu` DESC ";
 }
 else{
 	$q = "SELECT DISTINCT YEAR(waktu) as `waktu` FROM `data` $WHERE ORDER BY `waktu` DESC ";
-}	
-	
-//chart ------------------------------	
+}
+
+//chart ------------------------------
 	$chart_data="";
 	$key="";
 	$label="";
@@ -28,7 +28,7 @@ else{
 	Morris.Bar({
 			element: 'chart',
 			data: [";
-	
+
 	$qry=mysql_query($q)or die(mysql_error());
 	while ($b=mysql_fetch_array($qry)){
 		$chart_data .= '{y:\''.$b['waktu'].'\',';
@@ -45,7 +45,7 @@ else{
 			$key.= '\''.strtolower(Balikin($data)).'\',';
 		}
 		$chart .= substr($key,0,strlen($key)-1);
-	
+
 	$chart.="],labels: [";
 		foreach($ShowMedia as $data){
 			$label.= '\''.strtoupper(Balikin($data)).'\',';
@@ -53,7 +53,7 @@ else{
 		$chart .= substr($label,0,strlen($label)-1);
 	$chart .="],
 			hideHover: 'auto',
-			resize: true 
+			resize: true
 			});
 			});
 			</script>";

@@ -4,6 +4,6 @@
 include ("function/general.php");
 include ("function/main.php");
 include ("function/category.php");
-include ("function/gui.php"); 
+include ("function/gui.php");
 
 ?>

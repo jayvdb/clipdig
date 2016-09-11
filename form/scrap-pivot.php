@@ -1,6 +1,6 @@
 <script>
 	<?php
-	
+
 		$name = array('Kode','Provinsi','Kota/Kabupaten','Media','Tanggal');
 		foreach(list_category("") as $cat){
 			$category = $cat[0];
@@ -10,7 +10,7 @@
 			array_push($name,$category);
 		}
 		//array_push($name,'Waktu diambil');
-		
+
 		$data = array();
 		//$q = mysql_query("select * from `data` where `status`!='4' limit 10 ")or die(mysql_error());
 		$q = mysql_query("select * from `data` where `status`!='4'")or die(mysql_error());
@@ -31,7 +31,7 @@
 				$provinsi 	="";
 				$kotkab		="";
 			}
-			
+
 			$kode 	= $d['kode'];
 			$media 	= Balikin($d['media']);
 			//$judul 	= Balikin($d['judul']);
@@ -39,7 +39,7 @@
 			//$url	= Balikin($d['link']);
 			//$gambar	= Balikin($d['photo']);
 			//$diambil= Balikin($d['created']);
-			
+
 			//$datas = array($kode,$provinsi,$kotkab,$media,$judul,$tanggal,$url,$gambar);
 			$datas = array($kode,$provinsi,$kotkab,$media,$tanggal);
 			foreach(list_category("") as $cat){
@@ -47,16 +47,16 @@
 				array_push($datas,$cats);
 			}
 			//array_push($datas,$diambil);
-			
-			array_push($data,$datas);	
-		}		
-		
+
+			array_push($data,$datas);
+		}
+
 		$gui = '
 			$(function(){
-			
+
 			var derivers = 	$.pivotUtilities.derivers;
 			var renderers = $.extend(
-	                            $.pivotUtilities.renderers, 
+	                            $.pivotUtilities.renderers,
 	                            $.pivotUtilities.c3_renderers
                            );
 			var input = [
@@ -77,17 +77,17 @@
 		$gui .='];
 			$("#output").pivotUI(input,{
 				renderers: renderers,
-				
-				rows: ["Provinsi"], 
+
+				rows: ["Provinsi"],
 				rendererName: "Area Chart"
 			});
-			
+
 		});
 			';
 
 	print($gui);
-		
-		
+
+
 		?>
 
 
@@ -99,5 +99,5 @@
 	</div>
 	</div>
 	</div>
-	
-		
+
+

@@ -1,4 +1,4 @@
-<?php 
+<?php
 function UbahXXX($str){
 	$str = trim(htmlentities(htmlspecialchars($str)));
 	$search = array ("'\''",
@@ -47,16 +47,16 @@ function UbahXXX($str){
 
 	$str = preg_replace($search,$replace,$str);
 	return $str;
-	
+
 }
 function set_automatic_category($str,$search){
 	$search=UbahXXX(strtolower($search));
 	$str=strtolower($str);
 	$split_search = explode(" ",$search);
 	$split_str = explode(" ",$str);
-	
+
 	$point=0;
-	
+
 	foreach($split_search as $data){
 		$pos = strpos($str,$data);
 		if($pos!==false){
@@ -67,7 +67,7 @@ function set_automatic_category($str,$search){
 		//}
 	}
 	echo $point;
-	
+
 }
 
 $str = "Sementara, pasangan Zumi Zola dan Fachrori Umar juga mendapat dukungan dari 4 parpol, yakni PAN, PKB, Nasdem, Hanura dan PBB, yang memiliki 18 kursi atau 21 persen dari jumlah kursi di DPRD Provinsi Jambi.
@@ -86,4 +86,4 @@ $search="memiliki akal";
 set_automatic_category($str,$search);
 
 
-?> 
+?>

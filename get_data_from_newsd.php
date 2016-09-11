@@ -16,7 +16,7 @@ include ("static/inc/conf.php");
 		$image =  $item->image;
 		$writer =  $item->writer;
 		$content = $item->content;
-		
+
 		//echo "Kode:".$kode.PHP_EOL;
 		//echo "media:".$media.PHP_EOL;
 		//echo "title:".$title.PHP_EOL;
@@ -27,9 +27,9 @@ include ("static/inc/conf.php");
 		//echo "content:".$content.PHP_EOL;
 		//echo $NOW."-------------------------------------------------------------------------------------------------------".PHP_EOL;
 		save_data_from_newsd($DefaultSearch,$kode,$media,$title,$date,$content,$writer,$link,$image,$NOW);
-		
-		
+
+
 	}
-	
+
 
 ?>

@@ -3,17 +3,17 @@
 	if(isset($_POST['add_category'])){
 		$name = $_POST['name'];
 		$automatic = $_POST['automatic'];
-		
+
 		$save =add_category($name,$automatic);
 		if($save==0){
 			send_notif("Sudah dipakai");
 			setHistory($_SESSION['user_id'],$location,"Menambah Kategori [$name|$automatic|Sudah dipakai]",$NOW);
 		}
-		elseif($save==1){	
+		elseif($save==1){
 			send_notif("Tersimpan");
 			setHistory($_SESSION['user_id'],$location,"Menambah Kategori [$name|$automatic|Tersimpan]",$NOW);
 		}
-		else{					
+		else{
 			send_notif("Gagal");
 			setHistory($_SESSION['user_id'],$location,"Menambah Kategori [$name|$automatic|Gagal]",$NOW);
 		}
@@ -22,7 +22,7 @@
 		$category = $_POST['category'];
 		$data = strtolower($_POST['data']);
 		$save = save_category_data($category,$data);
-		
+
 		if($save==0){
 			send_notif("Sudah dipakai");
 			setHistory($_SESSION['user_id'],$location,"Menambah data Kategori [$category|$data|Sudah dipakai]",$NOW);
@@ -39,17 +39,17 @@
 	//elseif(isset($_POST['delete_category'])){
 		//$category = $_POST['category'];
 		//$data = $_POST['data'];
-		
+
 		//$delete = delete_category_data($category,$data);
 		//if($delete){		send_notif("Success");}
 		//else{ 				send_notif("Gagal");}
-		
+
 	//}
 	elseif(isset($_GET['op'])){
 		$op=ifset('op');
 		$data=ifset('data');
 		$category=ifset('category');
-		
+
 		if($op=="delete_category"){
 			setHistory($_SESSION['user_id'],$location,"Menghapus Kategori [$data]",$NOW);
 			delete_category($data);
@@ -66,7 +66,7 @@
 <div class="well-sm well-me ">
 	<?php
 	$no=0;
-		
+
 		$gui_b='';
 		$gui = '<ul class="nav nav-tabs">';
 		foreach(list_category("") as $list){
@@ -74,20 +74,20 @@
 			$a = explode("_",$list);
 			$a = str_replace("-"," ",$a);
 			$name=ucwords($a[1]);
-			
+
 			$gui_b .= '<li><a data-toggle="tab" href="#'.$list.'">'.$name.'</a></li>';
 		}
 		$gui .=$gui_b;
 		$gui .='<li><a data-toggle="tab" href="#add-new"><i class="fa fa-plus"></i> Add</a></li>';
 		$gui .='</ul>
-		
+
 		<div class="tab-content">';
-	
-	
+
+
 		foreach(list_category("") as $list_){
 			$list = $list_[0];
 			$list_type = $list_[1];
-			$gui .= 
+			$gui .=
 			'<div id="'.$list.'" class="tab-pane fade">
 				<h4>';
 			$a = explode("_",$list);
@@ -106,10 +106,10 @@
 			}else{
 				$gui .=' <small class="text-primary">(Manual)</small>';
 			}
-			
+
 			$gui .='<div class="pull-right"><a href="?m='.ifset('m').'&op=delete_category&data='.$list.'" class="btn btn-danger" title="delete category"><i class="fa fa-trash"></i></a></div><br>';
-			
-			
+
+
 			$gui .='</h4>
 				<form action="?m=Category" method="post">
 					<div class="input-group">
@@ -118,7 +118,7 @@
 						<div class="input-group-btn">
 							<button type="submit" class="btn btn-primary" name="save_category"><i class="fa fa-plus"></i> Add</button>
 						</div>
-						
+
 					</div>
 				</form>
 				<div class="table-responsive">
@@ -143,9 +143,9 @@
 					}
 					$gui .=$gui_a;
 			$gui .='</tbody></table>
-				</div>			
+				</div>
 				</div>';
-		
+
 		}
 		//new
 			$gui .=
@@ -163,8 +163,8 @@
 					<label><input type="radio" name="automatic" value="2">Semi Automatic</label>
 				</form>
 			</div>';
-		
-		
+
+
 		$gui .='</div>';
 		echo $gui;
 
@@ -175,6 +175,6 @@
 
 
 <?php
-	
+
 
 ?>

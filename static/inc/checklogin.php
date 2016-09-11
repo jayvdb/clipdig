@@ -11,16 +11,16 @@ else{
 			session_destroy();
 			echo "<script>alert('Session Timeout !',document.location.href='?m=Login')</script>";
 		}
-		
+
 	//cek akses
 	if(isset($_GET['m'])){
 		if($_GET['m']=="Setting"){
-			if($_SESSION['group_id']!=1){ 
+			if($_SESSION['group_id']!=1){
 				header("location:?m=Dashboard");
 			}
 		}
 	}
-		
+
 
 }
 ?>

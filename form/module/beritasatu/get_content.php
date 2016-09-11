@@ -5,23 +5,23 @@
 	elseif(isset($_GET['ids'])){
 		$target = Balikin(get_data('ids',$ids,'link'));
 	}
-	$html = file_get_html($target);	
+	$html = file_get_html($target);
 // ---------------------------------------------------- //
 // CHANGE THIS
 // ---------------------------------------------------- //
 //	example
 // http://subdomain.domain.com/article/title.html
 //
-	$split_1 = explode("/",$target); //	split link by `/` (slash) 
+	$split_1 = explode("/",$target); //	split link by `/` (slash)
 	//$split_2 = explode(".",$split_1[2]); // split by `.` (dot) from $split_1 array 2nd
 	$category = $split_1[3];
-		
-				
+
+
 	//article-detail
-	if( 	$category == "hukum" OR	
-			$category == "aktual" OR 
-			$category == "nasional" OR 
-			$category == "ekonomi" OR 
+	if( 	$category == "hukum" OR
+			$category == "aktual" OR
+			$category == "nasional" OR
+			$category == "ekonomi" OR
 			$category == "megapolitan" OR
 			$category == "aktualitas" OR
 			$category == "figur" OR
@@ -58,7 +58,7 @@
 			$category == "forum-bisnis" OR
 			$category == "pasar-modal" OR
 			$category == "hunian"
-	){ 
+	){
 		foreach($html->find('div[class=content-left]') as $artikel){
 			foreach($artikel->find('div[class=right w300 over-hidden ml10 mb10]') as $l){
 				$photo = $l->first_child()->first_child()->src;
@@ -72,7 +72,7 @@
 			save_data($kode,$photo,$artikels,$penulis);
 		}
 	}
-	elseif( 	$category == "video" ){ 
+	elseif( 	$category == "video" ){
 		foreach($html->find('div[class=w620 aleft mt10]') as $artikel){
 			$photo = "";
 			foreach($artikel->find('div[class=f14 c6 bodyp]') as $l){
