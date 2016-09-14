@@ -1,5 +1,5 @@
 <?php
-	$header 	= "Viva.co.id";
+	$header		= "Viva.co.id";
 	$note		= "Foot note";
 
 echo '

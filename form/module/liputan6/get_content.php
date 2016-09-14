@@ -26,7 +26,7 @@
       $category  == "showbiz" OR
       $category  == "citizen6" OR
       $category  == "tv" OR
-      $category  == "health" 	
+      $category  == "health"
 	){ 
 		foreach($html->find('article[class=hentry main]') as $artikel){
 			foreach($artikel->find('a[class=gallery-item] img') as $l){

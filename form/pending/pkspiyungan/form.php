@@ -1,5 +1,5 @@
 <?php
-	$header 	= "http://pkspiyungan.org/";
+	$header	= "http://pkspiyungan.org/";
 	$note		= "hanya satu page";
 
 echo '

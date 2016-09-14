@@ -74,7 +74,7 @@ function update_search($kode,$search){
 	if ($pos === false) {
 		$new_search = $last_search.",".$search;
 		mysql_query("UPDATE `data` SET `search`='$new_search' WHERE `kode`='$kode'");
-	} 	
+	}
 }
 
 function go_to($str,$kode){
@@ -114,8 +114,8 @@ function View(){
 	<div class="row">
 	<form method="POST" action="?m='.ifset('m').'&l='.ifset('l').'&a='.ifset('a').'&kode='.$data['kode'].'">
 		<div class="col-lg-8">
-		   <h3>'.htmlspecialchars_decode(htmlspecialchars_decode(html_entity_decode(Balikin($data['judul']), ENT_NOQUOTES, 'UTF-8'))).'</h3>
-		   <small>'.strtoupper(Balikin($data['media'])).' | '.Balikin($data['waktu']).' | '.Balikin($data['penulis']).'</small>
+			<h3>'.htmlspecialchars_decode(htmlspecialchars_decode(html_entity_decode(Balikin($data['judul']), ENT_NOQUOTES, 'UTF-8'))).'</h3>
+			<small>'.strtoupper(Balikin($data['media'])).' | '.Balikin($data['waktu']).' | '.Balikin($data['penulis']).'</small>
 			<small><a class="" target="_blank" href="'.Balikin($data['link']).'" title="Visit Link">Visit link</a></small>
 			
 			<div class="pull-right">
@@ -123,7 +123,7 @@ function View(){
 			<a href="?m='.ifset('m').'&l='.ifset('l').'&op='.ifset('op').'&kode='.go_to('next',$data['kode']).'" class="btn btn-sm btn-default" tilte="Next"><i class="fa fa-arrow-right"></i> </a>
 			</div>
 			
-			 <br><br>
+			<br><br>
 			<textarea name="artikel" class="form-control" rows="15">'.htmlspecialchars_decode(htmlspecialchars_decode(html_entity_decode(Balikin($data['artikel'])))).'</textarea>
 			'.get_update_by($data['kode']).'
 		
@@ -203,13 +203,13 @@ function save_data($kode,$photo,$artikel,$penulis){
 }
 
 function save_data_from_newsd($search,$kode,$media,$title,$date,$news,$writer,$url,$image,$created_time){
-	$search 	= UbahSimbol($search);
-	$media  	= UbahSimbol($media);
-	$title  	= UbahSimbol($title);
+	$search	= UbahSimbol($search);
+	$media	= UbahSimbol($media);
+	$title	= UbahSimbol($title);
 	$news		= UbahSimbol($news);
-	$url 		= UbahSimbol($url);
-	$writer 	= UbahSimbol($writer);
-	$image 	= UbahSimbol($image);
+	$url		= UbahSimbol($url);
+	$writer	= UbahSimbol($writer);
+	$image	= UbahSimbol($image);
 	
 	$check = mysql_query("select * from `data` where `kode`='$kode'")or die(mysql_error());
 	$count = mysql_num_rows($check);
@@ -223,7 +223,7 @@ function save_data_from_newsd($search,$kode,$media,$title,$date,$news,$writer,$u
 			") or die(mysql_error());
 										
 		if($save_data_from_newsd){
-		 	set_automatic_category($kode,$news);
+			set_automatic_category($kode,$news);
 			set_semi_automatic_category($kode,$news);
 			set_wilayah($kode,$news);
 		}
@@ -237,9 +237,9 @@ function save_data_from_newsd($search,$kode,$media,$title,$date,$news,$writer,$u
 }
 
 function save_all_data($kode){
-	$media 	= get_data('kode',$kode,'media');
-	$status 	= get_data('kode',$kode,'status');
-	$target 	= Balikin(get_data('kode',$kode,'link'));
+	$media	= get_data('kode',$kode,'media');
+	$status	= get_data('kode',$kode,'status');
+	$target	= Balikin(get_data('kode',$kode,'link'));
 	
 	if($status==0){
 		include ("form/module/".$media."/get_content.php");
@@ -247,11 +247,11 @@ function save_all_data($kode){
 }
 
 function update_data($kode,$artikel,$status,$wilayah){
-	$kode 		= UbahSimbol($kode);
+	$kode		= UbahSimbol($kode);
 	$artikel	= UbahSimbol($artikel);
 	
 	
-	$qry 		= mysql_query("UPDATE `data` SET `artikel`='$artikel', `status`='$status' ,`wilayah`='$wilayah' WHERE `kode`='$kode'")or die(mysql_error());
+	$qry		= mysql_query("UPDATE `data` SET `artikel`='$artikel', `status`='$status', `wilayah`='$wilayah' WHERE `kode`='$kode'")or die(mysql_error());
 	if($qry){
 		send_notif("Data has been saved");
 	}

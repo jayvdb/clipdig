@@ -1,5 +1,5 @@
 <?php
-	$header 	= "tempo.co";
+	$header		= "tempo.co";
 	$note		= "Foot note";
 
 echo '

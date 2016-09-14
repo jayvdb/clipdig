@@ -1,5 +1,5 @@
 <?php
-	$header 	= "okezone.com";
+	$header		= "okezone.com";
 	$note		= "(nonaktifkan get photo) simpan photo masalah karena SSL";
 
 echo '

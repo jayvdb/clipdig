@@ -1,5 +1,5 @@
 <?php
-	$header 	= "www.antaranews.com";
+	$header		= "www.antaranews.com";
 	$note		= "Foot note";
 
 echo '

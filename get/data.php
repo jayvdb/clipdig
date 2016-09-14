@@ -18,22 +18,22 @@ include ("../static/inc/function.php");
 		while($d=mysql_fetch_array($q)){
 			$wilayah = $d['wilayah'];
 			if(strlen($wilayah)>0 and strlen($wilayah)<=2 ){
-				$provinsi 	= get_name_wilayah($wilayah);
-				$kotkab 	="";			
+				$provinsi	= get_name_wilayah($wilayah);
+				$kotkab		="";
 			}
 			elseif(strlen($wilayah)>3){
-				$wilayah 	= explode(".",$wilayah);
-				$provinsi 	= get_name_wilayah($wilayah[0]);
-				$kotkab 	= get_name_wilayah($wilayah[0].".".$wilayah[1]);
+				$wilayah	= explode(".",$wilayah);
+				$provinsi	= get_name_wilayah($wilayah[0]);
+				$kotkab		= get_name_wilayah($wilayah[0].".".$wilayah[1]);
 			}
 			else{
-				$provinsi 	="";
+				$provinsi	="";
 				$kotkab		="";
 			}
 			
-			$kode 	= $d['kode'];
-			$media 	= Balikin($d['media']);
-			$judul 	= Balikin($d['judul']);
+			$kode	= $d['kode'];
+			$media	= Balikin($d['media']);
+			$judul	= Balikin($d['judul']);
 			$tanggal= Balikin($d['waktu']);
 			$url	= Balikin($d['link']);
 			$gambar	= Balikin($d['photo']);

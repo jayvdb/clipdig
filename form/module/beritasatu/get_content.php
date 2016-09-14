@@ -18,7 +18,7 @@
 		
 				
 	//article-detail
-	if( 	$category == "hukum" OR	
+	if(	$category == "hukum" OR
 			$category == "aktual" OR 
 			$category == "nasional" OR 
 			$category == "ekonomi" OR 
@@ -72,7 +72,7 @@
 			save_data($kode,$photo,$artikels,$penulis);
 		}
 	}
-	elseif( 	$category == "video" ){ 
+	elseif(	$category == "video" ){
 		foreach($html->find('div[class=w620 aleft mt10]') as $artikel){
 			$photo = "";
 			foreach($artikel->find('div[class=f14 c6 bodyp]') as $l){

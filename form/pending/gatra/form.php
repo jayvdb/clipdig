@@ -1,5 +1,5 @@
 <?php
-	$header 	= "www.gatra.com";
+	$header		= "www.gatra.com";
 	$note		= "pending karena galat";
 
 echo '

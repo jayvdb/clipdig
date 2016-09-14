@@ -1,5 +1,5 @@
 <?php
-	$header 	= "http://sinarharapan.co/";
+	$header		= "http://sinarharapan.co/";
 	$note		= "Foot note";
 
 echo '
